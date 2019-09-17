@@ -1,6 +1,7 @@
 ---
 title: Styleguide Driven Development
 date: "2016-02-08T19:54:45+04:00"
+description: Wrangling Your CSS Into Submission
 ---
 
 Refactoring is a chore. We all know that. Most people don't like to refactor code, especially CSS, because the amount of gain vs. the amount of effort is minimal.

@@ -1,6 +1,7 @@
 ---
-title: "Making Your Code Standard
+title: Making Your Code Standard
 date: "2016-01-16T19:54:45+04:00"
+description: Wrangling Your CSS Into Submission
 ---
 
 While I was just a student at University of Maryland, I learned early on that there were wildly different ways to code the same solution. The difference between good code and bad code wasn’t just achieving the desired output, but moreso a matter of style, eg. - things like elegance, simplicity, verboseness, and usability.
