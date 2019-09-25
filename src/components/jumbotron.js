@@ -7,7 +7,7 @@ function Jumbotron() {
         <StaticQuery
             query={jumbotronQuery}
             render={data => {
-                const { lead1, lead2, social } = data.site.siteMetadata
+                const { lead1, lead2 } = data.site.siteMetadata
                 return (
                     <Container>
                         <Title>
@@ -21,39 +21,6 @@ function Jumbotron() {
         />
     )
 }
-
-// avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-//     childImageSharp {
-//         fixed(width: 50, height: 50) {
-//             ...GatsbyImageSharpFixed
-//         }
-//     }
-// }
-
-// import Image from "gatsby-image"
-// <Image
-//     fixed={data.avatar.childImageSharp.fixed}
-//     alt={author}
-//     style={{
-
-//         marginBottom: 0,
-//         minWidth: 50,
-//         borderRadius: `100%`,
-//     }}
-//     imgStyle={{
-//         borderRadius: `50%`,
-//     }}
-// />
-
-/* 
-<p>
-    Written by <strong>{author}</strong> who lives and
-    works in San Francisco building useful things.
-    {` `}
-    <a href={`https://twitter.com/${social.twitter}`}>
-        You should follow him on Twitter
-    </a>
-</p> */
 
 const jumbotronQuery = graphql`
     query JumbotronQuery {
@@ -70,9 +37,11 @@ const jumbotronQuery = graphql`
 `
 
 const Container = styled.div`
-    display: flex;
+    padding: 280px 0;
 `
 
-const Title = styled.h1``
+const Title = styled.h1`
+    text-align: center;
+`
 
 export default Jumbotron
