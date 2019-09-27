@@ -19,7 +19,7 @@ class IndexPage extends React.Component {
                         `user experience`,
                     ]}
                 />
-                {/* <Mountains /> */}
+
                 <Bio />
                 {/*
                 <Gradient startColor="" endColor="" />

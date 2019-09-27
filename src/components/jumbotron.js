@@ -2,26 +2,30 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
+import MountainRange from "../components/mountainRange"
 
 function Jumbotron() {
     return (
-        <FlexContainer>
-            <StaticQuery
-                query={jumbotronQuery}
-                render={data => {
-                    const { lead1, lead2 } = data.site.siteMetadata
-                    return (
-                        <Container>
-                            <Title>
-                                {lead1}
-                                <br />
-                                {lead2}
-                            </Title>
-                        </Container>
-                    )
-                }}
-            />
-        </FlexContainer>
+        <header>
+            <FlexContainer>
+                <StaticQuery
+                    query={jumbotronQuery}
+                    render={data => {
+                        const { lead1, lead2 } = data.site.siteMetadata
+                        return (
+                            <Container>
+                                <Title>
+                                    {lead1}
+                                    <br />
+                                    {lead2}
+                                </Title>
+                            </Container>
+                        )
+                    }}
+                />
+            </FlexContainer>
+            <MountainRange />
+        </header>
     )
 }
 

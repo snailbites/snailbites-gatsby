@@ -38,5 +38,4 @@ const GlobalStyle = createGlobalStyle`
     footer { font-size: ${Font.size * 0.75}px; }    
 `
 
-// export GlobalStyle
 export { GlobalStyle, Colors, Font }

@@ -7,9 +7,10 @@ import Jumbotron from "./jumbotron"
 
 class App extends React.Component {
     render() {
-        const { location, title, children } = this.props
-        const rootPath = `${__PATH_PREFIX__}/`
-        const blogPath = `${__PATH_PREFIX__}/blog/`
+        const { children } = this.props
+        // const { location, title, children } = this.props
+        // const rootPath = `${__PATH_PREFIX__}/`
+        // const blogPath = `${__PATH_PREFIX__}/blog/`
 
         return (
             <Wrapper>
