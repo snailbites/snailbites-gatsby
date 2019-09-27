@@ -4,6 +4,7 @@ import { GlobalStyle, Colors } from "../theme/global"
 import Helmet from "react-helmet"
 import Footer from "./footer"
 import Jumbotron from "./jumbotron"
+import MountainRange from "../components/mountainRange"
 
 class App extends React.Component {
     render() {
@@ -23,6 +24,8 @@ class App extends React.Component {
                 </Helmet>
                 <GlobalStyle />
                 <Jumbotron />
+
+                <MountainRange />
                 <Main role="main">{children}</Main>
                 <Footer />
             </Wrapper>
