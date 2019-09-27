@@ -1,13 +1,28 @@
 import React from "react"
+import FlexContainer from "./flexContainer"
+import styled from "styled-components"
+import { Colors } from "../theme/global"
 
 function Footer() {
     return (
-        <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <StyledFooter>
+            <FlexContainer>
+                <div>
+                    This site is proudly powered by{" "}
+                    <a href="https://www.gatsbyjs.org">Gatsby</a>.
+                </div>
+                <div>
+                    vincentnalupta dot com | © {new Date().getFullYear()} | all
+                    rights reserved
+                </div>
+            </FlexContainer>
+        </StyledFooter>
     )
 }
+
+const StyledFooter = styled.footer`
+    text-align: center;
+    background-color: ${Colors.plum};
+`
 
 export default Footer

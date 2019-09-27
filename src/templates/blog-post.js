@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import SiteContainer from "../components/site-container"
+import App from "../components/app"
 import SEO from "../components/seo"
 
 class BlogPostTemplate extends React.Component {
@@ -11,7 +11,7 @@ class BlogPostTemplate extends React.Component {
         const { previous, next } = this.props.pageContext
 
         return (
-            <SiteContainer location={this.props.location} title={siteTitle}>
+            <App location={this.props.location} title={siteTitle}>
                 <SEO
                     title={post.frontmatter.title}
                     description={post.frontmatter.description || post.excerpt}
@@ -51,7 +51,7 @@ class BlogPostTemplate extends React.Component {
                         )}
                     </li>
                 </ul>
-            </SiteContainer>
+            </App>
         )
     }
 }

@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 import styledNormalize from "styled-normalize"
 
-const font = {
+const Font = {
     size: 16,
     family: "Poppins",
 }
 
-const colors = {
-    darkGray: `#202020`,
+const Colors = {
+    sesame: `#202020`,
     plum: `#4F1C48`,
     ocean: `#304A81`,
     neon: `#D6E307`,
@@ -18,23 +18,25 @@ const GlobalStyle = createGlobalStyle`
     ${styledNormalize}
 
     body,html {        
-        color: ${colors.eggshell};
-        background: ${colors.darkGray};
+        color: ${Colors.eggshell};
+        background: ${Colors.sesame};
 
-        font: ${font.size}px ${font.family}, sans-serif;        
+        font: ${Font.size}px ${Font.family}, sans-serif;        
     }
     h1, h2 {
-        font-style: italic;
+        Font-style: italic;
     }
     p, footer {
-        font-weight: 300;
+        Font-weight: 300;
     }    
     h1 { 
-        font-size: ${font.size * 3}px; 
-        line-height: ${font.size * 3.125}px; 
+        font-size: ${Font.size * 3}px; 
+        line-height: ${Font.size * 3.125}px; 
     }
-    h2 { font-size: ${font.size * 2.5}px; }
-    p { font-size: ${font.size * 0.95}px; }
+    h2 { font-size: ${Font.size * 2.5}px; }
+    p { font-size: ${Font.size * 0.95}px; }
+    footer { font-size: ${Font.size * 0.75}px; }    
 `
 
-export default GlobalStyle
+// export GlobalStyle
+export { GlobalStyle, Colors, Font }

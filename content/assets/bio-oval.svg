@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="360px" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Oval</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="65.7701079%" y1="68.8998959%" x2="14.7774472%" y2="7.60478159%" id="linearGradient-1">
+            <stop stop-color="#3C4186" offset="0%"></stop>
+            <stop stop-color="#4F1C48" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-183.000000, -1163.000000)" fill="url(#linearGradient-1)">
+            <g id="Bio" transform="translate(183.000000, 1163.000000)">
+                <circle id="Oval" cx="180" cy="180" r="180"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

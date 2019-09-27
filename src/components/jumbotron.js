@@ -1,24 +1,27 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 
 function Jumbotron() {
     return (
-        <StaticQuery
-            query={jumbotronQuery}
-            render={data => {
-                const { lead1, lead2 } = data.site.siteMetadata
-                return (
-                    <Container>
-                        <Title>
-                            {lead1}
-                            <br />
-                            {lead2}
-                        </Title>
-                    </Container>
-                )
-            }}
-        />
+        <FlexContainer>
+            <StaticQuery
+                query={jumbotronQuery}
+                render={data => {
+                    const { lead1, lead2 } = data.site.siteMetadata
+                    return (
+                        <Container>
+                            <Title>
+                                {lead1}
+                                <br />
+                                {lead2}
+                            </Title>
+                        </Container>
+                    )
+                }}
+            />
+        </FlexContainer>
     )
 }
 
@@ -37,7 +40,7 @@ const jumbotronQuery = graphql`
 `
 
 const Container = styled.div`
-    padding: 280px 0;
+    padding-top: 280px;
 `
 
 const Title = styled.h1`

@@ -1,6 +1,5 @@
 import React from "react"
-
-import SiteContainer from "../components/site-container"
+import App from "../components/app"
 import SEO from "../components/seo"
 import Bio from "../components/bio"
 
@@ -9,7 +8,7 @@ class IndexPage extends React.Component {
         const siteTitle = "Vincent Nalupta - UX Engineering Manager"
 
         return (
-            <SiteContainer location={this.props.location} title={siteTitle}>
+            <App location={this.props.location} title={siteTitle}>
                 <SEO
                     title="Home"
                     keywords={[
@@ -26,15 +25,9 @@ class IndexPage extends React.Component {
                 <Gradient startColor="" endColor="" />
                 <ContactForm />
                 */}
-            </SiteContainer>
+            </App>
         )
     }
-}
-
-{
-    /* <Link to="/blog/">
-<Button marginTop="35px">Go to Blog</Button>
-</Link> */
 }
 
 export default IndexPage
