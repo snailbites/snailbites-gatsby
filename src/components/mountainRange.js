@@ -1,8 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { Colors } from "../theme/global"
-// import grayMountain from "./home-mountain-gray.svg"
-// import blueMountain from "./home-mountain-blue.svg"
 
 class MountainRange extends React.Component {
     render() {

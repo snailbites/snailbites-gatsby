@@ -5,6 +5,7 @@ import Helmet from "react-helmet"
 import Footer from "./footer"
 import Jumbotron from "./jumbotron"
 import MountainRange from "../components/mountainRange"
+import Gradient from "../components/gradient"
 
 class App extends React.Component {
     render() {
@@ -24,9 +25,11 @@ class App extends React.Component {
                 </Helmet>
                 <GlobalStyle />
                 <Jumbotron />
-
                 <MountainRange />
+
                 <Main role="main">{children}</Main>
+
+                <Gradient />
                 <Footer />
             </Wrapper>
         )

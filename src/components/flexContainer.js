@@ -12,8 +12,7 @@ class FlexContainer extends React.Component {
 }
 
 const Container = styled.section`
-    margin: 0 auto;
-    max-width: 960px;
+    justify-content: center;
 
     ${props => props.props.flex && `display: flex`}
 `

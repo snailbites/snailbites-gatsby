@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
         line-height: ${Font.size * 3.125}px; 
     }
     h2 { font-size: ${Font.size * 2.5}px; }
-    p { font-size: ${Font.size * 0.95}px; }
+    p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}
     footer { font-size: ${Font.size * 0.75}px; }    
 `
 

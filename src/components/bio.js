@@ -2,13 +2,26 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Button from "./button"
 import FlexContainer from "./flexContainer"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Image from "gatsby-image"
+
+import bg from "../../content/assets/bio-bg.svg"
+// import blueMountain from "./home-mountain-blue.svg"
+const rootPath = `${__PATH_PREFIX__}/`
 
 function Bio() {
     return (
         <FlexContainer flex>
-            <BioColumn>
+            <Profile>
+                <img
+                    src={bg}
+                    css={`
+                        position: absolute;
+                        left: -145px;
+                        top: -113px;
+                        height: 424px;
+                    }`}
+                />
                 <StaticQuery
                     query={bioQuery}
                     render={data => (
@@ -18,7 +31,7 @@ function Bio() {
                         />
                     )}
                 ></StaticQuery>
-            </BioColumn>
+            </Profile>
             <BioColumn>
                 <h2>HELLO!</h2>
                 <p>
@@ -31,7 +44,11 @@ function Bio() {
                     design systems to JavaScript frameworks.
                 </p>
 
-                <p>
+                <p
+                    css={`
+                        margin-bottom: 40px;
+                    `}
+                >
                     This is my space to design, code and share some thoughts
                     about tech and life.
                 </p>
@@ -41,13 +58,20 @@ function Bio() {
     )
 }
 
-const BioColumn = styled.div``
+const BioColumn = styled.div`
+    max-width: 300px;
+    align-self: flex-end;
+`
+const Profile = styled(BioColumn)`
+    position: relative;
+    padding-right: 50px;
+`
 
 const bioQuery = graphql`
     query BioQuery {
-        profile: file(absolutePath: { regex: "/content/assets/Group.png/" }) {
+        profile: file(absolutePath: { regex: "/content/assets/profile.png/" }) {
             childImageSharp {
-                fixed(width: 288, height: 380) {
+                fixed(width: 240, height: 320) {
                     ...GatsbyImageSharpFixed
                 }
             }

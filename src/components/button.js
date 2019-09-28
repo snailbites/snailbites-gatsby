@@ -14,12 +14,11 @@ const ButtonWrapper = styled.button`
     padding: 10px 25px;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
     background: ${Colors.neon};
     color: ${Colors.sesame};
     font-size: ${props => props.props.fontSize || "15px"};
-    font-weight: ${props => props.props.fontWeight || "600"};
     border-radius: ${props => props.props.radius || "6px"};
 
     &:hover {
