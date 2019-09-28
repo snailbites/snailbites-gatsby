@@ -1,27 +1,19 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import grayMountain from "./home-mountain-gray.svg"
-import blueMountain from "./home-mountain-blue.svg"
+import { Colors } from "../theme/global"
+// import grayMountain from "./home-mountain-gray.svg"
+// import blueMountain from "./home-mountain-blue.svg"
 
 class MountainRange extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Mountain
-                    css={`
-                        transform: rotate(2deg);
-                        position: absolute;
-                        width: 110vw;
-                        top: 3vw;
-                        left: -5vw;
-                        background: url(${grayMountain}) 0 2px no-repeat;
-                    `}
-                />
-                <Mountain
-                    css={`
-                        background: url(${blueMountain}) 0 2px no-repeat;
-                    `}
-                />
+                <Mountain bg>
+                    <SVG hex={"#565F74"} />
+                </Mountain>
+                <Mountain>
+                    <SVG hex={Colors.ocean} />
+                </Mountain>
             </Wrapper>
         )
     }
@@ -31,7 +23,19 @@ const Mountain = styled.div`
     width: 100vw;
     height: 22vw;
     position: absolute;
-    background-size: cover;
+    bottom: -2px;
+
+    ${props =>
+        props.bg &&
+        `
+        & > svg {            
+            position: absolute;
+            width: 110vw;
+            top: 3vw;
+            left: -5vw;
+            transform: translateY(-3vw) translateX(-1vw) skew(-5deg, 1deg);
+        }
+    `}
 `
 
 const Wrapper = styled.section`
@@ -40,5 +44,15 @@ const Wrapper = styled.section`
     position: relative;
     overflow: hidden;
 `
+
+const SVG = props => (
+    <svg viewBox="0 0 1440 316" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M534.068 94.144l245.518 160.161L1150.933 0 1440 316H0z"
+            fill={props.hex}
+            fillRule="evenodd"
+        />
+    </svg>
+)
 
 export default MountainRange
