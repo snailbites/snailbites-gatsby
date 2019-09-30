@@ -48,6 +48,11 @@ const jumbotronQuery = graphql`
 const Title = styled.h1`
     text-align: center;
     margin: 0;
+
+    @media (max-width: 540px) {
+        font-size: 38px;
+        line-height: 38px;
+    }
 `
 
 const Header = styled.header`
