@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
-const Button = props => (
-    <ButtonWrapper props={props}>{props.children}</ButtonWrapper>
+const Button = ({ className, children }) => (
+    <ButtonWrapper className={className}>{children}</ButtonWrapper>
 )
 
 const ButtonWrapper = styled.button`
@@ -15,14 +15,14 @@ const ButtonWrapper = styled.button`
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-radius: 6px;
+    transition: 100ms ease-in opacity;
 
     background: ${Colors.neon};
     color: ${Colors.sesame};
-    font-size: ${props => props.props.fontSize || "15px"};
-    border-radius: ${props => props.props.radius || "6px"};
 
     &:hover {
-        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.25);
+        opacity: 0.85;
     }
 `
 

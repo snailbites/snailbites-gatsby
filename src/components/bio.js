@@ -1,13 +1,12 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql, StaticQuery } from "gatsby"
-import Button from "./button"
-import FlexContainer from "./flexContainer"
-import styled, { css } from "styled-components"
 import Image from "gatsby-image"
 
+import Button from "./button"
+import FlexContainer from "./flexContainer"
+
 import bg from "../../content/assets/bio-bg.svg"
-// import blueMountain from "./home-mountain-blue.svg"
-const rootPath = `${__PATH_PREFIX__}/`
 
 function Bio() {
     return (
@@ -15,6 +14,7 @@ function Bio() {
             <Profile>
                 <img
                     src={bg}
+                    alt={"Vincent Nalupta's shadow against some subway tiles."}
                     css={`
                         position: absolute;
                         left: -145px;
@@ -33,7 +33,13 @@ function Bio() {
                 ></StaticQuery>
             </Profile>
             <BioColumn>
-                <h2>HELLO!</h2>
+                <h2
+                    css={`
+                        margin-bottom: 10px;
+                    `}
+                >
+                    HELLO!
+                </h2>
                 <p>
                     My name is Vincent Nalupta and I am currently a Team Lead at
                     Grubhub.
@@ -52,7 +58,7 @@ function Bio() {
                     This is my space to design, code and share some thoughts
                     about tech and life.
                 </p>
-                <Button>Read the blog</Button>
+                <BioButton>Read the blog</BioButton>
             </BioColumn>
         </FlexContainer>
     )
@@ -61,10 +67,23 @@ function Bio() {
 const BioColumn = styled.div`
     max-width: 300px;
     align-self: flex-end;
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+`
+const BioButton = styled(Button)`
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
 `
 const Profile = styled(BioColumn)`
     position: relative;
     padding-right: 50px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 const bioQuery = graphql`

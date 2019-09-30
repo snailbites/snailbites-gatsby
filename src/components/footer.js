@@ -23,6 +23,7 @@ function Footer() {
 const StyledFooter = styled.footer`
     text-align: center;
     background-color: ${Colors.plum};
+    padding-bottom: 12px;
 `
 
 export default Footer

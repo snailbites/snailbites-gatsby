@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { Colors } from "../theme/global"
 
 class MountainRange extends React.Component {
@@ -7,10 +7,10 @@ class MountainRange extends React.Component {
         return (
             <Wrapper>
                 <Mountain bg>
-                    <SVG hex={"#565F74"} />
+                    <MountainSVG hex={"#565F74"} />
                 </Mountain>
                 <Mountain>
-                    <SVG hex={Colors.ocean} />
+                    <MountainSVG hex={Colors.ocean} />
                 </Mountain>
             </Wrapper>
         )
@@ -26,12 +26,13 @@ const Mountain = styled.div`
     ${props =>
         props.bg &&
         `
-        & > svg {            
+        & > svg {         
+            opacity: .2;   
             position: absolute;
             width: 110vw;
             top: 3vw;
             left: -5vw;
-            transform: translateY(-3vw) translateX(-1vw) skew(-5deg, 1deg);
+            transform: translateY(-1.4vw) translateX(10vw) skew(40deg,6deg) scale(1.4)
         }
     `}
 `
@@ -43,7 +44,7 @@ const Wrapper = styled.section`
     overflow: hidden;
 `
 
-const SVG = props => (
+const MountainSVG = props => (
     <svg viewBox="0 0 1440 316" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M534.068 94.144l245.518 160.161L1150.933 0 1440 316H0z"

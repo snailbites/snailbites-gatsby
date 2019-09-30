@@ -6,6 +6,7 @@ import Footer from "./footer"
 import Jumbotron from "./jumbotron"
 import MountainRange from "../components/mountainRange"
 import Gradient from "../components/gradient"
+import Social from "../components/social"
 
 class App extends React.Component {
     render() {
@@ -30,6 +31,7 @@ class App extends React.Component {
                 <Main role="main">{children}</Main>
 
                 <Gradient />
+                <Social />
                 <Footer />
             </Wrapper>
         )
@@ -42,6 +44,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.main`
+    padding: 5vw 0 10vw;
     background: ${Colors.ocean};
 `
 
