@@ -3,7 +3,8 @@ import { Link, graphql } from "gatsby"
 
 import App from "../components/app"
 import SEO from "../components/seo"
-import Button from "../components/button"
+import FlexContainer from "../components/flexContainer"
+import Lead from "../components/lead"
 
 class Blog extends React.Component {
     render() {
@@ -14,17 +15,23 @@ class Blog extends React.Component {
         return (
             <App location={this.props.location} title={siteTitle}>
                 <SEO title="All posts" />
-                <div style={{ margin: "20px 0 40px" }}>
+
+                <FlexContainer width={`960px`}>
+                    <Lead />
+                    <h1>All Posts</h1>
                     {posts.map(({ node }) => {
                         const title = node.frontmatter.title || node.fields.slug
                         return (
                             <div key={node.fields.slug}>
-                                <h3>
+                                <h3
+                                    css={`
+                                        margin-bottom: 16px;
+                                    `}
+                                >
                                     <Link to={`blog${node.fields.slug}`}>
                                         {title}
                                     </Link>
                                 </h3>
-                                <small>{node.frontmatter.date}</small>
                                 <p
                                     dangerouslySetInnerHTML={{
                                         __html:
@@ -35,10 +42,7 @@ class Blog extends React.Component {
                             </div>
                         )
                     })}
-                </div>
-                <Link to="/">
-                    <Button marginTop="85px">Go Home</Button>
-                </Link>
+                </FlexContainer>
             </App>
         )
     }

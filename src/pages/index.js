@@ -19,12 +19,7 @@ class IndexPage extends React.Component {
                         `user experience`,
                     ]}
                 />
-
                 <Bio />
-                {/*
-                <Gradient startColor="" endColor="" />
-                <ContactForm />
-                */}
             </App>
         )
     }

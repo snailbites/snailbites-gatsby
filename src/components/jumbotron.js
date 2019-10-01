@@ -15,7 +15,7 @@ function Jumbotron() {
                                 <path
                                     d="M0 10.165L4.607 43h64.648L74 10.165 55.971 26.582 37 0 18.112 27.748z"
                                     fill="#D6E307"
-                                    fill-rule="evenodd"
+                                    fillRule="evenodd"
                                 />
                             </Crown>
                             <Title>

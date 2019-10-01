@@ -28,6 +28,10 @@ const SocialWrapper = styled.div`
     text-align: center;
     background-color: ${Colors.plum};
     padding: 5vw 0 10vw;
+    color: ${Colors.eggshell};
+
+    padding-top: 5vw;
+    padding-bottom: ${props => (props.location === "/" ? `10vw` : `4vw`)};
 `
 
 const SocialTitle = styled.h3`

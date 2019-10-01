@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery, Link } from "gatsby"
 import Image from "gatsby-image"
 
 import Button from "./button"
@@ -58,7 +58,9 @@ function Bio() {
                     This is my space to design, code and share some thoughts
                     about tech and life.
                 </p>
-                <BioButton>Read the blog</BioButton>
+                <Link to="/blog">
+                    <BioButton>Read the blog</BioButton>
+                </Link>
             </BioColumn>
         </FlexContainer>
     )

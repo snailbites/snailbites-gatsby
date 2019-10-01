@@ -10,10 +10,8 @@ import Social from "../components/social"
 
 class App extends React.Component {
     render() {
-        const { children } = this.props
-        // const { location, title, children } = this.props
-        // const rootPath = `${__PATH_PREFIX__}/`
-        // const blogPath = `${__PATH_PREFIX__}/blog/`
+        const { location, children } = this.props
+        const rootPath = `${__PATH_PREFIX__}/`
 
         return (
             <Wrapper>
@@ -24,14 +22,22 @@ class App extends React.Component {
                         media="all"
                     ></link>
                 </Helmet>
-                <GlobalStyle />
-                <Jumbotron />
-                <MountainRange />
+                <GlobalStyle location={location.pathname} />
 
-                <Main role="main">{children}</Main>
+                {location.pathname === rootPath && (
+                    <header>
+                        <Jumbotron />
+                        <MountainRange />
+                    </header>
+                )}
 
-                <Gradient />
-                <Social />
+                <Main role="main" location={location.pathname}>
+                    {children}
+                </Main>
+
+                {location.pathname === rootPath && <Gradient />}
+
+                <Social location={location.pathname} />
                 <Footer />
             </Wrapper>
         )
@@ -42,10 +48,13 @@ const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
 `
-
+// ${props => props.location === "/" && `padding: 5vw 0 10vw;`};
 const Main = styled.main`
     padding: 5vw 0 10vw;
-    background: ${Colors.ocean};
+    background: ${props =>
+        props.location === "/" ? Colors.ocean : Colors.eggshell};
+    ${props =>
+        props.location !== "/" && `border-bottom: 5px solid ${Colors.ocean}`};
 `
 
 export default App

@@ -12,9 +12,10 @@ class FlexContainer extends React.Component {
 }
 
 const Container = styled.section`
-    justify-content: center;
-
-    ${props => props.props.flex && `display: flex`}
+    ${props => props.props.flex && `display: flex; justify-content: center;`}
+    ${props =>
+        props.props.width &&
+        `max-width: ${props.props.width}; margin: 0 auto; padding: 0 20px;`}
 `
 
 export default FlexContainer
