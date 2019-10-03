@@ -32,15 +32,13 @@ class Navigation extends React.Component {
         const { open } = this.state
 
         return (
-            <Nav>
+            <Nav location={location}>
                 <button
                     css={`
                         border: 0;
                         background-color: inherit;
-
-                        position: ${location.match(blogPostRegEx)
-                            ? "fixed"
-                            : "absolute"};
+                        z-index: 1;
+                        position: absolute;
                         top: 11px;
                         left: 1px;
                         padding: 0;
@@ -83,7 +81,11 @@ class Navigation extends React.Component {
                     <Lead
                         className={open && "open"}
                         css={`
-                            transform: translate(78px, 19px);
+                            transform: translateY(19px);
+                            justify-content: space-between;
+                            @media (max-width: 564px) {
+                                justify-content: flex-end;
+                            }
                         `}
                     />
                 )}
@@ -93,7 +95,15 @@ class Navigation extends React.Component {
 }
 
 const Nav = styled.nav`
-    z-index: 1;
+    ${props =>
+        props.location.match(/blog/gi) &&
+        `
+        @media (min-width: 565px) {
+            margin: 0 auto;
+            max-width: 960px;
+            position: relative;
+            padding: 0 73px;
+        }`}
 `
 
 const List = styled.ul`
