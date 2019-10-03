@@ -110,8 +110,7 @@ const List = styled.ul`
     list-style-type: none;
     left: 15px;
     top: 49px;
-    position: ${props =>
-        props.location.match(blogPostRegEx) ? "fixed" : "absolute"};
+    position: absolute;
     padding: 0;
     margin: 0;
 
