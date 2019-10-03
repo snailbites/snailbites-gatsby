@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-import Lead from "../components/lead"
 
 class Blog extends React.Component {
     render() {
@@ -17,8 +16,13 @@ class Blog extends React.Component {
                 <SEO title="All posts" />
 
                 <FlexContainer width={`960px`}>
-                    <Lead />
-                    <h1>All Posts</h1>
+                    <h1
+                        css={`
+                            margin: 75px 0 25px;
+                        `}
+                    >
+                        All Posts
+                    </h1>
                     {posts.map(({ node }) => {
                         const title = node.frontmatter.title || node.fields.slug
                         return (

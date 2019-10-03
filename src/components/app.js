@@ -7,6 +7,7 @@ import Jumbotron from "./jumbotron"
 import MountainRange from "../components/mountainRange"
 import Gradient from "../components/gradient"
 import Social from "../components/social"
+import Navigation from "./navigation"
 
 class App extends React.Component {
     render() {
@@ -23,7 +24,7 @@ class App extends React.Component {
                     ></link>
                 </Helmet>
                 <GlobalStyle location={location.pathname} />
-
+                <Navigation location={location.pathname} />
                 {location.pathname === rootPath && (
                     <header>
                         <Jumbotron />
@@ -50,7 +51,7 @@ const Wrapper = styled.div`
 `
 // ${props => props.location === "/" && `padding: 5vw 0 10vw;`};
 const Main = styled.main`
-    padding: 5vw 0 10vw;
+    padding: 19px 0 10vw;
     background: ${props =>
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>

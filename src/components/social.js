@@ -8,19 +8,14 @@ import linkedin from "../../content/assets/linkedin.svg"
 
 function Social() {
     return (
-        <FlexContainer>
-            <SocialWrapper>
-                <SocialTitle>What's good?</SocialTitle>
-                <Twitter
-                    href={`https://twitter.com/snailbites`}
-                    target="_blank"
-                />
-                <LinkedIn
-                    href={`https://www.linkedin.com/in/vnalupta/`}
-                    target="_blank"
-                />
-            </SocialWrapper>
-        </FlexContainer>
+        <SocialWrapper>
+            <SocialTitle>What's good?</SocialTitle>
+            <Twitter href={`https://twitter.com/snailbites`} target="_blank" />
+            <LinkedIn
+                href={`https://www.linkedin.com/in/vnalupta/`}
+                target="_blank"
+            />
+        </SocialWrapper>
     )
 }
 

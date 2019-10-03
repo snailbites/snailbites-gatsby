@@ -15,7 +15,13 @@ const Container = styled.section`
     ${props => props.props.flex && `display: flex; justify-content: center;`}
     ${props =>
         props.props.width &&
-        `max-width: ${props.props.width}; margin: 0 auto; padding: 0 20px;`}
+        `max-width: ${props.props.width};`}
+    margin: 0 auto;
+    padding: 0 73px;
+
+    @media (max-width: 540px) {
+        padding: 0 25px;
+    }
 `
 
 export default FlexContainer
