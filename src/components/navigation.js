@@ -8,6 +8,8 @@ const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog`
 const cvPath = `${__PATH_PREFIX__}/cv`
 
+const blogPostRegEx = /blog\/.*/
+
 class Navigation extends React.Component {
     constructor(props) {
         super(props)
@@ -35,7 +37,10 @@ class Navigation extends React.Component {
                     css={`
                         border: 0;
                         background-color: inherit;
-                        position: fixed;
+
+                        position: ${location.match(blogPostRegEx)
+                            ? "fixed"
+                            : "absolute"};
                         top: 11px;
                         left: 1px;
                         padding: 0;
@@ -63,7 +68,7 @@ class Navigation extends React.Component {
                         open={open}
                     />
                 </button>
-                <List className={open && "open"}>
+                <List location={location} className={open && "open"}>
                     <li>
                         <Link to={rootPath}>Home</Link>
                     </li>
@@ -95,7 +100,8 @@ const List = styled.ul`
     list-style-type: none;
     left: 15px;
     top: 49px;
-    position: fixed;
+    position: ${props =>
+        props.location.match(blogPostRegEx) ? "fixed" : "absolute"};
     padding: 0;
     margin: 0;
 

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import FlexContainer from "./flexContainer"
 import { Colors } from "../theme/global"
 
 import twitter from "../../content/assets/twitter.svg"

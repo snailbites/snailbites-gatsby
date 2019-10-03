@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-import Lead from "../components/lead"
 
 class BlogPostTemplate extends React.Component {
     render() {
