@@ -21,7 +21,7 @@ class Blog extends React.Component {
                             margin: 75px 0 25px;
                         `}
                     >
-                        New Posts
+                        The Latest
                     </h1>
                     {posts.map(({ node }) => {
                         const title = node.frontmatter.title || node.fields.slug
