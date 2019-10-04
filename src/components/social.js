@@ -13,6 +13,7 @@ function Social() {
             <LinkedIn
                 href={`https://www.linkedin.com/in/vnalupta/`}
                 target="_blank"
+                rel="noopener noreferrer"
             />
         </SocialWrapper>
     )
@@ -28,7 +29,7 @@ const SocialWrapper = styled.div`
     padding-bottom: ${props => (props.location === "/" ? `10vw` : `4vw`)};
 `
 
-const SocialTitle = styled.h3`
+const SocialTitle = styled.h4`
     margin-top: 0;
 `
 

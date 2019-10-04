@@ -8,8 +8,6 @@ const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog`
 const cvPath = `${__PATH_PREFIX__}/cv`
 
-const blogPostRegEx = /blog\/.*/
-
 class Navigation extends React.Component {
     constructor(props) {
         super(props)
@@ -77,7 +75,7 @@ class Navigation extends React.Component {
                         <Link to={cvPath}>CV</Link>
                     </li>
                 </List>
-                {location !== rootPath && (
+                {location.match(/blog|cv/i) && (
                     <Lead
                         className={open && "open"}
                         css={`
@@ -96,7 +94,7 @@ class Navigation extends React.Component {
 
 const Nav = styled.nav`
     ${props =>
-        props.location.match(/blog/gi) &&
+        props.location.match(/blog|cv/gi) &&
         `
         @media (min-width: 565px) {
             margin: 0 auto;

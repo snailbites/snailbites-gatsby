@@ -21,28 +21,62 @@ class Blog extends React.Component {
                             margin: 75px 0 25px;
                         `}
                     >
-                        All Posts
+                        New Posts
                     </h1>
                     {posts.map(({ node }) => {
                         const title = node.frontmatter.title || node.fields.slug
+                        const isNew =
+                            node.frontmatter.meta &&
+                            node.frontmatter.meta.match(/new/gi)
+
                         return (
                             <div key={node.fields.slug}>
-                                <h3
-                                    css={`
-                                        margin-bottom: 16px;
-                                    `}
-                                >
-                                    <Link to={`blog${node.fields.slug}`}>
-                                        {title}
-                                    </Link>
-                                </h3>
-                                <p
-                                    dangerouslySetInnerHTML={{
-                                        __html:
-                                            node.frontmatter.description ||
-                                            node.excerpt,
-                                    }}
-                                />
+                                {isNew && (
+                                    <h4
+                                        css={`
+                                            margin-bottom: 12px;
+                                        `}
+                                    >
+                                        <Link to={`blog${node.fields.slug}`}>
+                                            {title}
+                                        </Link>
+                                    </h4>
+                                )}
+                                {!isNew && (
+                                    <h5
+                                        css={`
+                                            margin-bottom: 12px;
+                                        `}
+                                    >
+                                        <Link to={`blog${node.fields.slug}`}>
+                                            {title}
+                                        </Link>
+                                    </h5>
+                                )}
+                                {isNew && (
+                                    <article>
+                                        <p
+                                            css={`
+                                                margin-bottom: 0;
+                                            `}
+                                            dangerouslySetInnerHTML={{
+                                                __html:
+                                                    node.frontmatter
+                                                        .description ||
+                                                    node.excerpt,
+                                            }}
+                                        />
+                                        <p>
+                                            <Link
+                                                to={`blog${node.fields.slug}`}
+                                            >
+                                                Read more
+                                            </Link>
+                                        </p>
+
+                                        <h3>Old Posts</h3>
+                                    </article>
+                                )}
                             </div>
                         )
                     })}
@@ -72,6 +106,7 @@ export const pageQuery = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         title
                         description
+                        meta
                     }
                 }
             }

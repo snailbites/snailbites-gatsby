@@ -19,7 +19,7 @@ class App extends React.Component {
                 <Helmet>
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Poppins:300,700i"
+                        href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
                         media="all"
                     ></link>
                 </Helmet>

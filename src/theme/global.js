@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
         background: ${props =>
             props.location === "/" ? Colors.ocean : Colors.sesame};
     }
-    h1, h2, h3, h4 {
+    h1, h2, h3, h4, h5, dt {
         font-style: italic;
         line-height: 1.15;
     }
@@ -45,10 +45,21 @@ const GlobalStyle = createGlobalStyle`
     h2 { font-size: ${Font.size * 2.441}px; }
     h3 { font-size: ${Font.size * 1.952}px; }
     h4 { font-size: ${Font.size * 1.563}px; }
-    p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}
+    h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
+    p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
+    footer, .small { font-size: ${Font.size * 0.75}px; }    
+
     a { color: ${props =>
         props.location === "/" ? Colors.neon : Colors.sesame}}
-    footer, .small { font-size: ${Font.size * 0.75}px; }    
+    b { font-weight: 500}
+
+    dt { margin-top: 1em; }
+    dd { 
+        margin-left: 0; 
+        &:before {
+            content: "• ";
+        }
+    }
 `
 
 export { GlobalStyle, Colors, Font }
