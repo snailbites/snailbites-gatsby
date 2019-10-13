@@ -24,7 +24,6 @@ class App extends React.Component {
         const { location, children } = this.props
         const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
-
         return (
             <Wrapper loaded={loaded}>
                 <Helmet>
@@ -59,14 +58,15 @@ class App extends React.Component {
 const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
-    // transition: opacity 250ms;
 
-    // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
     position: ${props => (props.loaded ? `static` : `fixed`)};
 `
 
 const Main = styled.main`
     padding: 19px 0 10vw;
+    position: relative;
+    z-index: 10;
+
     background: ${props =>
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>

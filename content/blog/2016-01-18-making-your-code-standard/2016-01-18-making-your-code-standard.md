@@ -19,13 +19,13 @@ As mentioned earlier, every developer has their own style. In most cases, we wou
 
 The first step in any major project is to benchmark. Remember that there is still a “science” aspect to computer science. And like any good scientist, you need to make sure that you have a baseline to reference, in order to see if your experiment yielded results. You’ll want to look closely at file size and page load time. If there are other factor motivating you to refactor your CSS, then take note of those too. Here’s a shot of where we were somewhere towards the beginning of our refactor.
 
-![](/images/benchmark1.png){:class="img-responsive useBorder"}
+![](./benchmark1.png)
 
 It might also be helpful to screenshot some of the code, for reference. Think about it as taking a picture of an old messy basement before a remodel. You’ll want to remember how bad it is now when you’re basking in the glow of your brand new space.
 
 Here’s a particularly painful section of code that I took note of before starting.
 
-![](/images/before.png){:class="img-responsive"}
+![](./before.png)
 
 ### Our code standards
 
@@ -39,52 +39,59 @@ If you’re not like me and want the detail, read on.
 
 First step is to think about your markup. Remember, as mentioned above, the whole point of CSS is to style your markup. So let’s think about the document for a sec. In a well formatted HTML document, you can clearly identify small blocks of code that serve different purposes on the page. In Angular, we break these down and bundle them with javascript to make what we call components. Whether or not you use a framework, you should be able to see how these separate out on your page. Here’s an example.
 
-{% highlight html %}
-
+```html
 <section>
-	<header><h1>Title</h1></header>
-	<div>
-		<p>Stuff</p>
-		<p><a href="#"><img src="img.jpg"></a></p>
-	</div>
+    <header><h1>Title</h1></header>
+    <div>
+        <p>Stuff</p>
+        <p>
+            <a href="#"><img src="img.jpg"/></a>
+        </p>
+    </div>
 </section>
-{% endhighlight %}
+```
 
 In the above, your “parent” class will be added to the `<section>`. Let’s call it `.info`.
 
 Inside that, you have children. There is a `<header>` and a `<div>` at the first level. Let’s call those `.header` and `.body`. Since they are children, here’s where the simple rule comes into play. Add a dash and append the new classes onto the parent like so:
 
-{% highlight html %}
-
+```html
 <section class="info">
-	<header class="info-header"><h1>Title</h1></header>
-	<div class="info-body">
-		<p>Stuff</p>
-		<p><a href="#"><img src="img.jpg"></a></p>
-	</div>
+    <header class="info-header"><h1>Title</h1></header>
+    <div class="info-body">
+        <p>Stuff</p>
+        <p>
+            <a href="#"><img src="img.jpg"/></a>
+        </p>
+    </div>
 </section>
 
 <style>
-	.info {}
-	.info-header {}
-	.info-body {}
+    .info {
+    }
+    .info-header {
+    }
+    .info-body {
+    }
 </style>
-
-{% endhighlight %}
+```
 
 Now you have children inside the div. Those get another dash, like so.
 
 What about the `<a>` and the `<h1>`? Here’s where you can make a decision. You can add a new class or you can simply use the child selector if there aren’t too many of them. Use your best judgement and remember the goals you were trying to achieve in the first place.
 
-{% highlight html %}
-
-<style>
-	.info {}
-	.info-header {}
-	.info-header-title {}
-	.info-body {}
-	.info-body > a {}
-</style>
+```css
+.info {
+}
+.info-header {
+}
+.info-header-title {
+}
+.info-body {
+}
+.info-body > a {
+}
+```
 
 {% endhighlight %}
 
@@ -104,7 +111,7 @@ Second, it allows you to once again see the casecade more clearly. With preproce
 
 Third, it gets the team moving in the right direction quickly. All of your CSS from this point onward will at least be maintainable. You will already be cut in half. Even if the code itself is bad, the naming lends itself to refactoring. Take for example the code sample I screenshotted earlier and think about how long it would take to make changes to that chunk of code. Here’s a shot of some new code. Which would you rather maintain?
 
-![](/images/after.png){:class="img-responsive"}
+![](.//after.png)
 
 #### Where does this fall short?
 
@@ -126,7 +133,3 @@ In summary, here’s the process I used for this step:
 2. Make a document
 3. Refactor ONE page
 4. Get the team to buy in
-
-Next up? Read on to find out how to decrease your file size and speed up development time with a pattern library and style-guide-driven development »
-
-Or go back to the Intro Post: [Wrangling Your CSS Into Submission](http://www.snailbites.com/blog/wrangling-your-css-into-submission/).

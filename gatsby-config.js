@@ -16,7 +16,7 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         `gatsby-plugin-feed`,
-        `gatsby-plugin-offline`,
+        `gatsby-plugin-remove-serviceworker`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,

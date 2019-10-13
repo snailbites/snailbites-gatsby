@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import Lead from "../components/lead"
 
 const rootPath = `${__PATH_PREFIX__}/`
-const blogPath = `${__PATH_PREFIX__}/blog`
+const blogPath = `${__PATH_PREFIX__}/blog/`
 const cvPath = `${__PATH_PREFIX__}/cv`
 
 class Navigation extends React.Component {
@@ -47,6 +47,7 @@ class Navigation extends React.Component {
                             position: absolute;
                         }
                     `}
+                    type="button"
                     onClick={this.toggleMenu}
                 >
                     <Crown

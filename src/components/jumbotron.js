@@ -11,7 +11,7 @@ const Jumbotron = props => {
                     const { lead1, lead2 } = data.site.siteMetadata
                     return (
                         <TitleWrapper>
-                            <Crown
+                            {/* <Crown
                                 loaded={props.loaded}
                                 xmlns="http://www.w3.org/2000/svg"
                             >
@@ -20,7 +20,7 @@ const Jumbotron = props => {
                                     fill="#D6E307"
                                     fillRule="evenodd"
                                 />
-                            </Crown>
+                            </Crown> */}
                             <Title>
                                 {lead1}
                                 <br />
@@ -73,15 +73,16 @@ const Crown = styled.svg`
     height: 50px;
     width: 76px;
     
-    transition-duration: 500ms;
+    transition-duration: 2500ms;
     transition-property: transform;
-    transition-delay: 1000ms;
-    transition-timing-function: cubic-bezier(0.17, 0.67, 0.37, 1.01);
+    transition-delay: 1500ms;
+    transition-timing-function: ease-in-out;
 
+    // transform: scale(0.5) rotate(32deg);
     transform: ${props =>
-        props.loaded ? `scale(0.5) rotate(32deg)` : `scale(0) rotate(0deg)`};
+        props.loaded ? `scale(0.5) rotate(32deg)` : `scale(0.5) rotate(0deg)`};
     // transform: ${props => (props.loaded ? `1.0` : `0.0`)};
-    opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
+    // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
 `
 
 const TitleWrapper = styled.div`

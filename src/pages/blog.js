@@ -5,7 +5,7 @@ import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
 
-const blogPath = `${__PATH_PREFIX__}/blog`
+const blogPath = `blog/`
 
 class Blog extends React.Component {
     render() {

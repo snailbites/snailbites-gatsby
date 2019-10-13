@@ -21,9 +21,47 @@ const Mountain = styled.div`
     position: absolute;
     bottom: -2px;
 
+    animation-delay: 500ms;
+    animation: 1000ms bounceInUp forwards;
+
+    @keyframes bounceInUp {
+        from,
+        60%,
+        75%,
+        90%,
+        to {
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        from {
+            opacity: 0;
+            transform: translate3d(0, 22vw, 0);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translate3d(0, -2vw, 0);
+        }
+
+        75% {
+            transform: translate3d(0, 1vw, 0);
+        }
+
+        90% {
+            transform: translate3d(0, -1vw, 0);
+        }
+
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
     ${props =>
         props.bg &&
         `
+        transform: translate3d(0, 22vw, 0);
+        animation-delay: 200ms;
+
         & > svg {         
             opacity: .2;   
             position: absolute;
@@ -35,18 +73,12 @@ const Mountain = styled.div`
     `}
 `
 
+// transform: ${props => (props.loaded) ? `translateY(0)` : `translateY(22vw)`};
+
 const Wrapper = styled.section`
     width: 100vw;
     height: 22vw;
     position: relative;
-    overflow: hidden;
-
-    transition-duration: 1000ms;
-    transition-property: transform;
-    transition-delay: 200ms;
-    transition-timing-function: cubic-bezier(0.17, 0.67, 0.37, 1.01);
-    transform: ${props =>
-        props.loaded ? `translateY(0)` : `translateY(22vw)`};
 `
 
 const MountainSVG = props => (

@@ -26,23 +26,29 @@ Here's where the interesting engineering work began. Now that we had a static se
 To fully automate our workflow into style guide driven development, we took advantage of some modern tooling.
 
 <img src="http://www.losasso.com/wp-content/uploads/2015/04/yeoman-logo.png" style="float: left; height: 65px; padding: 0 10px 10px 0;">
+
 ### Yeoman
+
 First things first, we needed a living style guide that actually looked like some sort of a website. We had a set of individual components floating around on static pages and in CodePen. We needed basic that had the ability to possibly scale into something bigger, and we needed it fast. [Yeoman](http://yeoman.io/) to the rescue! Using Yeoman we were able to quickly add our markup, convert our CSS into SCSS, and have a gulp build in one easy step.
 
 <img src="http://bower.io/img/bower-logo.svg" style="float: left; height: 65px; padding: 0 10px 10px 0;">
-### Bower
-Building on the scaffolding from Yeoman, we now had the seed of an application that we could plug into a git  repository. At that point, the next step was to use [Bower](http://bower.io) to add it as dependency in our main application. Our main consumer-site application was already wired up to bring in Bower dependencies. If you need more info doing that, then you can read up on bower *here*. All we had to do was add our style guide as a new dependency.
 
-{% highlight json %}
+### Bower
+
+Building on the scaffolding from Yeoman, we now had the seed of an application that we could plug into a git repository. At that point, the next step was to use [Bower](http://bower.io) to add it as dependency in our main application. Our main consumer-site application was already wired up to bring in Bower dependencies. If you need more info doing that, then you can read up on bower _here_. All we had to do was add our style guide as a new dependency.
+
+```js
 "dependencies": {
 "base-css": "ssh://git@mycompany.com:1234/project/styleguide.git#0.3.26
 }
-{% endhighlight %}
+```
 
 Now, whenever a build of GrubHub or Seamless was done, it would automatically get the latest version of our style guide from the git remote repo, and copy it into the codebase. From there, the Grunt build had a job that would copy the output of that repo into a folder for consumption.
 
 <img src="https://cdn.worldvectorlogo.com/logos/gulp.svg" style="float: left; height: 100px; padding: 0 10px 10px 0;">
+
 ### Gulp
+
 We used gulp as our build tool because of its streaming capabilities. We set up our style guide to transpile, optimize, and then populate the distribution folder with assets. We chose to include an uncompressed and compressed version of a single .css file, as well as all necessary fonts. Consumers of the style guide can then choose which files they want to use at any given time.
 
 ## Integrating
@@ -75,8 +81,7 @@ For more on tagging, see: [Git - tagging](https://git-scm.com/book/en/v2/Git-Bas
 
 When the designers first organized the project, they did so around the principals of [Pattern Lab](http://patternlab.io/). Coming into code, it was easy then to isolate things for release. We picked one atom at a time, starting with buttons, and isolated it for release. We did this by creating an alternate .scss file with only the bare minimum files included. This file included all of the base utility files (mixins, variables, maps, etc...), and then whatever atoms we wanted to release.
 
-{% highlight scss %}
-
+```scss
 // Utilities
 @import "variables";
 @import "flexbox";
@@ -85,7 +90,6 @@ When the designers first organized the project, they did so around the principal
 
 // Atoms
 @import "atoms/buttons/buttons";
-
-{% endhighlight %}
+```
 
 As time went on, we added atom by atom, and then molecules and organisms, until the entire style guide was integrated. Integrating the style guide in this piecemeal fashion allowed us to control the release process and take our time with a thorough visual QA. It also gave us the freedom to clean out unused code as the styles were being replaced by the style guide. If your main application is enterprise level like ours, then I would strongly recommend this approach for you as well.

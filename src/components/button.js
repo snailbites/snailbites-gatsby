@@ -3,7 +3,9 @@ import styled from "styled-components"
 import { Colors } from "../theme/global"
 
 const Button = ({ className, children }) => (
-    <ButtonWrapper className={className}>{children}</ButtonWrapper>
+    <ButtonWrapper type="button" className={className}>
+        {children}
+    </ButtonWrapper>
 )
 
 const ButtonWrapper = styled.button`

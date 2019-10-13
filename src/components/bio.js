@@ -9,7 +9,7 @@ import FlexContainer from "./flexContainer"
 import bg from "../../content/assets/bio-bg.svg"
 
 function Bio() {
-    const blogPath = `${__PATH_PREFIX__}/blog/2019-10-04-new-site/2019-10-04-new-site/`
+    const blogPath = `/blog/2019-10-04-new-site/2019-10-04-new-site/`
     return (
         <FlexContainer flex>
             <Profile>

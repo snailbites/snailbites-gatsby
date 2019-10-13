@@ -19,34 +19,45 @@ Our Design API is super simple, as are most front end style guides. We expose bu
 
 Let's take a closer look. I want to rapidly prototype a new page. To do that I need a heading and a button. I'll import buttons.scss and typography.scss. When I create my own software I will write:
 
-{% highlight html %}
-
+```html
 <h1>Heading</h1>
-<button class=”s-btn”>Button</button>
-{% endhighlight %}
+<button class="”s-btn”">Button</button>
+```
 
-I don't have to think about the code behind the button or the heading. I just know that the desired outcome is going to be correct.
+I don't have to think about the code behind the button or the
+heading. I just know that the desired outcome is going to be correct.
+![](./design-api-heading.png){:height="125px"}{:class="useBorder"} You
+could consider the exported classes as similar to setting a contract for a
+typical server/client architecture. The classes would not change except for a
+major revision, and those breaking changes would need to be communicated out to
+all the parties involved. ### Terminology There are so many terms floating
+around these days for the type of work we are doing. Front End Style Guide,
+Living Style Guide, Pattern Library, Component Library... the list goes on and
+one and the distinction between the terms gets pretty muddy. By labelling our
+CSS classes Design APIs, the architecture becomes a lot more sensible. Consider
+that the API layer is typically the “base” for a lot of the foundational data in
+client applications. In this regard, our Design APIs fulfill that role by
+providing the building blocks on which to develop more software. The diagram
+below illustrates how the entire system works.
+![](./design-api-flow.png){:class="img-responsive"} Note carefully the
+tightly coupled binding between design and development. We use language to
+couple these two together. The shared language is what eases the communication
+friction between teams and helps to reinforce the sort-of “contract” that is
+involved with other API development. The design API acts as a base layer for our
+component libraries. Keeping the API CSS-only allows use to create component
+libraries in different Javascript frameworks as a layer on top of the API. We
+can then bundle and export the component library for use in our flagship
+applications (Grubhub, Seamless, AllMenus, and Grubhub for Restaurants), for
+rapid prototyping in [CodePen Projects](https://codepen.io/pro/projects/), and
+for documentation in our Living Style Guide.
 
-![](/images/design-api-heading.png){:height="125px"}{:class="useBorder"}
+### Future Use As you can see, we
 
-You could consider the exported classes as similar to setting a contract for a typical server/client architecture. The classes would not change except for a major revision, and those breaking changes would need to be communicated out to all the parties involved.
-
-### Terminology
-
-There are so many terms floating around these days for the type of work we are doing. Front End Style Guide, Living Style Guide, Pattern Library, Component Library... the list goes on and one and the distinction between the terms gets pretty muddy. By labelling our CSS classes Design APIs, the architecture becomes a lot more sensible.
-
-Consider that the API layer is typically the “base” for a lot of the foundational data in client applications. In this regard, our Design APIs fulfill that role by providing the building blocks on which to develop more software.
-
-The diagram below illustrates how the entire system works.
-
-![](/images/design-api-flow.png){:class="img-responsive"}
-
-Note carefully the tightly coupled binding between design and development. We use language to couple these two together. The shared language is what eases the communication friction between teams and helps to reinforce the sort-of “contract” that is involved with other API development.
-
-The design API acts as a base layer for our component libraries. Keeping the API CSS-only allows use to create component libraries in different Javascript frameworks as a layer on top of the API. We can then bundle and export the component library for use in our flagship applications (Grubhub, Seamless, AllMenus, and Grubhub for Restaurants), for rapid prototyping in [CodePen Projects](https://codepen.io/pro/projects/), and for documentation in our Living Style Guide.
-
-### Future Use
-
-As you can see, we have a lot of future use for our Design APIs. Since we kept the code base CSS only, it is easily exportable into any application on the web. When Code Pen projects was launched, we were quickly able to produce rapid prototypes and provide working links to external parties. The uses are endless: quick demos for stakeholders, working prototypes that can be user tested, fleshed out ideas that design can hand off to developers.
-
-We also currently use the API in all sorts of different small scale applications: email templates, marketing modules, even our phone directory. Having a flat, CSS only system ensures its flexibility.
+have a lot of future use for our Design APIs. Since we kept the code base CSS
+only, it is easily exportable into any application on the web. When Code Pen
+projects was launched, we were quickly able to produce rapid prototypes and
+provide working links to external parties. The uses are endless: quick demos for
+stakeholders, working prototypes that can be user tested, fleshed out ideas that
+design can hand off to developers. We also currently use the API in all sorts of
+different small scale applications: email templates, marketing modules, even our
+phone directory. Having a flat, CSS only system ensures its flexibility.
