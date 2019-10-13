@@ -10,12 +10,23 @@ import Social from "../components/social"
 import Navigation from "./navigation"
 
 class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            loaded: false,
+        }
+    }
+    componentDidMount() {
+        setTimeout(() => this.setState({ loaded: true }), 250)
+    }
+
     render() {
         const { location, children } = this.props
+        const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
 
         return (
-            <Wrapper>
+            <Wrapper loaded={loaded}>
                 <Helmet>
                     <link
                         rel="stylesheet"
@@ -24,11 +35,11 @@ class App extends React.Component {
                     ></link>
                 </Helmet>
                 <GlobalStyle location={location.pathname} />
-                <Navigation location={location.pathname} />
+                <Navigation location={location.pathname} loaded={loaded} />
                 {location.pathname === rootPath && (
                     <header>
-                        <Jumbotron />
-                        <MountainRange />
+                        <Jumbotron loaded={loaded} />
+                        <MountainRange loaded={loaded} />
                     </header>
                 )}
 
@@ -48,8 +59,12 @@ class App extends React.Component {
 const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
+    // transition: opacity 250ms;
+
+    // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
+    position: ${props => (props.loaded ? `static` : `fixed`)};
 `
-// ${props => props.location === "/" && `padding: 5vw 0 10vw;`};
+
 const Main = styled.main`
     padding: 19px 0 10vw;
     background: ${props =>

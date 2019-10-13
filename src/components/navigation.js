@@ -15,14 +15,11 @@ class Navigation extends React.Component {
         this.state = {
             open: false,
         }
-
-        this.toggleMenu = this.toggleMenu.bind(this)
     }
 
-    toggleMenu($event) {
+    toggleMenu = $event => {
         $event.preventDefault()
         this.setState({ open: !this.state.open })
-        console.log(this.state)
     }
 
     render() {

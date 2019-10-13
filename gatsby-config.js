@@ -4,8 +4,8 @@ module.exports = {
         lead1: `VINCENT NALUPTA`,
         lead2: `IS A UX ENGINEER`,
         author: `Vincent Nalupta`,
-        description: `Uh huh`,
-        siteUrl: `https://snailbites.netlify.com/`,
+        description: `Snailbites is the digital home of Vincent Nalupta, a UX Engineer in NYC.`,
+        siteUrl: `https://snailbit.es/`,
         social: {
             twitter: `snailbites`,
         },

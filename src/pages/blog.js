@@ -5,6 +5,8 @@ import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
 
+const blogPath = `${__PATH_PREFIX__}/blog`
+
 class Blog extends React.Component {
     render() {
         const { data } = this.props
@@ -37,7 +39,9 @@ class Blog extends React.Component {
                                             margin-bottom: 12px;
                                         `}
                                     >
-                                        <Link to={`blog${node.fields.slug}`}>
+                                        <Link
+                                            to={`${blogPath}${node.fields.slug}`}
+                                        >
                                             {title}
                                         </Link>
                                     </h4>
@@ -48,7 +52,9 @@ class Blog extends React.Component {
                                             margin-bottom: 12px;
                                         `}
                                     >
-                                        <Link to={`blog${node.fields.slug}`}>
+                                        <Link
+                                            to={`${blogPath}${node.fields.slug}`}
+                                        >
                                             {title}
                                         </Link>
                                     </h5>
@@ -68,7 +74,7 @@ class Blog extends React.Component {
                                         />
                                         <p>
                                             <Link
-                                                to={`blog${node.fields.slug}`}
+                                                to={`${blogPath}${node.fields.slug}`}
                                             >
                                                 Read more
                                             </Link>

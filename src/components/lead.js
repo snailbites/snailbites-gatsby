@@ -2,10 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+const rootPath = `${__PATH_PREFIX__}/`
+
 const Lead = props => (
     <LeadWrapper className={props.className}>
         <h4 style={{ textDecoration: "none", paddingRight: "10px" }}>
-            <Link to="/">snailbit.es</Link>
+            <Link to={rootPath}>snailbit.es</Link>
         </h4>{" "}
         <p>A blog by Vincent Nalupta</p>
     </LeadWrapper>

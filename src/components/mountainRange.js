@@ -2,19 +2,17 @@ import React from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
-class MountainRange extends React.Component {
-    render() {
-        return (
-            <Wrapper>
-                <Mountain bg>
-                    <MountainSVG hex={"#565F74"} />
-                </Mountain>
-                <Mountain>
-                    <MountainSVG hex={Colors.ocean} />
-                </Mountain>
-            </Wrapper>
-        )
-    }
+const MountainRange = props => {
+    return (
+        <Wrapper loaded={props.loaded}>
+            <Mountain bg>
+                <MountainSVG hex={"#565F74"} />
+            </Mountain>
+            <Mountain>
+                <MountainSVG hex={Colors.ocean} />
+            </Mountain>
+        </Wrapper>
+    )
 }
 
 const Mountain = styled.div`
@@ -42,6 +40,13 @@ const Wrapper = styled.section`
     height: 22vw;
     position: relative;
     overflow: hidden;
+
+    transition-duration: 1000ms;
+    transition-property: transform;
+    transition-delay: 200ms;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.37, 1.01);
+    transform: ${props =>
+        props.loaded ? `translateY(0)` : `translateY(22vw)`};
 `
 
 const MountainSVG = props => (
