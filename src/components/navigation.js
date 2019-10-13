@@ -52,7 +52,7 @@ class Navigation extends React.Component {
                 >
                     <Crown
                         css={`
-                            transform: scale(0.6);
+                            transform: scale(0.5);
 
                             &:hover {
                                 cursor: pointer;

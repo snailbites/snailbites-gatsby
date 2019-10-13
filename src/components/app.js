@@ -64,13 +64,13 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
     padding: 19px 0 10vw;
-    position: relative;
-    z-index: 10;
-
     background: ${props =>
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>
-        props.location !== "/" && `border-bottom: 5px solid ${Colors.ocean}`};
+        props.location !== "/"
+            ? `border-bottom: 5px solid ${Colors.ocean}`
+            : `position: relative;
+        z-index: 10`};
 `
 
 export default App
