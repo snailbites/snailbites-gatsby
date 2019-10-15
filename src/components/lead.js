@@ -6,10 +6,11 @@ const rootPath = `/`
 
 const Lead = props => (
     <LeadWrapper className={props.className}>
-        <h4 style={{ textDecoration: "none", paddingRight: "10px" }}>
+        <p style={{ textDecoration: "none", paddingRight: "10px" }}>
             <Link to={rootPath}>snailbit.es</Link>
-        </h4>{" "}
-        <p>A blog by Vincent Nalupta</p>
+        </p>
+        {/* {" "}
+        <p>A blog by Vincent Nalupta</p> */}
     </LeadWrapper>
 )
 
