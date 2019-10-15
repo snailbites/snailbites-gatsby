@@ -21,8 +21,8 @@ const Mountain = styled.div`
     position: absolute;
     bottom: -2px;
 
-    animation-delay: 500ms;
-    animation: 1000ms bounceInUp forwards;
+    animation-delay: 250;
+    animation: 750ms bounceInUp forwards;
 
     @keyframes bounceInUp {
         from,
@@ -60,7 +60,7 @@ const Mountain = styled.div`
         props.bg &&
         `
         transform: translate3d(0, 22vw, 0);
-        animation-delay: 200ms;
+        animation-delay: 100ms;
 
         & > svg {         
             opacity: .2;   
@@ -73,13 +73,10 @@ const Mountain = styled.div`
     `}
 `
 
-// transform: ${props => (props.loaded) ? `translateY(0)` : `translateY(22vw)`};
-
 const Wrapper = styled.section`
     width: 100vw;
     height: 22vw;
     position: relative;
-    overflow-x: hidden;
 `
 
 const MountainSVG = props => (

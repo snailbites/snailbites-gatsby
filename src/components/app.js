@@ -58,8 +58,7 @@ class App extends React.Component {
 const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
-
-    position: ${props => (props.loaded ? `static` : `fixed`)};
+    overflow-x: hidden;
 `
 
 const Main = styled.main`

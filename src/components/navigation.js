@@ -19,8 +19,6 @@ class Navigation extends React.Component {
 
     toggleMenu = $event => {
         $event.preventDefault()
-
-        debugger
         if (this.state.open) {
             document.getElementById("crownToLine1").beginElement()
             document.getElementById("crownToLine2").beginElement()
@@ -32,25 +30,15 @@ class Navigation extends React.Component {
         this.setState({ open: !this.state.open })
     }
 
-    toggleCrown = $event => {
-        $event.preventDefault()
-        // debugger
-        // if (this.state.open) {
-        //     document.getElementById("crownToLine1").beginElement()
-        //     document.getElementById("crownToLine2").beginElement()
-        // } else {
-        //     document.getElementById("lineToCrown1").beginElement()
-        //     document.getElementById("lineToCrown2").beginElement()
-        // }
-    }
-
     render() {
-        const { location } = this.props
+        const { location, loaded } = this.props
         const { open } = this.state
 
         return (
             <Nav location={location}>
                 <button
+                    loaded={loaded}
+                    location={location}
                     css={`
                         border: 0;
                         background-color: inherit;
@@ -61,6 +49,19 @@ class Navigation extends React.Component {
                         padding: 0;
                         margin: 0;
                         width: 40px;
+                        ${props =>
+                            props.location === "/" &&
+                            `
+                            
+                        transition: transform 250ms;
+                        transitin-timing-function: 0.215, 0.61, 0.355, 1;
+                        transform: translateX(-80px);
+                        transition-delay: 300ms;
+                        `}
+
+                        ${props =>
+                            props.loaded &&
+                            `transform: translateX(0);`}
 
                         &:focus {
                             outline: none;
