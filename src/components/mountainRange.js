@@ -79,6 +79,7 @@ const Wrapper = styled.section`
     width: 100vw;
     height: 22vw;
     position: relative;
+    overflow-x: hidden;
 `
 
 const MountainSVG = props => (
