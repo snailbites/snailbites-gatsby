@@ -2,7 +2,8 @@ import React from "react"
 import App from "../components/app"
 import SEO from "../components/seo"
 import Bio from "../components/bio"
-
+import Work from "../components/work"
+import styled from "styled-components"
 class IndexPage extends React.Component {
     render() {
         const siteTitle = "Vincent Nalupta - UX Engineering Manager"
@@ -20,9 +21,15 @@ class IndexPage extends React.Component {
                     ]}
                 />
                 <Bio />
+                {/* <Spacer /> */}
+                {/* <Work /> */}
             </App>
         )
     }
 }
+
+const Spacer = styled.div`
+    margin-bottom: 200px;
+`;
 
 export default IndexPage

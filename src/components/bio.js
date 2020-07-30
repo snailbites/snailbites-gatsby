@@ -21,7 +21,7 @@ function Bio() {
                         left: -145px;
                         top: -113px;
                         height: 424px;
-                    }`}
+                    `}
                 />
                 <StaticQuery
                     query={bioQuery}
@@ -33,7 +33,7 @@ function Bio() {
                     )}
                 ></StaticQuery>
             </Profile>
-            <BioColumn>
+            <BioColumn >
                 <h2
                     css={`
                         margin-bottom: 10px;
@@ -42,27 +42,24 @@ function Bio() {
                     HELLO!
                 </h2>
                 <p>
-                    My name is Vincent Nalupta and I am currently a Team Lead at
-                    Grubhub.
+                    My name is Vincent Nalupta and I am currently an Engineering Manager at Grubhub.
                 </p>
 
                 <p>
-                    I manage a team of engineers that handle everything from
-                    design systems to JavaScript frameworks.
+                    I've won some <a href="https://www.commarts.com/webpicks/timothy-goodman" target="_blank">awards</a> for my work and some <a href="https://twitter.com/snailbites/status/917875803983147008" target="_blank">giant pencils</a> for my <a href="https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2" target="_blank">talks</a>.
                 </p>
 
                 <p
                     css={`
-                        margin-bottom: 40px;
+                        margin-bottom: 30px;
                     `}
                 >
-                    This is my space to design, code and share some thoughts
-                    about tech and life.
+                    This is my space to flex my design chops and write about interesting tech.
                 </p>
                 <Link to={blogPath}>
                     <BioButton>Read more</BioButton>
                 </Link>
-            </BioColumn>
+            </BioColumn>            
         </FlexContainer>
     )
 }
