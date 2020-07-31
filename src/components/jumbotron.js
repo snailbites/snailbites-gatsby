@@ -65,25 +65,25 @@ const Header = styled.header`
     height: 75vh;
 `
 
-const Crown = styled.svg`
-    position: absolute;
-    right: -29px;
-    top: -22px;
+// const Crown = styled.svg`
+//     position: absolute;
+//     right: -29px;
+//     top: -22px;
 
-    height: 50px;
-    width: 76px;
+//     height: 50px;
+//     width: 76px;
     
-    transition-duration: 2500ms;
-    transition-property: transform;
-    transition-delay: 1500ms;
-    transition-timing-function: ease-in-out;
+//     transition-duration: 2500ms;
+//     transition-property: transform;
+//     transition-delay: 1500ms;
+//     transition-timing-function: ease-in-out;
 
-    // transform: scale(0.5) rotate(32deg);
-    transform: ${props =>
-        props.loaded ? `scale(0.5) rotate(32deg)` : `scale(0.5) rotate(0deg)`};
-    // transform: ${props => (props.loaded ? `1.0` : `0.0`)};
-    // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
-`
+//     // transform: scale(0.5) rotate(32deg);
+//     transform: ${props =>
+//         props.loaded ? `scale(0.5) rotate(32deg)` : `scale(0.5) rotate(0deg)`};
+//     // transform: ${props => (props.loaded ? `1.0` : `0.0`)};
+//     // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
+// `
 
 const TitleWrapper = styled.div`
     position: relative;

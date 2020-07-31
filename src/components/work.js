@@ -1,42 +1,102 @@
-import React from "react";
+import React, { useState } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
+import { Colors } from "../theme/global"
 
-
+const projects = [
+  {
+    'title': 'tgoodman',
+    'link': "Tim Goodman Portfolio",
+    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+  },
+  {
+    'title': 'mw-searchsale',
+    'link': "Madewell Search & Sale",
+    'caption': 'Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.'
+  },
+  {
+    'title': 'jcrew-pdp',
+    'link': "J.Crew Product Detail Page",
+    'caption': 'Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.',
+    'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277'
+  },
+  {
+    'title': 'espn-recruiting',
+    'link': "ESPN Recruiting Landing Page",
+    'caption': 'Designed and developed within ESPN\'s content framework to produce the detail page for a brand new college recruiting section on espn.com.',
+    'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120'
+  },
+  {
+    'title': 'leadership',
+    'link': "The Leadership Room",
+    'caption': 'Designed within the existing style direction of The Leadership Room branding, to redesign and restyle the blog page.',
+  },
+  {
+    'title': 'richtu',
+    'link': "Rich Tu Portfolio",
+    'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a distinctly different horizontal scrolling portfolio page.'
+  }
+]
 
 const Work = () => {
-    return (
-        <>
-        <h2 css={`text-align: center;`}>Featured Work</h2>
-        <FlexContainer flex>            
-            <StyledWork>
-            <aside class="sidebar">
-                <ul>
-                    <li><a data-index="6" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Grubhub Contactless Delivery</a></li>
-                    <li><a data-index="6" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Grubhub Design Language System</a></li>
-                    <li><a data-index="6" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Grubhub Floating Cart</a></li>
-                    <li><a data-index="6" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Tim Goodman</a></li>
-                    {/* <li><a data-index="0" data-project="mw_searchsale" data-link="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" class="project selected">J.Crew Search &amp; Sale</a></li> */}
-                    <li><a data-index="1" data-project="pdp" data-link="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" class="project">J.Crew Product Detail Page</a></li>
-                    <li><a data-index="2" data-project="espn" data-link="http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120" class="project">ESPN Recruiting Nation</a></li>
-                    {/* <li><a data-index="3" data-project="dreamteam" data-link="http://dreamteam25.org/" class="project">Mark Teixeria</a></li> */}
-                    <li><a data-index="4" data-project="leadership" data-link="http://theleadershiproom.com/blog/" class="project">The Leadership Room</a></li>
-                    {/* <li><a data-index="5" data-project="suze_orman" data-link="http://www.theapprovedcard.com/" class="project">Suze Orman</a></li> */}
-                    
-                    <li><a data-index="7" data-project="richtu" data-link="http://richtu.com/" class="project selected">Rich Tu</a></li>
-                </ul>
-            </aside>
-            <figure class="clearfix">
-                <a href="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" target="_blank">
-                    <img id="screenshot" src="images/screenshots/tgoodman.png" width="580" height="333" />
-                    <figcaption id="caption">Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.</figcaption>
-                </a>
-            </figure>
-            </StyledWork>
-        </FlexContainer>
+  const [project, setProject] = useState(projects[0])
+
+  return (
+    <>
+      <h2 css={`text-align: center`}>Featured Projects</h2>
+      <FlexContainer flex>
+        <StyledWork>          
+          <aside className="sidebar">            
+            <StyledList>
+              {projects.map((item, i) => (
+                <li key={i}>                  
+                  <StyledLinkButton                     
+                    className="project"   
+                    onClick={() => setProject(item)}                
+                    >
+                      {item.link}
+                  </StyledLinkButton>
+                </li>
+                )
+              )}
+            </StyledList>
+          </aside>          
+          <figure className="clearfix">                  
+            <a href="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" target="_blank" rel="noopener noreferrer">
+              <img id="screenshot" src={`images/screenshots/${project.title}.png`} width="580" height="333" />
+              <figcaption id="caption">{project.caption}</figcaption>
+            </a> 
+          </figure>
+        </StyledWork>
+      </FlexContainer>
     </>
-    )
+  )
 }
+
+const StyledList = styled.ul`
+  list-style-type: none;
+
+  li {
+    margin-bottom: .75rem;
+  }
+`
+
+const StyledLinkButton = styled.button`
+  text-align: initial;
+  background: inherit;
+  border: none;
+  color: ${Colors.neon};
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+`;
 
 const StyledWork = styled.div`
     .sidebar {

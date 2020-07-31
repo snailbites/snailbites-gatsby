@@ -2,10 +2,6 @@ import React from "react"
 import styled from "styled-components"
 
 class FlexContainer extends React.Component {
-    shouldComponentUpdate() {
-        return false
-    }
-
     render() {
         return <Container props={this.props}>{this.props.children}</Container>
     }

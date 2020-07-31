@@ -2,7 +2,7 @@ import React from "react"
 import { Colors } from "../theme/global"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Lead from "../components/lead"
+// import Lead from "../components/lead"
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`

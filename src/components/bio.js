@@ -10,6 +10,7 @@ import bg from "../../content/assets/bio-bg.svg"
 
 function Bio() {
     const blogPath = `/blog/2019-10-04-new-site/2019-10-04-new-site/`
+    
     return (
         <FlexContainer flex>
             <Profile>
@@ -46,7 +47,7 @@ function Bio() {
                 </p>
 
                 <p>
-                    I've won some <a href="https://www.commarts.com/webpicks/timothy-goodman" target="_blank">awards</a> for my work and some <a href="https://twitter.com/snailbites/status/917875803983147008" target="_blank">giant pencils</a> for my <a href="https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2" target="_blank">talks</a>.
+                    I've won some <a href="https://www.commarts.com/webpicks/timothy-goodman" target="_blank" rel="noopener noreferrer">awards</a> for my work and some <a href="https://twitter.com/snailbites/status/917875803983147008" target="_blank" rel="noopener noreferrer">giant pencils</a> for my <a href="https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2" target="_blank" rel="noopener noreferrer">talks</a>.
                 </p>
 
                 <p
