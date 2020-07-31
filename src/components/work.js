@@ -4,10 +4,10 @@ import styled from "styled-components"
 
 
 
-const Work = props => {
+const Work = () => {
     return (
         <>
-        <h2 css={`text-align: center;`}>Past Projects</h2>
+        <h2 css={`text-align: center;`}>Featured Work</h2>
         <FlexContainer flex>            
             <StyledWork>
             <aside class="sidebar">
@@ -28,7 +28,7 @@ const Work = props => {
             </aside>
             <figure class="clearfix">
                 <a href="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" target="_blank">
-                    <img id="screenshot" src="images/screenshots/richtu.png" width="580" height="333" />
+                    <img id="screenshot" src="images/screenshots/tgoodman.png" width="580" height="333" />
                     <figcaption id="caption">Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.</figcaption>
                 </a>
             </figure>
@@ -42,21 +42,6 @@ const StyledWork = styled.div`
     .sidebar {
       float: left;
       width: 260px;
-      margin-left: 50px;
-      ul li {
-        font-size: 18px;
-        line-height: 30px;
-        a {
-          margin-bottom: 5px;
-          border-bottom: 3px solid transparent;
-          cursor: pointer;
-          @include transition-duration(.2s);
-          &.selected,
-          &:hover {
-            color: $default-red;
-          }
-        }
-      }
     }
     figure {
       float: left;
@@ -64,9 +49,6 @@ const StyledWork = styled.div`
       width: 630px;
       height: 490px;
       background: url(../images/work-imac.png) no-repeat 0 0;
-      a {
-        text-decoration: none;
-      }
       #screenshot {
         position: absolute;
         top: 26px;
@@ -74,14 +56,14 @@ const StyledWork = styled.div`
       }
       figcaption {
         display: block;
-        opacity: 0;
+        opacity: 1;
         position: absolute;
         bottom: 130px;
         margin: 0 25px;
         background-color: rgba(0, 0, 0, 0.6);
         padding: 10px;
         border-top: 3px solid #000;
-        font: normal 13px/16px $font-family-helvetica;
+        font: normal 13px/16px Helvetica, Arial,;
         letter-spacing: 1px;
         color: #DDD;
       }

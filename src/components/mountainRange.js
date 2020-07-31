@@ -21,8 +21,8 @@ const Mountain = styled.div`
     position: absolute;
     bottom: -2px;
 
-    animation-delay: 250;
-    animation: 750ms bounceInUp forwards;
+    // animation-delay: 250;
+    // animation: 750ms bounceInUp forwards;
 
     @keyframes bounceInUp {
         from,
@@ -59,8 +59,9 @@ const Mountain = styled.div`
     ${props =>
         props.bg &&
         `
-        transform: translate3d(0, 22vw, 0);
-        animation-delay: 100ms;
+        // transform: translate3d(0, 22vw, 0);
+        // animation-delay: 100ms;
+        // bottom: 22vw;
 
         & > svg {         
             opacity: .2;   

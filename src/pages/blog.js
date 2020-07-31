@@ -18,13 +18,13 @@ class Blog extends React.Component {
                 <SEO title="All posts" />
 
                 <FlexContainer width={`960px`}>
-                    <h1
+                    {/* <h1
                         css={`
                             margin: 75px 0 25px;
                         `}
                     >
                         The Latest
-                    </h1>
+                    </h1> */}
                     {posts.map(({ node }) => {
                         const title = node.frontmatter.title || node.fields.slug
                         const isNew =
@@ -36,6 +36,7 @@ class Blog extends React.Component {
                                 {isNew && (
                                     <h4
                                         css={`
+                                            margin-top: 75px;
                                             margin-bottom: 12px;
                                         `}
                                     >
@@ -61,26 +62,26 @@ class Blog extends React.Component {
                                 )}
                                 {isNew && (
                                     <article>
-                                        <p
-                                            css={`
+                                        <p>
+                                            <span css={`
                                                 margin-bottom: 0;
                                             `}
-                                            dangerouslySetInnerHTML={{
-                                                __html:
-                                                    node.frontmatter
-                                                        .description ||
-                                                    node.excerpt,
-                                            }}
-                                        />
-                                        <p>
-                                            <Link
-                                                to={`${blogPath}${node.fields.slug}`}
-                                            >
-                                                Read more
+                                                dangerouslySetInnerHTML={{
+                                                    __html:
+                                                        node.frontmatter
+                                                            .description ||
+                                                        node.excerpt
+                                                }}
+                                            />
+                                            {'  '}
+                                            <Link 
+                                                css={`
+                                                    text-decoration: none;
+                                                `} 
+                                                to={`${blogPath}${node.fields.slug}`}>
+                                                    &rarr;
                                             </Link>
                                         </p>
-
-                                        <h3>Old Posts</h3>
                                     </article>
                                 )}
                             </div>

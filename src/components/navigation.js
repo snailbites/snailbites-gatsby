@@ -97,7 +97,7 @@ class Navigation extends React.Component {
                         <Link to={cvPath}>CV</Link>
                     </li>
                 </List>
-                {location.match(/blog|cv/i) && (
+                {/* {location.match(/blog|cv/i) && (
                     <Lead
                         className={open && "open"}
                         css={`
@@ -108,7 +108,7 @@ class Navigation extends React.Component {
                             // }
                         `}
                     />
-                )}
+                )} */}
             </Nav>
         )
     }
@@ -118,12 +118,13 @@ const Nav = styled.nav`
     ${props =>
         props.location.match(/blog|cv/gi) &&
         `
-        @media (min-width: 565px) {
-            margin: 0 auto;
-            max-width: 960px;
-            position: relative;
-            padding: 0 73px;
-        }`}
+        // @media (min-width: 565px) {
+        //     margin: 0 auto;
+        //     max-width: 960px;
+        //     position: relative;
+        //     padding: 0 73px;
+        // }
+        `}
 `
 
 const List = styled.ul`

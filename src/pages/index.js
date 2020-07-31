@@ -21,8 +21,8 @@ class IndexPage extends React.Component {
                     ]}
                 />
                 <Bio />
-                {/* <Spacer /> */}
-                {/* <Work /> */}
+                <Spacer />
+                <Work />
             </App>
         )
     }
