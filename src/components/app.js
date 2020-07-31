@@ -3,11 +3,11 @@ import styled from "styled-components"
 import { GlobalStyle, Colors } from "../theme/global"
 import Helmet from "react-helmet"
 import Footer from "./footer"
-import Jumbotron from "./jumbotron"
-import MountainRange from "../components/mountainRange"
-import Gradient from "../components/gradient"
 import Social from "../components/social"
 import Navigation from "./navigation"
+
+import Jumbotron from "../components/jumbotron"
+import MountainRange from "../components/mountainRange"
 
 class App extends React.Component {
     constructor() {
@@ -45,9 +45,6 @@ class App extends React.Component {
                 <Main role="main" location={location.pathname}>
                     {children}
                 </Main>
-
-                {location.pathname === rootPath && <Gradient />}
-
                 <Social location={location.pathname} />
                 <Footer />
             </Wrapper>
@@ -62,7 +59,7 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.main`
-    padding: 19px 0 10vw;
+    padding-top: 19px;
     background: ${props =>
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>

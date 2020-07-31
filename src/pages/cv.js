@@ -72,7 +72,7 @@ class CV extends React.Component {
                         <h3>Highlights</h3>
                         <dl>
                             <dt>Awards</dt>
-                            <dd>CSS Dev Conf 2016 - Best Of Speaker</dd>
+                            <dd>CSS Dev Conf 2016 - "Best Of" Speaker</dd>
                             <dd>
                                 <ExternalLink
                                     href={`https://www.commarts.com/webpicks/timothy-goodman`}
