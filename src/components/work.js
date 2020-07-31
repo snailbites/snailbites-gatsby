@@ -5,6 +5,21 @@ import { Colors } from "../theme/global"
 
 const projects = [
   {
+    'title': 'dls',
+    'link': "Grubhub Design Language System",
+    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+  },
+  {
+    'title': 'cfd',
+    'link': "Grubhub Contact Free Delivery",
+    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+  },
+  {
+    'title': 'closedbag',
+    'link': "Grubhub Floating Cart",
+    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+  },
+  {
     'title': 'tgoodman',
     'link': "Tim Goodman Portfolio",
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
@@ -46,12 +61,13 @@ const Work = () => {
     firstElInList.focus();
   }, [])
 
+  const screenshotUrl = `images/screenshots/${project.title}.png`
   return (
     <>
       <h2 css={`text-align: center`}>Featured Projects</h2>
       <FlexContainer flex>
-        <div css={`display: flex`}>          
-          <aside css={`flex: initial`}>            
+        <StyledWorkWrapper>        
+          <StyledSidebar>            
             <StyledList>
               {projects.map((item, i) => (
                 <li key={i}>                  
@@ -65,12 +81,12 @@ const Work = () => {
                 )
               )}
             </StyledList>
-          </aside>          
+          </StyledSidebar>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" alt={project.link} src={`images/screenshots/${project.title}.png`} width="580" height="333" />
+              <StyledScreenshot className="screenshot" alt={project.link} src={screenshotUrl} width="580" height="333" />
               <StyledCaption className="small">{project.caption}</StyledCaption>
           </StyledFigure>
-        </div>
+        </StyledWorkWrapper>
       </FlexContainer>
     </>
   )
@@ -81,7 +97,20 @@ const StyledList = styled.ul`
 
   li {
     margin-bottom: .75rem;
+
+    @media (max-width: 1100px) {
+      display: inline;
+      
+      &:after {
+        content: '|';
+      }
+
+      &:last-child:after {
+        content: none;
+      }
+    }
   }
+
 `
 
 const StyledLinkButton = styled.button`
@@ -101,8 +130,33 @@ const StyledLinkButton = styled.button`
   }
 `;
 
+const StyledWorkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    flex-direction: row; 
+    align-items: initial; 
+  }  
+`
+
+const StyledSidebar = styled.aside`
+  flex: 1 1 100%; 
+  text-align: center;
+
+  @media (min-width: 1100px) {
+    text-align: left;
+    flex: initial;  
+  }  
+`
+
 const StyledFigure = styled.figure`
-  flex: 0 0 630px;
+  flex: none;
+
+  @media (min-width: 1100px) {
+    flex: 0 0 630px;    
+  }  
 
   position: relative;
   width: 630px;

@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const Jumbotron = props => {
     return (
-        <Header>
+        <StyledWrapper>
             <StaticQuery
                 query={jumbotronQuery}
                 render={data => {
@@ -30,7 +30,7 @@ const Jumbotron = props => {
                     )
                 }}
             />
-        </Header>
+        </StyledWrapper>
     )
 }
 
@@ -58,7 +58,7 @@ const Title = styled.h1`
     }
 `
 
-const Header = styled.header`
+const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;

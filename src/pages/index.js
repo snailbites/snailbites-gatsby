@@ -4,11 +4,14 @@ import SEO from "../components/seo"
 import Bio from "../components/bio"
 import Work from "../components/work"
 import styled from "styled-components"
+import Gradient from "../components/gradient"
+
 class IndexPage extends React.Component {
     render() {
         const siteTitle = "Vincent Nalupta - UX Engineering Manager"
 
         return (
+            <>
             <App location={this.props.location} title={siteTitle}>
                 <SEO
                     title="Home"
@@ -23,7 +26,9 @@ class IndexPage extends React.Component {
                 <Bio />
                 <Spacer />
                 <Work />
+                <Gradient />
             </App>
+        </>
         )
     }
 }
