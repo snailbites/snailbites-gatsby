@@ -58,7 +58,7 @@ function Bio() {
                     This is my space to flex my design chops and write about interesting tech.
                 </p>
                 <Link to={blogPath}>
-                    <BioButton>Read more</BioButton>
+                    <BioButton>Read the Blog</BioButton>
                 </Link>
             </BioColumn>            
         </FlexContainer>
