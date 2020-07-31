@@ -25,13 +25,13 @@ Here's where the interesting engineering work began. Now that we had a static se
 
 To fully automate our workflow into style guide driven development, we took advantage of some modern tooling.
 
-<img src="http://www.losasso.com/wp-content/uploads/2015/04/yeoman-logo.png" style="float: left; height: 65px; padding: 0 10px 10px 0;">
+<img src="./yeoman-logo.png" style="float: left; height: 65px; padding: 0 10px 10px 0;">
 
 ### Yeoman
 
 First things first, we needed a living style guide that actually looked like some sort of a website. We had a set of individual components floating around on static pages and in CodePen. We needed basic that had the ability to possibly scale into something bigger, and we needed it fast. [Yeoman](http://yeoman.io/) to the rescue! Using Yeoman we were able to quickly add our markup, convert our CSS into SCSS, and have a gulp build in one easy step.
 
-<img src="http://bower.io/img/bower-logo.svg" style="float: left; height: 65px; padding: 0 10px 10px 0;">
+<img src="./bower-logo.svg" style="float: left; height: 65px; padding: 0 10px 10px 0;">
 
 ### Bower
 
