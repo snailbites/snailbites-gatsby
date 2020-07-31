@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
         font-style: italic;
         line-height: 1.15;
     }
-    p, footer {
+    p, footer, figcaption {
         font-weight: 300;
     }    
     h1 { 
@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
     h4 { font-size: ${Font.size * 1.563}px; }
     h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
     p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
-    footer, .small { font-size: ${Font.size * 0.75}px; }    
+    footer, figcaption, .small { font-size: ${Font.size * 0.75}px; }    
 
     a { color: ${props =>
         props.location === "/" ? Colors.neon : Colors.sesame}}

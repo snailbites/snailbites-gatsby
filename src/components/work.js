@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
@@ -41,12 +41,17 @@ const projects = [
 const Work = () => {
   const [project, setProject] = useState(projects[0])
 
+  useEffect(() => {
+    const firstElInList = document.getElementsByClassName('project')[0];        
+    firstElInList.focus();
+  }, [])
+
   return (
     <>
       <h2 css={`text-align: center`}>Featured Projects</h2>
       <FlexContainer flex>
-        <StyledWork>          
-          <aside className="sidebar">            
+        <div css={`display: flex`}>          
+          <aside css={`flex: initial`}>            
             <StyledList>
               {projects.map((item, i) => (
                 <li key={i}>                  
@@ -61,13 +66,11 @@ const Work = () => {
               )}
             </StyledList>
           </aside>          
-          <figure className="clearfix">                  
-            <a href="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" target="_blank" rel="noopener noreferrer">
-              <img id="screenshot" src={`images/screenshots/${project.title}.png`} width="580" height="333" />
-              <figcaption id="caption">{project.caption}</figcaption>
-            </a> 
-          </figure>
-        </StyledWork>
+          <StyledFigure className="clearfix">                  
+              <StyledScreenshot className="screenshot" src={`images/screenshots/${project.title}.png`} width="580" height="333" />
+              <StyledCaption className="small">{project.caption}</StyledCaption>
+          </StyledFigure>
+        </div>
       </FlexContainer>
     </>
   )
@@ -98,35 +101,30 @@ const StyledLinkButton = styled.button`
   }
 `;
 
-const StyledWork = styled.div`
-    .sidebar {
-      float: left;
-      width: 260px;
-    }
-    figure {
-      float: left;
-      position: relative;
-      width: 630px;
-      height: 490px;
-      background: url(../images/work-imac.png) no-repeat 0 0;
-      #screenshot {
-        position: absolute;
-        top: 26px;
-        left: 25px;
-      }
-      figcaption {
-        display: block;
-        opacity: 1;
-        position: absolute;
-        bottom: 130px;
-        margin: 0 25px;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 10px;
-        border-top: 3px solid #000;
-        font: normal 13px/16px Helvetica, Arial,;
-        letter-spacing: 1px;
-        color: #DDD;
-      }
-    }`
+const StyledFigure = styled.figure`
+  flex: 0 0 630px;
+
+  position: relative;
+  width: 630px;
+  height: 490px;
+
+  background: url(../images/work-imac.png) no-repeat 0 0;
+`
+
+const StyledScreenshot = styled.img`
+  position: absolute;
+  top: 26px;
+  left: 25px;
+`
+
+const StyledCaption = styled.figcaption`
+  position: absolute;    
+  bottom: 130px;
+
+  margin: 0 25px;
+  padding: 10px;
+
+  background-color: ${Colors.sesame};
+`;
 
 export default Work;
