@@ -67,7 +67,7 @@ const Work = () => {
             </StyledList>
           </aside>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" src={`images/screenshots/${project.title}.png`} width="580" height="333" />
+              <StyledScreenshot className="screenshot" alt={project.link} src={`images/screenshots/${project.title}.png`} width="580" height="333" />
               <StyledCaption className="small">{project.caption}</StyledCaption>
           </StyledFigure>
         </div>

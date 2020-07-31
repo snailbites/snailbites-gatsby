@@ -71,6 +71,7 @@ class Navigation extends React.Component {
                             position: absolute;
                         }
                     `}
+                    aria-label="navigation"
                     type="button"
                     onClick={this.toggleMenu}
                 >

@@ -9,8 +9,9 @@ function Social() {
     return (
         <SocialWrapper>
             <SocialTitle>What's good?</SocialTitle>
-            <Twitter href={`https://twitter.com/snailbites`} target="_blank" />
+            <Twitter aria-label="Twitter" href={`https://twitter.com/snailbites`} target="_blank" />
             <LinkedIn
+                aria-label="LinkedIn"
                 href={`https://www.linkedin.com/in/vnalupta/`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -29,7 +30,7 @@ const SocialWrapper = styled.div`
     padding-bottom: ${props => (props.location === "/" ? `10vw` : `4vw`)};
 `
 
-const SocialTitle = styled.h4`
+const SocialTitle = styled.h3`
     margin-top: 0;
 `
 
