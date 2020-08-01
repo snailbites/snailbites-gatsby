@@ -25,7 +25,7 @@ class App extends React.Component {
         const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
         return (
-            <Wrapper loaded={loaded}>
+            <Wrapper loaded={loaded} location={location.pathname}>
                 <Helmet>
                     <link
                         rel="stylesheet"
@@ -56,6 +56,11 @@ const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
     overflow-x: hidden;
+
+    ${props => props.location !== "/" &&
+        `display: flex;
+        flex-direction: column;`
+    }
 `
 
 const Main = styled.main`
@@ -64,9 +69,8 @@ const Main = styled.main`
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>
         props.location !== "/"
-            ? `border-bottom: 5px solid ${Colors.ocean}`
-            : `position: relative;
-        z-index: 10`};
+            ? `border-bottom: 5px solid ${Colors.ocean}; flex: 1 1 100%;`
+            : `position: relative; z-index: 10`};
 `
 
 export default App

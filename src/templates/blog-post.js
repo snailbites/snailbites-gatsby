@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
                     title={post.frontmatter.title}
                     description={post.frontmatter.description || post.excerpt}
                 />
-                <FlexContainer width={`960px`}>
+                <FlexContainer width={`768px`}>
                     <BlogStyle />
                     <h1
                         css={`
