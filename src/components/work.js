@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
@@ -53,10 +53,26 @@ const projects = [
   }
 ]
 
+const FADE_TIMING = 150;
+
 const Work = () => {
   const [project, setProject] = useState(projects[0])
+  const [loading, setLoading] = useState(false)
 
-  const screenshotUrl = `images/screenshots/${project.title}.png`
+  
+
+  function handleClick(e, item) {
+    if (project.title === item.title) {
+      return;
+    }
+
+    setLoading(true)  
+    setTimeout(() => {
+      setProject(item);    
+      setLoading(false)
+    }, FADE_TIMING)          
+  }  
+
   return (
     <>
       <h2 css={`text-align: center`}>Featured Projects</h2>
@@ -68,7 +84,7 @@ const Work = () => {
                 <li key={i}>                  
                   <StyledLinkButton                     
                     selected={project.title === item.title}   
-                    onClick={() => setProject(item)}                
+                    onClick={e => handleClick(e, item)}                
                     >
                       {item.link}
                   </StyledLinkButton>
@@ -78,11 +94,11 @@ const Work = () => {
             </StyledList>
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" alt={project.link} src={screenshotUrl} width="580" height="333" />
+              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.link} src={`images/screenshots/${project.title}.png`} width="580" height="333" />
               <StyledCaption className="small">
                 {project.caption}
                 {project.url && ` `}
-                {project.url && <a href={project.url} target="_blank">Link</a>}</StyledCaption>
+                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">Link</a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
       </FlexContainer>
@@ -169,6 +185,9 @@ const StyledScreenshot = styled.img`
   position: absolute;
   top: 26px;
   left: 25px;
+
+  transition: ${FADE_TIMING}ms opacity ease-out;  
+  opacity: ${props => props.isLoading ? `.3` : `1` };  
 `
 
 const StyledCaption = styled.figcaption`
