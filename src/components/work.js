@@ -22,6 +22,7 @@ const projects = [
   {
     'title': 'tgoodman',
     'link': "Tim Goodman Portfolio",
+    'url': 'https://web.archive.org/web/20120515120511/http://www.tgoodman.com/',
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
   },
   {
@@ -56,10 +57,10 @@ const projects = [
 const Work = () => {
   const [project, setProject] = useState(projects[0])
 
-  useEffect(() => {
-    const firstElInList = document.getElementsByClassName('project')[0];        
-    firstElInList.focus();
-  }, [])
+  // useEffect(() => {
+  //   const firstElInList = document.getElementsByClassName('project')[0];        
+  //   firstElInList.focus();
+  // }, [])
 
   const screenshotUrl = `images/screenshots/${project.title}.png`
   return (
@@ -72,7 +73,7 @@ const Work = () => {
               {projects.map((item, i) => (
                 <li key={i}>                  
                   <StyledLinkButton                     
-                    className="project"   
+                    selected={project.title === item.title}   
                     onClick={() => setProject(item)}                
                     >
                       {item.link}
@@ -126,8 +127,10 @@ const StyledLinkButton = styled.button`
 
   &:focus {
     outline: none;
-    text-decoration: underline;
   }
+
+  text-decoration: ${props =>
+    props.selected ? `underline` : `none` };
 `;
 
 const StyledWorkWrapper = styled.div`
