@@ -5,9 +5,9 @@ import { Colors } from "../theme/global"
 import twitter from "../../content/assets/twitter.svg"
 import linkedin from "../../content/assets/linkedin.svg"
 
-function Social() {
+function Social(props) {
     return (
-        <SocialWrapper>
+        <SocialWrapper location={props.location}>
             <SocialTitle>What's good?</SocialTitle>
             <Twitter aria-label="Twitter" href={`https://twitter.com/snailbites`} target="_blank" />
             <LinkedIn
@@ -22,7 +22,9 @@ function Social() {
 
 const SocialWrapper = styled.div`
     text-align: center;
-    background-color: ${Colors.plum};
+    background-color: ${props => props.location !== "/" 
+    ? Colors.sesame
+    : Colors.plum };
     padding: 5vw 0 10vw;
     color: ${Colors.eggshell};
 
@@ -45,7 +47,6 @@ const SocialImg = styled.a`
         opacity: 0.75;
     }
 `
-
 const Twitter = styled(SocialImg)`
     transform: translateY(4px);
     margin-right: 10px;

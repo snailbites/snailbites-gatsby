@@ -3,9 +3,9 @@ import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
-function Footer() {
+function Footer(props) {
     return (
-        <StyledFooter>
+        <StyledFooter location={props.location}>
             <FlexContainer>
                 <div>
                     This site was lovingly hand-coded with{" "}
@@ -30,7 +30,9 @@ function Footer() {
 
 const StyledFooter = styled.footer`
     text-align: center;
-    background-color: ${Colors.plum};
+    background-color: ${props => props.location !== "/" 
+        ? Colors.sesame
+        : Colors.plum };
     padding-bottom: 12px;
     color: ${Colors.eggshell};
 `

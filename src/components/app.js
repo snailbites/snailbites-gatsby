@@ -47,7 +47,7 @@ class App extends React.Component {
                 </Main>
                 
                 <Social location={location.pathname} />
-                <Footer />
+                <Footer location={location.pathname} />
             </Wrapper>
         )
     }
@@ -70,8 +70,8 @@ const Main = styled.main`
         props.location === "/" ? Colors.ocean : Colors.eggshell};
     ${props =>
         props.location !== "/"
-            ? `border-bottom: 5px solid ${Colors.ocean}; flex: 1 1 100%;`
-            : `position: relative; z-index: 10`};
+            ? `flex: 1 1 100%;`
+            : `position: relative; z-index: 10`};            
 `
 
 export default App

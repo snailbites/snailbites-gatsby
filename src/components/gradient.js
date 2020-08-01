@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components"
-import MountainRange from "../components/mountainRange"
 
 const Gradient = () => {
     return (
@@ -9,15 +8,18 @@ const Gradient = () => {
                 css={`position: relative;
                 z-index: 1; `}>
                 <defs>
-                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#8E99AC" /><stop stop-color="#4F1C48" offset="100%" /></linearGradient>
+                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+                        <stop stopColor="#8E99AC" />
+                        <stop stopColor="#4F1C48" offset="100%" />
+                    </linearGradient>
                 </defs>
-                <path d="M0 3041.525l558.176-162.19 256.6 162.19L1202.885 2784l302.113 319.999.002.001v66H0v-128.475z" transform="translate(0 -2784)" fill="url(#a)" fill-rule="evenodd" opacity=".2"/>
+                <path d="M0 3041.525l558.176-162.19 256.6 162.19L1202.885 2784l302.113 319.999.002.001v66H0v-128.475z" transform="translate(0 -2784)" fill="url(#a)" fillRule="evenodd" opacity=".2" />
             </svg>
             <StyledMoon>
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="50" fill="#D6E307" fill-rule="evenodd"/>
-        </svg>
-        </StyledMoon>
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#D6E307" fillRule="evenodd" />
+                </svg>
+            </StyledMoon>
         </StyledGradient>
     )
 }
