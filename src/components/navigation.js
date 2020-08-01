@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Colors } from "../theme/global"
 import styled from "styled-components"
 import { Link } from "gatsby"
@@ -8,18 +8,13 @@ const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
 const cvPath = `${__PATH_PREFIX__}/cv`
 
-class Navigation extends React.Component {
-    constructor(props) {
-        super(props)
+const Navigation = (props) => {
+    const [open, setOpen] = useState(false);
+    const { location, loaded } = props;
 
-        this.state = {
-            open: false,
-        }
-    }
-
-    toggleMenu = $event => {
+    function toggleMenu($event) {
         $event.preventDefault()
-        if (this.state.open) {
+        if (open) {
             document.getElementById("crownToLine1").beginElement()
             document.getElementById("crownToLine2").beginElement()
         } else {
@@ -27,19 +22,15 @@ class Navigation extends React.Component {
             document.getElementById("lineToCrown2").beginElement()
         }
 
-        this.setState({ open: !this.state.open })
+        setOpen(!open)
     }
 
-    render() {
-        const { location, loaded } = this.props
-        const { open } = this.state
-
-        return (
-            <Nav location={location}>
-                <button
-                    loaded={loaded}
-                    location={location}
-                    css={`
+    return (
+        <Nav location={location}>
+            <button
+                loaded={loaded}
+                location={location}
+                css={`
                         border: 0;
                         background-color: inherit;
                         z-index: 1;
@@ -50,8 +41,8 @@ class Navigation extends React.Component {
                         margin: 0;
                         width: 40px;
                         ${props =>
-                            props.location === "/" &&
-                            `
+                        props.location === "/" &&
+                        `
                             
                         transition: transform 250ms;
                         transitin-timing-function: 0.215, 0.61, 0.355, 1;
@@ -60,8 +51,8 @@ class Navigation extends React.Component {
                         `}
 
                         ${props =>
-                            props.loaded &&
-                            `transform: translateX(0);`}
+                        props.loaded &&
+                        `transform: translateX(0);`}
 
                         &:focus {
                             outline: none;
@@ -71,34 +62,33 @@ class Navigation extends React.Component {
                             position: absolute;
                         }
                     `}
-                    aria-label="navigation"
-                    type="button"
-                    onClick={this.toggleMenu}
-                >
-                    <Crown
-                        css={`
+                aria-label="navigation"
+                type="button"
+                onClick={toggleMenu}
+            >
+                <Crown
+                    css={`
                             &:hover {
                                 cursor: pointer;
                             }
                         `}
-                        onClick={this.toggleCrown}
-                        location={location}
-                        open={open}
-                        strokeWidth={7}
-                    />
-                </button>
-                <List location={location} className={open && "open"}>
-                    <li>
-                        <Link to={rootPath}>Home</Link>
-                    </li>
-                    <li>
-                        <Link to={blogPath}>Blog</Link>
-                    </li>
-                    <li>
-                        <Link to={cvPath}>CV</Link>
-                    </li>
-                </List>
-                {/* {location.match(/blog|cv/i) && (
+                    location={location}
+                    open={open}
+                    strokeWidth={7}
+                />
+            </button>
+            <List location={location} className={open && "open"}>
+                <li>
+                    <Link to={rootPath}>Home</Link>
+                </li>
+                <li>
+                    <Link to={blogPath}>Blog</Link>
+                </li>
+                <li>
+                    <Link to={cvPath}>CV</Link>
+                </li>
+            </List>
+            {/* {location.match(/blog|cv/i) && (
                     <Lead
                         className={open && "open"}
                         css={`
@@ -110,9 +100,8 @@ class Navigation extends React.Component {
                         `}
                     />
                 )} */}
-            </Nav>
-        )
-    }
+        </Nav>
+    )
 }
 
 const Nav = styled.nav`

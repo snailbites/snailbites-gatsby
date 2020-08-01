@@ -45,6 +45,7 @@ class App extends React.Component {
                 <Main role="main" location={location.pathname}>
                     {children}
                 </Main>
+                
                 <Social location={location.pathname} />
                 <Footer />
             </Wrapper>
