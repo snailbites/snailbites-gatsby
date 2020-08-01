@@ -6,23 +6,22 @@ import { Colors } from "../theme/global"
 const projects = [
   {
     'title': 'dls',
-    'link': "Grubhub Design Language System",
-    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+    'link': "Grubhub Design System",
+    'caption': 'Creator and core maintainer of the Grubhub Design System which has reached total adoption across all Web, Android and iOS teams across the entire company. As the org has evolved, have continued to provide CSS and JavaScript contributions, as well as Design and process guidance.'
   },
   {
     'title': 'cfd',
     'link': "Grubhub Contact Free Delivery",
-    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company feature launch that went from concept to production in 3 days.'
   },
   {
     'title': 'closedbag',
     'link': "Grubhub Floating Cart",
-    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+    'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.'
   },
   {
     'title': 'tgoodman',
     'link': "Tim Goodman Portfolio",
-    'url': 'https://web.archive.org/web/20120515120511/http://www.tgoodman.com/',
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
   },
   {
@@ -45,22 +44,17 @@ const projects = [
   {
     'title': 'leadership',
     'link': "The Leadership Room",
-    'caption': 'Designed within the existing style direction of The Leadership Room branding, to redesign and restyle the blog page.',
+    'caption': 'Designed and built several pages within the existing style direction of The Leadership Room branding.',
   },
   {
     'title': 'richtu',
     'link': "Rich Tu Portfolio",
-    'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a distinctly different horizontal scrolling portfolio page.'
+    'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.'
   }
 ]
 
 const Work = () => {
   const [project, setProject] = useState(projects[0])
-
-  // useEffect(() => {
-  //   const firstElInList = document.getElementsByClassName('project')[0];        
-  //   firstElInList.focus();
-  // }, [])
 
   const screenshotUrl = `images/screenshots/${project.title}.png`
   return (
@@ -85,7 +79,10 @@ const Work = () => {
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
               <StyledScreenshot className="screenshot" alt={project.link} src={screenshotUrl} width="580" height="333" />
-              <StyledCaption className="small">{project.caption}</StyledCaption>
+              <StyledCaption className="small">
+                {project.caption}
+                {project.url && ` `}
+                {project.url && <a href={project.url} target="_blank">Link</a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
       </FlexContainer>
