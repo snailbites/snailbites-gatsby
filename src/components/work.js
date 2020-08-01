@@ -7,7 +7,8 @@ const projects = [
   {
     'title': 'dls',
     'link': "Grubhub Design System",
-    'caption': 'Creator and core maintainer of the Grubhub Design System which has reached total adoption across all Web, Android and iOS teams across the entire company. As the org has evolved, have continued to provide CSS and JavaScript contributions, as well as Design and process guidance.'
+    'caption': 'Creator and core maintainer of the Grubhub Design System which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
+    'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2"
   },
   {
     'title': 'cfd',
@@ -17,7 +18,8 @@ const projects = [
   {
     'title': 'closedbag',
     'link': "Grubhub Floating Cart",
-    'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.'
+    'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.',
+    'url': 'https://www.grubhub.com/restaurant/hummus--pita-co-585-6th-ave-new-york/267853'
   },
   {
     'title': 'tgoodman',
@@ -38,7 +40,7 @@ const projects = [
   {
     'title': 'espn-recruiting',
     'link': "ESPN Recruiting Landing Page",
-    'caption': 'Designed and developed within ESPN\'s content framework to produce the detail page for a brand new college recruiting section on espn.com.',
+    'caption': 'Designed within ESPN\'s content framework and developed the front end templates for ESPN\'s recruiting portal',
     'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120'
   },
   {
@@ -98,7 +100,9 @@ const Work = () => {
               <StyledCaption className="small">
                 {project.caption}
                 {project.url && ` `}
-                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">Link</a>}</StyledCaption>
+                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
+                  {project.title === 'dls' ? 'Learn More' : 'Link'}
+                </a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
       </FlexContainer>
