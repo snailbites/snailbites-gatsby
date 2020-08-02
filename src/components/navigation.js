@@ -18,10 +18,10 @@ const Navigation = (props) => {
 
     const handleRoute = (e, route) => {
         e.preventDefault();        
-        setOpen(false);
-        setTimeout(() => {
+        // setOpen(false);
+        // setTimeout(() => {
             navigate(route)
-        }, 250)        
+        // }, 350)        
     }
 
     return (
@@ -72,11 +72,12 @@ const StyledBackdrop = styled.div`
     background-color: ${Colors.eggshell};
     
     transform: translate3d(${props => props.open ? 0 : `-100vw`}, 0, 0);    
-    transition: 300ms ease-in-out;
+    transition: 350ms ease-in-out;
     transition-delay: 50ms;
 `;
 
 const StyledList = styled.ul`
+    transition: 200ms visibility ease-in;
     visibility: ${props => props.open ? 'visible' : 'hidden'};
 
     display: flex;

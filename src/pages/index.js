@@ -9,7 +9,7 @@ import Gradient from "../components/gradient"
 
 const IndexPage = props => {
     return (
-        <>
+    
         <App 
             location={props.location} 
             title={`Vincent Nalupta - UX Engineering Manager`}>
@@ -29,7 +29,6 @@ const IndexPage = props => {
             <Spacer />
             <Gradient />
         </App>
-    </>
     )
 }
 

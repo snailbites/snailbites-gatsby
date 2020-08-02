@@ -8,6 +8,9 @@ import Navigation from "./navigation"
 import Jumbotron from "../components/jumbotron"
 import MountainRange from "../components/mountainRange"
 
+import PageTransition from 'gatsby-plugin-page-transitions';
+
+
 class App extends React.Component {
     constructor() {
         super()
@@ -18,12 +21,35 @@ class App extends React.Component {
     componentDidMount() {
         setTimeout(() => this.setState({ loaded: true }), 150)
     }
-
+  
+            // defaultStyle={{
+            //     transition: 'right 500ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+            //     transform: 'translate3d(0,0,0)',
+            //     right: '100%',
+            //     position: 'absolute',
+            //     width: '100%',
+            //   }}
+            //   transitionStyles={{
+            //     entering: { right: '0%' },
+            //     entered: { right: '0%' },
+            //     exiting: { right: '100%' },
+            //   }}>
     render() {
         const { location, children } = this.props
         const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
         return (
+            <PageTransition 
+            defaultStyle={{
+                transition: 'opacity 500ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+                opacity: 0
+              }}
+              transitionStyles={{
+                entering: { opacity: '0' },
+                entered: { opacity: '1.0' },
+                exiting: { opacity: '0' },
+              }}>
+
             <Wrapper loaded={loaded} location={location.pathname}>
                 <Helmet>
                     <link
@@ -47,6 +73,8 @@ class App extends React.Component {
                 
                 <Footer location={location.pathname} />
             </Wrapper>
+
+  </PageTransition>
         )
     }
 }
