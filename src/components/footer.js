@@ -12,7 +12,7 @@ function Footer(props) {
             <FlexContainer flex spread css={`justify-content: space-between;`}>
                 {/* Fixes zindex bug with mountain SVG above it */}
                 <section css={`z-index: 25;position: relative;`}>
-                    <BlogFeed />
+                    {props.location === '/' && <BlogFeed />}
                     <p className="small">This site was made with {" "}
                         <a
                             css={`
@@ -41,18 +41,23 @@ function Footer(props) {
                         snailbit.es &bull; © {new Date().getFullYear()} all rights reserved
                     </p>
                 </section>
-                <Social location={props.location} />
+                {props.location === '/' && <Social location={props.location} />}
             </FlexContainer>
         </StyledFooter>
     )
 }
 
 const StyledFooter = styled.footer`
+    overflow: hidden;
     background-color: ${props => props.location !== "/"
         ? Colors.sesame
         : Colors.plum};
-    padding-bottom: 12px;
+    padding: 1em 0;
     color: ${Colors.eggshell};
+
+    & a {
+        color: ${Colors.neon}
+    }
 `
 
 export default Footer

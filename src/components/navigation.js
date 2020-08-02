@@ -25,7 +25,7 @@ const Navigation = (props) => {
     }
 
     return (
-        <StyledNav location={location}>
+        <StyledNav location={location} open={open}>
             <StyledNavButton
                 loaded={loaded}
                 location={location}
@@ -80,7 +80,6 @@ const StyledList = styled.ul`
     visibility: ${props => props.open ? 'visible' : 'hidden'};
 
     display: flex;
-    // display: ${props => props.open ? 'flex' : 'none'};
     flex-direction: column;
     align-items: center;
     justify-content: center;
