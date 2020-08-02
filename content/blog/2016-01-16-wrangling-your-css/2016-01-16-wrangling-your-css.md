@@ -20,9 +20,3 @@ Now, even though our site looked nice and pretty, it performed poorly and was ve
 ![GrubHub Homepage Post-Facelift](./GH_homepage.png)
 
 Towards the end of the facelift, my manager looked at me for an answer. We needed someone to take control of this mess and I was interested. He named me the tech lead for CSS and set me to work. In a short turn around time of about two months, we went from a bloated code base, to a lean, organized, style-guide-driven development process. How did we do it? This series of posts is a collection of learnings from the process, so you can weed out the mess and not waste a lot of time figuring out what to do next.
-
-```js
-function helloWorld() {
-    console.log("Hello World!")
-}
-```
