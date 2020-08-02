@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import { Colors } from "../theme/global"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
@@ -14,6 +14,14 @@ const Navigation = (props) => {
 
     const handleClick = () => {
         setOpen(!open);
+    }
+
+    const handleRoute = (e, route) => {
+        e.preventDefault();        
+        setOpen(false);
+        setTimeout(() => {
+            navigate(route)
+        }, 250)        
     }
 
     return (
@@ -32,13 +40,15 @@ const Navigation = (props) => {
             <StyledBackdrop open={open} />                            
             <StyledList location={location} open={open}>
                 <li className="h1">
-                    <Link to={rootPath}>Home</Link>
+                    <a href="rootPath" onClick={(e) => handleRoute(e, rootPath)}>Home</a>
                 </li>
                 <li className="h1">
-                    <Link to={blogPath}>Blog</Link>
+                <a href="rootPath" onClick={(e) => handleRoute(e, blogPath)}>Blog</a>
+                    {/* <Link onClick={handleRoute(blogPath)}>Blog</Link> */}
                 </li>
                 <li className="h1">
-                    <Link to={cvPath}>CV</Link>
+                <a href="rootPath" onClick={(e) => handleRoute(e, cvPath)}>CV</a>
+                    {/* <Link onClick={handleRoute(cvPath)}>CV</Link> */}
                 </li>
             </StyledList>
         </StyledNav>
