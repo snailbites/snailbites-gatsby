@@ -35,7 +35,7 @@ const projects = [
   {
     'shortname': 'mw-searchsale',
     'name': "Madewell Search & Sale",
-    'caption': 'Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.',
+    'caption': 'Refactored the search experience as a single page app and built a drop down navigation bar. Worked closedly with design to restyle the UX to be more in line with the overall Madewell brand experience.',
     'url': null,
     'link': null
   },

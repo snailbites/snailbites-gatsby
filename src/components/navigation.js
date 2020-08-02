@@ -154,28 +154,6 @@ function makeStaggerDelay() {
     return str
 }
 
-// const Crown = props => (
-//     <svg
-//         className={props.className}
-//         width="74"
-//         height="43"
-//         xmlns="http://www.w3.org/2000/svg"
-//     >
-//         <path
-//             css={`
-//                 transition: 150ms fill-opacity ease-out;
-//                 transition-delay: 150ms;
-//             `}
-//             d="M4.186 18.41L7.216 40h59.441l3.177-21.984-14.342 13.06-18.434-25.83-18.474 27.141L4.186 18.41z"
-//             stroke={props.location === "/" ? Colors.neon : Colors.sesame}
-//             strokeWidth="6"
-//             fill={Colors.neon}
-//             fillRule="evenodd"
-//             fillOpacity={props.open ? 1.0 : 0.0}
-//         />
-//     </svg>
-// )
-
 const Crown = props => (
     <svg
         className={props.className}
