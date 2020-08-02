@@ -14,8 +14,21 @@ function Footer(props) {
                             color: ${Colors.neon};
                         `}
                         href="https://www.gatsbyjs.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Gatsby
+                    </a>
+                    {" "}and designed with{" "}
+                    <a
+                        css={`
+                            color: ${Colors.neon};
+                        `}
+                        href="https://www.sketch.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Sketch
                     </a>
                     .
                 </div>

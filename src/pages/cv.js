@@ -3,26 +3,11 @@ import App from "../components/app"
 import FlexContainer from "../components/flexContainer"
 import styled from "styled-components"
 
-const CVWrapper = styled.section`
-    h3,
-    h4,
-    h5 {
-        margin-bottom: 0;
-    }
-    h3,
-    h4 {
-        margin-top: 50px;
-    }
-    h5 {
-        margin-top: 18px;
-    }
-`
-
 class CV extends React.Component {
     render() {
         return (
             <App location={this.props.location}>
-                <FlexContainer width={`960px`}>
+                <FlexContainer width={`768px`}>
                     <CVWrapper>
                         <h1
                             css={`
@@ -30,8 +15,8 @@ class CV extends React.Component {
                             `}
                         >
                             Vincent Nalupta
-                        </h1>
-                        <p class="lead">
+                        </h1>                        
+                        <p>
                             I've been working on the web for over 13 years.
                             Eight of those years were spent in e-commerce. At
                             this point in my career I've seen it all and built
@@ -41,7 +26,7 @@ class CV extends React.Component {
                             all abilities.
                         </p>
 
-                        <p class="lead">
+                        <p>
                             I've spent the past few years building design
                             systems to great success. My experience in
                             e-commerce allows me to tweak the design system to
@@ -49,7 +34,7 @@ class CV extends React.Component {
                             came from the smallest of code changes.
                         </p>
 
-                        <p class="lead">
+                        <p>
                             I love to design. I love opening sketch and making
                             anything I can think of (like this site). I've spent
                             time executing designs for clients and then
@@ -58,7 +43,7 @@ class CV extends React.Component {
                             end product.
                         </p>
 
-                        <p class="lead">
+                        <p>
                             I now manage a team of engineers that handle
                             everything from managing and maintaing our
                             Javascript framework, to building and scaling our
@@ -114,6 +99,17 @@ class CV extends React.Component {
                             </dd>
                         </dl>
 
+                        <h3>Tools I Use</h3>
+                        <ul>
+                            <li>React</li>
+                            <li>Next.js</li>
+                            <li>Gatsby</li>
+                            <li>Node</li>
+                            <li>SCSS</li>
+                            <li>Typescript</li>
+                            <li>Sketch</li>
+                        </ul>
+
                         <h4>Grubhub</h4>
                         <h5>Team Lead</h5>
                         <p>
@@ -159,20 +155,22 @@ class CV extends React.Component {
                         <h4>J.Crew</h4>
                         <h5>Front End Engineer</h5>
                         <p>
-                            Front End scrum lead for $6 billion fashion company.
-                            Consistently met tight deadlines in a fast-paced,
-                            high output, Agile scrum team. Regularly recognized
-                            and awarded at company all-hands for exemplary work
-                            on the most highly trafficked pages (Product Detail
-                            Page, Search & Sale).
+                            <ul>
+                                <li>Front End scrum lead for $6 billion fashion company.</li>
+                                <li>Consistently met tight deadlines in a fast-paced,
+                            high output, Agile scrum team.</li>
+                                <li>Regularly recognized
+                                and awarded at company all-hands for exemplary work
+                                on the most highly trafficked pages (Product Detail
+                            Page, Search & Sale).</li>
+                            </ul>
                         </p>
 
                         <h4>Noble Desktop</h4>
                         <h5>Instructor</h5>
                         <p>
-                            Taught front end code to continuing education
+                            Taught full CSS course and front end development to continuing education
                             students as part of the web development curriculum.
-                            Technologies include HTML with a heavy focus on CSS.
                         </p>
 
                         <h4>Look North Inc.</h4>
@@ -180,8 +178,13 @@ class CV extends React.Component {
                         <p>
                             Front End Developer in the Expression Engine CMS,
                             creating sites for high profile clients including:
-                            ESPN, Mark Teixiera (MLB), and other NYC
-                            personalities and small businesses. Spent 25% of
+                            <ul>
+                                <li>ESPN</li>
+                                <li>Jessica Seinfeld</li>
+                                <li>Tim Goodman</li>
+                                <li>Suzie Orman</li>
+                            </ul>
+                            and other NYC personalities and small businesses. Spent 25% of
                             time designing.
                         </p>
 
@@ -203,6 +206,22 @@ class CV extends React.Component {
         )
     }
 }
+
+const CVWrapper = styled.section`
+    h3,
+    h4,
+    h5 {
+        margin-bottom: 0;
+    }
+    h3,
+    h4 {
+        margin-top: 50px;
+    }
+    h5 {
+        margin-top: 18px;
+    }
+    margin-bottom: 100px; 
+`
 
 const ExternalLink = props => {
     return (
