@@ -41,13 +41,14 @@ class App extends React.Component {
         return (
             <PageTransition 
             defaultStyle={{
-                transition: 'opacity 500ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+                transition: 'opacity 300ms cubic-bezier(0.47, 0, 0.75, 0.72)',
                 opacity: 0
               }}
               transitionStyles={{
-                entering: { opacity: '0' },
-                entered: { opacity: '1.0' },
-                exiting: { opacity: '0' },
+                entering: { opacity: 1 },
+                entered:  { opacity: 1 },
+                exiting:  { opacity: 0 },
+                exited:  { opacity: 0 },
               }}>
 
             <Wrapper loaded={loaded} location={location.pathname}>

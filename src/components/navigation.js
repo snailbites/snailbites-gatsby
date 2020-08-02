@@ -18,10 +18,10 @@ const Navigation = (props) => {
 
     const handleRoute = (e, route) => {
         e.preventDefault();        
-        // setOpen(false);
-        // setTimeout(() => {
+        setOpen(false);
+        setTimeout(() => {
             navigate(route)
-        // }, 350)        
+        }, 350)        
     }
 
     return (
