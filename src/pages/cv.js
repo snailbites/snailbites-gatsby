@@ -54,6 +54,8 @@ class CV extends React.Component {
                             people can.
                         </p>
 
+                        <p><a href={`../resume-011420_UX.pdf`}>Download this CV</a></p>
+
                         <h3>Highlights</h3>
                         <dl>
                             <dt>Awards</dt>
@@ -109,6 +111,9 @@ class CV extends React.Component {
                             <li>Typescript</li>
                             <li>Sketch</li>
                         </ul>
+
+                        <h3>Education</h3>
+                        <p>University of Maryland at College Park - <ExternalLink href="https://www.cs.umd.edu/about">B.S Computer Science</ExternalLink></p>
 
                         <h4>Grubhub</h4>
                         <h5>Team Lead</h5>
@@ -189,16 +194,10 @@ class CV extends React.Component {
                         </p>
 
                         <h4>Seton Hall University</h4>
-                        <h5>Web Developer & Designers</h5>
+                        <h5>Web Developer & Designer</h5>
                         <p>
                             Worked in WordPress an PHP MySQL apps. Spent 20% of
                             time designing.
-                        </p>
-
-                        <h3>Education</h3>
-                        <p>
-                            University of Maryland College Park B.S - Computer
-                            Science
                         </p>
                     </CVWrapper>
                 </FlexContainer>

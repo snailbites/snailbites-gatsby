@@ -32,7 +32,6 @@ module.exports = {
                 name: `assets`,
             },
         },
-      
         {
             resolve: `gatsby-transformer-remark`,
             options: {
