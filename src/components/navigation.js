@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import { Colors } from "../theme/global"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
@@ -60,12 +60,13 @@ const baseTiming = `250ms`;
 
 const StyledNav = styled.nav`
     position: fixed;
-    z-index: 1000;
+    z-index: ${props => props.open ? 1000 : 20};
 `;
-const StyledBackdrop = styled.div`
+const StyledBackdrop = styled.div`    
     position: fixed;
     top: 0;
     left: 0;    
+    z-index: 1;
 
     height: 100vh;
     width: 100vw;
@@ -78,7 +79,10 @@ const StyledBackdrop = styled.div`
 `;
 
 const StyledList = styled.ul`
+    visibility: ${props => props.open ? 'visible' : 'hidden'};
+
     display: flex;
+    // display: ${props => props.open ? 'flex' : 'none'};
     flex-direction: column;
     align-items: center;
     justify-content: center;

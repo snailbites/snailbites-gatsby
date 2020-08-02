@@ -5,6 +5,8 @@ import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
 
+import styled from "styled-components";
+
 const blogPath = `blog/`
 
 class Blog extends React.Component {
@@ -17,7 +19,7 @@ class Blog extends React.Component {
             <App location={this.props.location} title={siteTitle}>
                 <SEO title="All posts" />
 
-                <FlexContainer width={`960px`}>
+                <FlexContainer width={`768px`}>
                     {/* <h1
                         css={`
                             margin: 75px 0 25px;
@@ -34,7 +36,7 @@ class Blog extends React.Component {
                         return (
                             <div key={node.fields.slug}>
                                 {isNew && (
-                                    <h4
+                                    <h1
                                         css={`
                                             margin-top: 75px;
                                             margin-bottom: 12px;
@@ -45,10 +47,10 @@ class Blog extends React.Component {
                                         >
                                             {title}
                                         </Link>
-                                    </h4>
+                                    </h1>
                                 )}
                                 {!isNew && (
-                                    <h5
+                                    <h4
                                         css={`
                                             margin-bottom: 12px;
                                         `}
@@ -58,10 +60,10 @@ class Blog extends React.Component {
                                         >
                                             {title}
                                         </Link>
-                                    </h5>
+                                    </h4>
                                 )}
-                                {isNew && (
-                                    <article>
+                                {/* {isNew && ( */}
+                                    <article>                                        
                                         <p>
                                             <span css={`
                                                 margin-bottom: 0;
@@ -83,15 +85,20 @@ class Blog extends React.Component {
                                             </Link>
                                         </p>
                                     </article>
-                                )}
+                                {/* )} */}
                             </div>
                         )
                     })}
+                <Spacer />
                 </FlexContainer>
             </App>
         )
     }
 }
+
+const Spacer = styled.div`
+    margin-bottom: 100px;
+`;
 
 export default Blog
 
