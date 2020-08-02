@@ -38,14 +38,14 @@ const GlobalStyle = createGlobalStyle`
     p, footer, figcaption {
         font-weight: 300;
     }    
-    h1 { 
+    h1, .h1 { 
         font-size: ${Font.size * 3.052}px; 
         line-height: ${Font.size * 3.125}px; 
     }
-    h2 { font-size: ${Font.size * 2.441}px; }
-    h3 { font-size: ${Font.size * 1.952}px; }
-    h4 { font-size: ${Font.size * 1.563}px; }
-    h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
+    h2, .h2 { font-size: ${Font.size * 2.441}px; }
+    h3, .h3 { font-size: ${Font.size * 1.952}px; }
+    h4, .h4 { font-size: ${Font.size * 1.563}px; }
+    h5, .h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
     p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
     footer, figcaption, .small { font-size: ${Font.size * 0.75}px; }    
 

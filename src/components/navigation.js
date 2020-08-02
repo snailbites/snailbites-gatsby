@@ -17,85 +17,133 @@ const Navigation = (props) => {
     }
 
     return (
-        <nav location={location}>
+        <StyledNav location={location}>
             <StyledNavButton
                 loaded={loaded}
                 location={location}
                 aria-label="navigation"
                 onClick={handleClick}
-                className={open ? `open` : null}
                 open={open}
             >
                 <div></div>
                 <div></div>
                 <div></div>
             </StyledNavButton>
-            <StyledList location={location} className={open && "open"}>
-                <li>
+            <StyledBackdrop open={open} />                            
+            <StyledList location={location} open={open}>
+                <li className="h1">
                     <Link to={rootPath}>Home</Link>
                 </li>
-                <li>
+                <li className="h1">
                     <Link to={blogPath}>Blog</Link>
                 </li>
-                <li>
+                <li className="h1">
                     <Link to={cvPath}>CV</Link>
                 </li>
             </StyledList>
-        </nav>
+        </StyledNav>
     )
 }
 
+const baseUnit = `11px`;
+const baseTiming = `250ms`;
+
+const StyledNav = styled.nav`
+    position: fixed;
+    z-index: 1000;
+`;
+const StyledBackdrop = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;    
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: ${Colors.eggshell};
+    
+    transform: translate3d(${props => props.open ? 0 : `-100vw`}, 0, 0);    
+    transition: 300ms ease-in-out;
+    transition-delay: 50ms;
+`;
+
 const StyledList = styled.ul`
-    list-style-type: none;
-    left: 68px;
-    top: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
     position: absolute;
+    top: -1em;    
+    
     padding: 0;
     margin: 0;
-    z-index: 1;
+
+    list-style-type: none;    
+    z-index: 1;    
 
     & > li {
-        display: inline;
         transition: 200ms opacity ease-in;
-        margin-right: 1em;
-        opacity: 0;
-    }
+        transition-delay: 50ms;
+        opacity: ${props => props.open ? 1 : 0 };
 
-    &.open > li {
-        opacity: 1;
-    }
+        text-transform: uppercase;
+        margin-bottom: .5em;
 
-    @media (max-width: 540px) {
-        position: absolute;
-    }
+        & > a {
+            text-decoration: none;
+            color: ${Colors.sesame};  
+            
+            &:after {
+                content: '';
+                width: 0;
+                height: 4px;
+                display: block;
+                background: ${Colors.sesame};
+                transition: width 250ms ease-in-out;
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
+        }
+    }    
 `
-const baseUnit = `11px`;
-const baseTiming = `150ms`;
+
 const StyledNavButton = styled.div`
     position: relative;
     cursor: pointer;
+    z-index: 100;
 
     width: calc(${baseUnit} * 3);
     height: calc(${baseUnit} * 3);
     margin: calc(${baseUnit} * 2) 0 0 calc(${baseUnit} * 2);
-
-    transform: rotate(0);
-    transition: ${baseTiming} ease-in-out;
   
   & > div {
     position: absolute;
     left: 0;
-    
+
     height: 4px;
     width: 100%;
 
     opacity: 1;
     transform: rotate(0);
-    transition: ${baseTiming} ease-in-out;
+        
+    transition-property: top, left, rotate, opacity, transform, background-color;
+    transition-duration: ${baseTiming};
+    transition-timing-function: ease-in;    
 
     background-color: ${props => props.location === "/"
-        ? Colors.eggshell
-        : Colors.sesame};    
+        ? props.open
+            ? Colors.sesame 
+            : Colors.eggshell
+        : Colors.sesame
+    };    
+
+    
   }
   
   & div:nth-child(1) {
