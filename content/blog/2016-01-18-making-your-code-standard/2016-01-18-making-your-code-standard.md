@@ -19,13 +19,13 @@ As mentioned earlier, every developer has their own style. In most cases, we wou
 
 The first step in any major project is to benchmark. Remember that there is still a “science” aspect to computer science. And like any good scientist, you need to make sure that you have a baseline to reference, in order to see if your experiment yielded results. You’ll want to look closely at file size and page load time. If there are other factor motivating you to refactor your CSS, then take note of those too. Here’s a shot of where we were somewhere towards the beginning of our refactor.
 
-![](./benchmark1.png)
+![Benchmark](./benchmark1.png)
 
 It might also be helpful to screenshot some of the code, for reference. Think about it as taking a picture of an old messy basement before a remodel. You’ll want to remember how bad it is now when you’re basking in the glow of your brand new space.
 
 Here’s a particularly painful section of code that I took note of before starting.
 
-![](./before.png)
+![Before](./before.png)
 
 ### Our code standards
 
@@ -111,7 +111,7 @@ Second, it allows you to once again see the casecade more clearly. With preproce
 
 Third, it gets the team moving in the right direction quickly. All of your CSS from this point onward will at least be maintainable. You will already be cut in half. Even if the code itself is bad, the naming lends itself to refactoring. Take for example the code sample I screenshotted earlier and think about how long it would take to make changes to that chunk of code. Here’s a shot of some new code. Which would you rather maintain?
 
-![](.//after.png)
+![After](./after.png)
 
 #### Where does this fall short?
 
