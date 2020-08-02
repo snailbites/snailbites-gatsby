@@ -5,53 +5,67 @@ import { Colors } from "../theme/global"
 
 const projects = [
   {
-    'title': 'dls',
-    'link': "Grubhub Design System",
+    'shortname': 'cfd',
+    'name': "Grubhub Contact Free Delivery",
+    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in 3 days.',
+    'url': 'https://learn.grubhub.com/archives/basics/contact-free-delivery',
+    'link': 'Learn More'
+  },
+  {
+    'shortname': 'dls',
+    'name': "Grubhub Design System",
     'caption': 'Creator and core maintainer of the Grubhub Design System which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
-    'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2"
+    'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2",
+    'link': 'See my slides'
   },
   {
-    'title': 'cfd',
-    'link': "Grubhub Contact Free Delivery",
-    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company feature launch that went from concept to production in 3 days.'
-  },
-  {
-    'title': 'closedbag',
-    'link': "Grubhub Floating Cart",
+    'shortname': 'closedbag',
+    'name': "Grubhub Floating Cart",
     'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.',
-    'url': 'https://www.grubhub.com/restaurant/hummus--pita-co-585-6th-ave-new-york/267853'
+    'url': 'https://www.grubhub.com/restaurant/hummus--pita-co-585-6th-ave-new-york/267853',
+    'link': null
   },
   {
-    'title': 'tgoodman',
-    'link': "Tim Goodman Portfolio",
-    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.'
+    'shortname': 'tgoodman',
+    'name': "Tim Goodman Portfolio",
+    'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.',
+    'url': 'https://friendly-kare-ac2a16.netlify.app/',
+    'link': 'See a demo'
   },
   {
-    'title': 'mw-searchsale',
-    'link': "Madewell Search & Sale",
-    'caption': 'Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.'
+    'shortname': 'mw-searchsale',
+    'name': "Madewell Search & Sale",
+    'caption': 'Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.',
+    'url': null,
+    'link': null
   },
   {
-    'title': 'jcrew-pdp',
-    'link': "J.Crew Product Detail Page",
+    'shortname': 'jcrew-pdp',
+    'name': "J.Crew Product Detail Page",
     'caption': 'Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.',
-    'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277'
+    'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277',   
+    'link': null 
   },
   {
-    'title': 'espn-recruiting',
-    'link': "ESPN Recruiting Landing Page",
+    'shortname': 'espn-recruiting',
+    'name': "ESPN Recruiting Landing Page",
     'caption': 'Designed within ESPN\'s content framework and developed the front end templates for ESPN\'s recruiting portal',
-    'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120'
+    'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120',
+    'link': null
   },
   {
-    'title': 'leadership',
-    'link': "The Leadership Room",
+    'shortname': 'leadership',
+    'name': "The Leadership Room",
     'caption': 'Designed and built several pages within the existing style direction of The Leadership Room branding.',
+    'url': null,
+    'link': null
   },
   {
-    'title': 'richtu',
-    'link': "Rich Tu Portfolio",
-    'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.'
+    'shortname': 'richtu',
+    'name': "Rich Tu Portfolio",
+    'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.',
+    'url': null,
+    'link': null
   }
 ]
 
@@ -64,7 +78,7 @@ const Work = () => {
   
 
   function handleClick(e, item) {
-    if (project.title === item.title) {
+    if (project.name === item.name) {
       return;
     }
 
@@ -85,10 +99,10 @@ const Work = () => {
               {projects.map((item, i) => (
                 <li key={i}>                  
                   <StyledLinkButton                     
-                    selected={project.title === item.title}   
+                    selected={project.shortname === item.shortname}   
                     onClick={e => handleClick(e, item)}                
                     >
-                      {item.link}
+                      {item.name}
                   </StyledLinkButton>
                 </li>
                 )
@@ -96,12 +110,12 @@ const Work = () => {
             </StyledList>
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.link} src={`images/screenshots/${project.title}.png`} width="580" height="333" />
+              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} src={`images/screenshots/${project.shortname}.png`} width="580" height="333" />
               <StyledCaption className="small">
                 {project.caption}
                 {project.url && ` `}
                 {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
-                  {project.title === 'dls' ? 'Learn More' : 'Link'}
+                  {project.link ? project.link : 'Link'}
                 </a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
