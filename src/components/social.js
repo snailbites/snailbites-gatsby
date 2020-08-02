@@ -1,56 +1,61 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { Colors } from "../theme/global"
 
-import twitter from "../../content/assets/twitter.svg"
-import linkedin from "../../content/assets/linkedin.svg"
+const rootPath = `${__PATH_PREFIX__}/`
+const blogPath = `${__PATH_PREFIX__}/blog/`
+const cvPath = `${__PATH_PREFIX__}/cv`
 
 function Social(props) {
     return (
-        <SocialWrapper location={props.location}>
+        <SocialWrapper location={props.location} className="body">
             <SocialTitle>What's good?</SocialTitle>
-            <Twitter aria-label="Twitter" href={`https://twitter.com/snailbites`} target="_blank" />
-            <LinkedIn
-                aria-label="LinkedIn"
-                href={`https://www.linkedin.com/in/vnalupta/`}
-                target="_blank"
-                rel="noopener noreferrer"
-            />
+            <StyledList>
+                <li><a href="https://twitter.com/snailbites">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/vnalupta/">LinkedIn</a></li>
+            </StyledList>
+            <StyledList>
+                <li>
+                    <Link to={rootPath}>Home</Link>
+                </li>
+                <li>
+                    <Link to={blogPath}>Blog</Link>
+                </li>
+                <li>
+                    <Link to={cvPath}>CV</Link>                    
+                </li>
+            </StyledList>
         </SocialWrapper>
     )
 }
 
-const SocialWrapper = styled.div`
-    text-align: center;
+const SocialWrapper = styled.div`  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transform: translateY(-1.7em);
+
     background-color: ${props => props.location !== "/" 
     ? Colors.sesame
     : Colors.plum };
-    padding: 3vw 0;
     color: ${Colors.eggshell};
 `
 
-const SocialTitle = styled.h3`
-    margin-top: 0;
+const SocialTitle = styled.p`
+    margin-bottom: .5em;
 `
 
-const SocialImg = styled.a`
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    color: ${Colors.eggshell};
-    transition: 150ms ease-out opacity;
+const StyledList = styled.ul`
+    margin: 0 0 .5em 0;
+    padding: 0;
+    list-style-type: none;
 
-    &:hover {
-        opacity: 0.75;
+    & li {
+        display: inline;   
+        margin-left: 1em;     
     }
-`
-const Twitter = styled(SocialImg)`
-    transform: translateY(4px);
-    margin-right: 10px;
-    background: url(${twitter}) 0 0 no-repeat;
-`
-const LinkedIn = styled(SocialImg)`
-    background: url(${linkedin}) 0 0 no-repeat;
 `
 
 export default Social

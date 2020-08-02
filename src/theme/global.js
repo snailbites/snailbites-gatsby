@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     h3, .h3 { font-size: ${Font.size * 1.952}px; }
     h4, .h4 { font-size: ${Font.size * 1.563}px; }
     h5, .h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
-    p { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
+    p, .body { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
     footer, figcaption, .small { font-size: ${Font.size * 0.75}px; }    
 
     a { color: ${props =>

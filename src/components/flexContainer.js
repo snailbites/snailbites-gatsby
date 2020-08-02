@@ -8,7 +8,8 @@ class FlexContainer extends React.Component {
 }
 
 const Container = styled.section`
-    ${props => props.props.flex && `display: flex; justify-content: center;`}
+    ${props => props.props.flex && `display: flex;`}    
+    justify-content: ${props => props.props.spread ? `space-between` : `center`};
     ${props =>
         props.props.width &&
         `max-width: ${props.props.width};`}

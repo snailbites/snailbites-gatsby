@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { GlobalStyle, Colors } from "../theme/global"
 import Helmet from "react-helmet"
 import Footer from "./footer"
-import Social from "../components/social"
 import Navigation from "./navigation"
 
 import Jumbotron from "../components/jumbotron"
@@ -46,7 +45,6 @@ class App extends React.Component {
                     {children}
                 </Main>
                 
-                <Social location={location.pathname} />
                 <Footer location={location.pathname} />
             </Wrapper>
         )

@@ -54,7 +54,9 @@ class CV extends React.Component {
                             people can.
                         </p>
 
-                        <p><a href={`../resume-011420_UX.pdf`}>Download this CV (current as of August 1, 2020)</a></p>
+                        <p><a href={`../resume-011420_UX.pdf`}>Download this CV</a>
+                        <br />
+                        <span className="small">current as of August 1, 2020</span></p>
 
                         <h3>Highlights</h3>
                         <dl>

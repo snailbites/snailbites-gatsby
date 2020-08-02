@@ -43,12 +43,10 @@ const Navigation = (props) => {
                     <a href="rootPath" onClick={(e) => handleRoute(e, rootPath)}>Home</a>
                 </li>
                 <li className="h1">
-                <a href="rootPath" onClick={(e) => handleRoute(e, blogPath)}>Blog</a>
-                    {/* <Link onClick={handleRoute(blogPath)}>Blog</Link> */}
+                    <a href="blogPath" onClick={(e) => handleRoute(e, blogPath)}>Blog</a>
                 </li>
                 <li className="h1">
-                <a href="rootPath" onClick={(e) => handleRoute(e, cvPath)}>CV</a>
-                    {/* <Link onClick={handleRoute(cvPath)}>CV</Link> */}
+                <a href="cvPath" onClick={(e) => handleRoute(e, cvPath)}>CV</a>                    
                 </li>
             </StyledList>
         </StyledNav>

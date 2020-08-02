@@ -1,51 +1,56 @@
 import React from "react"
 import FlexContainer from "./flexContainer"
+import Social from "../components/social"
+import BlogFeed from "./blogFeed"
+
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
 function Footer(props) {
     return (
         <StyledFooter location={props.location}>
-            <FlexContainer>
-                <div>
-                    This site was lovingly hand-coded with{" "}
-                    <a
-                        css={`
-                            color: ${Colors.neon};
-                        `}
-                        href="https://www.gatsbyjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Gatsby
-                    </a>
-                    {" "}and designed with{" "}
-                    <a
-                        css={`
-                            color: ${Colors.neon};
-                        `}
-                        href="https://www.sketch.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Sketch
-                    </a>
-                    .
-                </div>
-                <div>
-                    snailbit.es • © {new Date().getFullYear()} • all rights
-                    reserved
-                </div>
+            <FlexContainer flex spread css={`justify-content: space-between;`}>
+                {/* Fixes zindex bug with mountain SVG above it */}
+                <section css={`z-index: 25;position: relative;`}>
+                    <BlogFeed />
+                    <p className="small">This site was made with {" "}
+                        <a
+                            css={`
+                                color: ${Colors.neon};
+                            `}
+                            href="https://www.gatsbyjs.org"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Gatsby
+                        </a>
+                        ,{" "}
+                        <a
+                            css={`
+                                color: ${Colors.neon};
+                            `}
+                            href="https://www.sketch.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Sketch
+                        </a>
+                        {" "}and ❤️
+                    </p>
+                    <p className="small" css={`transform: translateY(-1em)`}>
+                        snailbit.es &bull; © {new Date().getFullYear()} all rights reserved
+                    </p>
+                </section>
+                <Social location={props.location} />
             </FlexContainer>
         </StyledFooter>
     )
 }
 
 const StyledFooter = styled.footer`
-    text-align: center;
-    background-color: ${props => props.location !== "/" 
+    background-color: ${props => props.location !== "/"
         ? Colors.sesame
-        : Colors.plum };
+        : Colors.plum};
     padding-bottom: 12px;
     color: ${Colors.eggshell};
 `
