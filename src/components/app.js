@@ -37,6 +37,15 @@ class App extends React.Component {
                         href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
                         media="all"
                     ></link>
+
+                    <link rel="preload" href="images/screenshots/cfd.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/dls.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/closedbag.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/tgoodman.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/jcrew-pdp.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/espn-recruiting.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/leadership.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/richtu.png" as="image"></link>
                 </Helmet>
 
                 <GlobalStyle location={location.pathname} />
@@ -49,7 +58,7 @@ class App extends React.Component {
                                     ? 'visible'
                                     : 'hidden'
                             }>
-                  
+
 
                             <Main role="main" location={location.pathname}>
 
@@ -58,7 +67,7 @@ class App extends React.Component {
 
                             </Main>
 
-                <Footer location={location.pathname} />
+                            <Footer location={location.pathname} />
                         </Fade>
                     )}
                 </TransitionState>
