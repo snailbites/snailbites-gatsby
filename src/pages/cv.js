@@ -9,11 +9,7 @@ class CV extends React.Component {
             <App location={this.props.location}>
                 <FlexContainer width={`768px`}>
                     <CVWrapper>
-                        <h1
-                            css={`
-                                margin: 0 0 25px;
-                            `}
-                        >
+                        <h1 css={`margin: 0 0 25px 0;`}>
                             Vincent Nalupta
                         </h1>                        
                         <p>

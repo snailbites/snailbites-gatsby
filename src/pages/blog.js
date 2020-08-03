@@ -20,9 +20,7 @@ class Blog extends React.Component {
                 <SEO title="All posts" />
 
                 <FlexContainer width={`768px`}>
-                    <section css={`
-                            padding-top: 100px;
-                        `}>
+                    <StyledSection>
                         {posts.map(({ node }) => {
                             const title = node.frontmatter.title || node.fields.slug
                             const isNew =
@@ -32,11 +30,7 @@ class Blog extends React.Component {
                             return (
                                 <div key={node.fields.slug}>
                                     {isNew && (
-                                        <h1
-                                            css={`
-                                                margin: 0 0 12px;
-                                            `}
-                                        >
+                                        <StyledTopHeading>
                                             <TransitionLink
                                                 exit={{ delay: 0.35, length: 0.35 }}
                                                 entry={{
@@ -46,14 +40,10 @@ class Blog extends React.Component {
                                             >
                                                 {title}
                                             </TransitionLink>
-                                        </h1>
+                                        </StyledTopHeading>
                                     )}
                                     {!isNew && (
-                                        <h4
-                                            css={`
-                                                margin-bottom: 12px;
-                                            `}
-                                        >
+                                        <StyledSubHeading>
                                             <TransitionLink
                                                 exit={{ delay: 0.35, length: 0.35 }}
                                                 entry={{
@@ -63,21 +53,18 @@ class Blog extends React.Component {
                                             >
                                                 {title}
                                             </TransitionLink>
-                                        </h4>
+                                        </StyledSubHeading>
                                     )}
-                                    {/* {isNew && ( */}
                                     <article>
                                         <p>
-                                            <span css={`
-                                                    margin-bottom: 0;
-                                                `}
-                                                dangerouslySetInnerHTML={{
+                                            <StyledBlurb>
+                                                <span dangerouslySetInnerHTML={{
                                                     __html:
                                                         node.frontmatter
                                                             .description ||
                                                         node.excerpt
-                                                }}
-                                            />
+                                                }} />
+                                            </StyledBlurb>
                                             {'  '}
                                             <TransitionLink
                                                 exit={{ delay: 0.35, length: 0.35 }}
@@ -92,17 +79,29 @@ class Blog extends React.Component {
                                                 </TransitionLink>
                                         </p>
                                     </article>
-                                    {/* )} */}
                                 </div>
                             )
                         })}
-                    </section>
+                    </StyledSection>
                     <Spacer />
                 </FlexContainer>
             </App>
         )
     }
 }
+
+const StyledTopHeading = styled.h1`
+    margin: 0 0 12px;
+`
+const StyledSubHeading = styled.h4`
+    margin-bottom: 12px;
+`
+const StyledBlurb = styled.span`
+    margin-bottom: 0;
+`
+const StyledSection = styled.section`
+    padding-top: 100px;
+`
 
 const Spacer = styled.div`
     height: 100px;

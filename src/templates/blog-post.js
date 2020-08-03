@@ -1,19 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { createGlobalStyle } from "styled-components"
 import TransitionLink from 'gatsby-plugin-transition-link'
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-
-const BlogStyle = createGlobalStyle`
-    .main {
-        h3, h4, h5 {
-            margin-bottom: 0;
-        }
-    }
-    a, b { font-weight: 500; }
-`
+import styled from "styled-components";
 
 class BlogPostTemplate extends React.Component {
     render() {
@@ -28,22 +19,15 @@ class BlogPostTemplate extends React.Component {
                     description={post.frontmatter.description || post.excerpt}
                 />
                 <FlexContainer width={`768px`}>
-                    <section css={`
-                            padding-top: 100px;
-                        `}>
-                        <BlogStyle />
-                        <h1
-                            css={`
-                            margin: 0 0 25px;
-                        `}
-                        >
+                    <StyledSection>                    
+                        <StyledHeading>
                             {post.frontmatter.title}
-                        </h1>
+                        </StyledHeading>
+                        
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
                         <p
                             css={`
-                            margin-top: 30px;
                             font-weight: 500;
                             text-align: left;
                         `}
@@ -85,12 +69,20 @@ class BlogPostTemplate extends React.Component {
                                 )}
                             </li>
                         </ul>
-                    </section>
+                    </StyledSection>
                 </FlexContainer>
             </App>
         )
     }
 }
+
+const StyledSection = styled.section`
+    padding-top: 100px;
+`
+
+const StyledHeading = styled.h1`
+    margin: 0 0 25px 0 !important;
+`
 
 export default BlogPostTemplate
 
