@@ -117,7 +117,7 @@ const Work = () => {
             </StyledList>
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} src={`images/screenshots/${project.shortname}.png`} width="580" height="333" />
+              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} css={`background-image: url(images/screenshots/${project.shortname}.png)`}  />
               <StyledCaption className="small">
                 {project.caption}
                 {project.url && ` `}
@@ -209,11 +209,16 @@ const StyledFigure = styled.figure`
   background: url(../images/work-imac.png) no-repeat 0 0;
 `
 
-const StyledScreenshot = styled.img`
+const StyledScreenshot = styled.div`
   position: absolute;
   top: 26px;
   left: 25px;
+  width: 630px;
+  height: 490px;
 
+  
+  background-repeat: no-repeat;
+  background-position: 0 0;
   transition: ${FADE_TIMING}ms opacity ease-out;  
   opacity: ${props => props.isLoading ? `0` : `1` };  
 `
