@@ -4,7 +4,7 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 class BlogPostTemplate extends React.Component {
     render() {

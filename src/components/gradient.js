@@ -29,6 +29,7 @@ const StyledMoon = styled.div`
     position: absolute;
     right: 12vh;
     top: -9vh;
+    opacity: 0.55;
 `
 
 const StyledGradient = styled.section`
