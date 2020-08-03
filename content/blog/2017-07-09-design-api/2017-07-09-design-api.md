@@ -26,7 +26,7 @@ Let's take a closer look. I want to rapidly prototype a new page. To do that I n
 
 I don't have to think about the code behind the button or the
 heading. I just know that the desired outcome is going to be correct.
-![](./design-api-heading.png){:height="125px"}{:class="useBorder"} You
+![](./design-api-heading.png) You
 could consider the exported classes as similar to setting a contract for a
 typical server/client architecture. The classes would not change except for a
 major revision, and those breaking changes would need to be communicated out to
@@ -39,7 +39,7 @@ that the API layer is typically the “base” for a lot of the foundational dat
 client applications. In this regard, our Design APIs fulfill that role by
 providing the building blocks on which to develop more software. The diagram
 below illustrates how the entire system works.
-![](./design-api-flow.png){:class="img-responsive"} Note carefully the
+![](./design-api-flow.png) Note carefully the
 tightly coupled binding between design and development. We use language to
 couple these two together. The shared language is what eases the communication
 friction between teams and helps to reinforce the sort-of “contract” that is

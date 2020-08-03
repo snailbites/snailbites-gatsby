@@ -93,8 +93,6 @@ What about the `<a>` and the `<h1>`? Here’s where you can make a decision. You
 }
 ```
 
-{% endhighlight %}
-
 You now have 3 levels of descendants in your one class. At the risk of classes becoming too long, this is about where it’s time to stop and start over recursively. The next element then becomes the “parent”, as before, and then the children within that get the first dash.
 
 #### What about modifiers?
