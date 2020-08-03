@@ -108,6 +108,7 @@ class CV extends React.Component {
                             <li>React</li>
                             <li>Next.js</li>
                             <li>Gatsby</li>
+                            <li>Angular</li>
                             <li>Node</li>
                             <li>SCSS</li>
                             <li>Typescript</li>

@@ -26,43 +26,43 @@ class App extends React.Component {
         const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
         return (
-            <PageTransition 
-            defaultStyle={{
-                transition: 'opacity 350ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-                opacity: 0
-              }}
-              transitionStyles={{
-                entering: { opacity: 1 },
-                entered:  { opacity: 1 },
-                exiting:  { opacity: 0 },
-                exited:  { opacity: 0 },
-              }}>
+            <PageTransition
+                defaultStyle={{
+                    transition: 'opacity 350ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+                    opacity: 0
+                }}
+                transitionStyles={{
+                    entering: { opacity: 1 },
+                    entered: { opacity: 1 },
+                    exiting: { opacity: 0 },
+                    exited: { opacity: 0 },
+                }}>
 
-            <Wrapper loaded={loaded} location={location.pathname}>
-                <Helmet>
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
-                        media="all"
-                    ></link>
-                </Helmet>
-                <GlobalStyle location={location.pathname} />
-                <Navigation location={location.pathname} loaded={loaded} />
-                {location.pathname === rootPath && (
-                    <header>
-                        <Jumbotron loaded={loaded} />
-                        <MountainRange loaded={loaded} />
-                    </header>
-                )}
+                <Wrapper loaded={loaded} location={location.pathname}>
+                    <Helmet>
+                        <link
+                            rel="stylesheet"
+                            href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
+                            media="all"
+                        ></link>
+                    </Helmet>
+                    <GlobalStyle location={location.pathname} />
+                    <Navigation location={location.pathname} loaded={loaded} />
+                    {location.pathname === rootPath && (
+                        <header>
+                            <Jumbotron loaded={loaded} />
+                            <MountainRange loaded={loaded} />
+                        </header>
+                    )}
 
-                <Main role="main" location={location.pathname}>
-                    {children}
-                </Main>
-                
-                <Footer location={location.pathname} />
-            </Wrapper>
+                    <Main role="main" location={location.pathname}>
+                        {children}
+                    </Main>
 
-  </PageTransition>
+                    <Footer location={location.pathname} />
+                </Wrapper>
+
+            </PageTransition>
         )
     }
 }

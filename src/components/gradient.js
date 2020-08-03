@@ -4,6 +4,7 @@ import styled from "styled-components"
 const Gradient = () => {
     return (
         <StyledGradient>
+<svg width="453" height="29" xmlns="http://www.w3.org/2000/svg"><ellipse cx="281.5" cy="2916.5" rx="226.5" ry="14.5" transform="translate(-55 -2902)" fill="#D8D8D8" fillRule="evenodd"/></svg>
             <svg viewBox="0 0 1440 380" xmlns="http://www.w3.org/2000/svg"
                 css={`position: relative;
                 z-index: 1; `}>

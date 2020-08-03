@@ -7,14 +7,14 @@ const projects = [
   {
     'shortname': 'cfd',
     'name': "Grubhub Contact Free Delivery",
-    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in 3 days.',
-    'url': 'https://learn.grubhub.com/archives/basics/contact-free-delivery',
+    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in just 3 days.',
+    'url': 'https://blog.grubhub.com/health-and-safety',
     'link': 'Learn More'
   },
   {
     'shortname': 'dls',
     'name': "Grubhub Design System",
-    'caption': 'Creator and core maintainer of the Grubhub Design System which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
+    'caption': 'Creator and core maintainer of the Grubhub Design System - which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
     'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2",
     'link': 'See my slides'
   },
@@ -33,19 +33,19 @@ const projects = [
     'link': 'See a demo'
   },
   {
-    'shortname': 'mw-searchsale',
-    'name': "Madewell Search & Sale",
-    'caption': 'Refactored the search experience as a single page app and built a drop down navigation bar. Worked closedly with design to restyle the UX to be more in line with the overall Madewell brand experience.',
-    'url': null,
-    'link': null
-  },
-  {
     'shortname': 'jcrew-pdp',
     'name': "J.Crew Product Detail Page",
     'caption': 'Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.',
     'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277',   
     'link': null 
   },
+  {
+    'shortname': 'mw-searchsale',
+    'name': "Madewell Search & Sale",
+    'caption': 'Refactored the search experience as a single page app and built a drop down navigation bar. Worked closedly with design to restyle the UX to be more in line with the overall Madewell brand experience.',
+    'url': null,
+    'link': null
+  },  
   {
     'shortname': 'espn-recruiting',
     'name': "ESPN Recruiting Landing Page",
@@ -66,7 +66,14 @@ const projects = [
     'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.',
     'url': null,
     'link': null
-  }
+  },
+  {
+    'shortname': 'codeblue',
+    'name': "CodeBlue Blog",
+    'caption': 'Created an emergency preparedness blog for Seton Hall University. Worked closely with design to chop up a standard WordPress blog to look and feel like a comic book.',
+    'url': 'https://blogs.shu.edu/project/code-blue/',
+    'link': 'Read More'
+  }  
 ]
 
 const FADE_TIMING = 150;
