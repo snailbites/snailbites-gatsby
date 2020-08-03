@@ -56,7 +56,8 @@ const StyledFooter = styled.footer`
     color: ${Colors.eggshell};
 
     & a {
-        color: ${Colors.neon}
+        color: ${Colors.neon};
+        text-decoration: none;
     }
 `
 

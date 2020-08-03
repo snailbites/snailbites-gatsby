@@ -122,7 +122,7 @@ const Work = () => {
                 {project.caption}
                 {project.url && ` `}
                 {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
-                  {project.link ? project.link : 'Link'}
+                  {project.link ? project.link : 'Link'} &rarr;
                 </a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
@@ -156,10 +156,13 @@ const StyledLinkButton = styled.button`
   text-align: initial;
   background: inherit;
   border: none;
-  color: ${Colors.neon};
+  text-decoration: none;
+  transition: text-shadow 300ms ease-out, color 250ms ease-out;
 
   &:hover,
   &:focus {
+    text-shadow: 1px 1px 1px rgb(0,0,0,.5);
+    color: ${Colors.eggshell};
     cursor: pointer;
   }
 
@@ -167,8 +170,8 @@ const StyledLinkButton = styled.button`
     outline: none;
   }
 
-  text-decoration: ${props =>
-    props.selected ? `underline` : `none` };
+  color: ${props =>
+    props.selected ? Colors.eggshell : Colors.neon};
 `;
 
 const StyledWorkWrapper = styled.div`
@@ -223,6 +226,10 @@ const StyledCaption = styled.figcaption`
   padding: 10px;
 
   background-color: ${Colors.sesame};
+
+  & a {
+    text-decoration: none;
+  }
 `;
 
 export default Work;
