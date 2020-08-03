@@ -14,6 +14,7 @@ const Colors = {
     eggshell: `#D8D8D8`,
 }
 
+
 // https://type-scale.com/
 const GlobalStyle = createGlobalStyle`    
     ${styledNormalize}

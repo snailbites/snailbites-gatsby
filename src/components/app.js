@@ -1,15 +1,23 @@
 import React from "react"
 import styled from "styled-components"
-import { GlobalStyle, Colors } from "../theme/global"
+import { Colors } from "../theme/global"
 import Helmet from "react-helmet"
 import Footer from "./footer"
 import Navigation from "./navigation"
-
 import Jumbotron from "../components/jumbotron"
 import MountainRange from "../components/mountainRange"
+import { GlobalStyle } from "../theme/global"
 
-import PageTransition from 'gatsby-plugin-page-transitions';
+// import PageTransition from 'gatsby-plugin-page-transitions';
+import { TransitionState } from "gatsby-plugin-transition-link";
 
+import posed from 'react-pose';
+
+// Your pose
+export const Fade = posed.div({
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+})
 
 class App extends React.Component {
     constructor() {
@@ -26,43 +34,43 @@ class App extends React.Component {
         const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
         return (
-            <PageTransition
-                defaultStyle={{
-                    transition: 'opacity 350ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-                    opacity: 0
-                }}
-                transitionStyles={{
-                    entering: { opacity: 1 },
-                    entered: { opacity: 1 },
-                    exiting: { opacity: 0 },
-                    exited: { opacity: 0 },
-                }}>
+            <Wrapper loaded={loaded} location={location.pathname}>
+                <Helmet>
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
+                        media="all"
+                    ></link>
+                </Helmet>
 
-                <Wrapper loaded={loaded} location={location.pathname}>
-                    <Helmet>
-                        <link
-                            rel="stylesheet"
-                            href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
-                            media="all"
-                        ></link>
-                    </Helmet>
-                    <GlobalStyle location={location.pathname} />
-                    <Navigation location={location.pathname} loaded={loaded} />
-                    {location.pathname === rootPath && (
-                        <header>
-                            <Jumbotron loaded={loaded} />
-                            <MountainRange loaded={loaded} />
-                        </header>
+                <GlobalStyle location={location.pathname} />
+                <Navigation location={location.pathname} loaded={loaded} />
+                <TransitionState>
+                    {({ transitionStatus }) => (
+                        <Fade
+                            pose={
+                                ['entering', 'entered'].includes(transitionStatus)
+                                    ? 'visible'
+                                    : 'hidden'
+                            }>
+                            {location && location.pathname === rootPath && (
+                                <header>
+                                    <Jumbotron loaded={loaded} />
+                                    <MountainRange loaded={loaded} />
+                                </header>
+                            )}
+
+                            <Main role="main" location={location.pathname}>
+
+                                {children}
+
+
+                            </Main>
+                        </Fade>
                     )}
-
-                    <Main role="main" location={location.pathname}>
-                        {children}
-                    </Main>
-
-                    <Footer location={location.pathname} />
-                </Wrapper>
-
-            </PageTransition>
+                </TransitionState>
+                <Footer location={location.pathname} />
+            </Wrapper>
         )
     }
 }

@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, StaticQuery, Link } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import Image from "gatsby-image"
 
 import Button from "./button"
 import FlexContainer from "./flexContainer"
-
+import TransitionLink from 'gatsby-plugin-transition-link'
 import bg from "../../content/assets/bio-bg.svg"
 
 function Bio() {
@@ -57,9 +57,14 @@ function Bio() {
                 >
                     This is my space to flex my design chops and write about interesting tech.
                 </p>
-                <Link to={blogPath}>
+                <TransitionLink 
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }}
+                        to={blogPath}>
                     <BioButton>Read the Blog</BioButton>
-                </Link>
+                </TransitionLink>
             </BioColumn>            
         </FlexContainer>
     )

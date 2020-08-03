@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
-
 import { Colors } from "../theme/global"
-import { navigate } from "gatsby"
+
+import TransitionLink from 'gatsby-plugin-transition-link'
 
 const rootPath = `/`
 const blogPath = `/blog/`
@@ -15,18 +14,6 @@ const Navigation = (props) => {
 
     const handleClick = () => {
         setOpen(!open);
-    }
-
-    const handleRoute = (e, route) => {
-        e.preventDefault();      
-        if (location === route){
-            return;
-        }
-
-        setOpen(false);
-        setTimeout(() => {
-            navigate(`${__PATH_PREFIX__}${route}`)
-        }, 350)        
     }
 
     return (
@@ -42,45 +29,61 @@ const Navigation = (props) => {
                 <div></div>
                 <div></div>
             </StyledNavButton>
-            <StyledBackdrop open={open} />                            
+            <StyledBackdrop open={open} />
             <StyledList location={location} open={open}>
                 <li className="h1">
-                    <Link 
-                        to={rootPath} 
-                        className={location === rootPath ? 'selected' : null}
-                        onClick={(e) => handleRoute(e, rootPath)}>
-                            Home
-                    </Link>
+                    <TransitionLink 
+                        exit={{ 
+                            delay: .35, 
+                            length: .35,
+                        }}
+                        entry={{
+                            length: .75
+                        }}
+                        onClick={handleClick}                        
+                        to={rootPath}
+                        className={location === rootPath ? 'selected' : null}>
+                        Home
+                    </TransitionLink>
                 </li>
                 <li className="h1">
-                    <Link 
-                        to={blogPath} 
-                        className={location === blogPath ? 'selected' : null}                        
-                        onClick={(e) => handleRoute(e, blogPath)}>
-                            Blog
-                    </Link>
+                    <TransitionLink 
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }}
+                        to={blogPath}
+
+                        onClick={handleClick} 
+                        className={location === blogPath ? 'selected' : null}>
+                        Blog
+                    </TransitionLink>
                 </li>
                 <li className="h1">
-                    <Link 
-                        to={cvPath} 
+                    <TransitionLink 
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }}
+                        to={cvPath}
+                        onClick={handleClick} 
                         className={location === cvPath ? 'selected' : null}
-                        onClick={(e) => handleRoute(e, cvPath)}>
-                            CV
-                    </Link>                    
+                    >
+                        CV
+                    </TransitionLink>
                 </li>
             </StyledList>
         </StyledNav>
     )
 }
+    const baseUnit = `11px`;
+    const baseTiming = `250ms`;
 
-const baseUnit = `11px`;
-const baseTiming = `250ms`;
-
-const StyledNav = styled.nav`
+    const StyledNav = styled.nav`
     position: fixed;
     z-index: ${props => props.open ? 1000 : 20};
 `;
-const StyledBackdrop = styled.div`    
+    const StyledBackdrop = styled.div`    
     position: fixed;
     top: 0;
     left: 0;    
@@ -96,7 +99,7 @@ const StyledBackdrop = styled.div`
     transition-delay: 50ms;
 `;
 
-const StyledList = styled.ul`
+    const StyledList = styled.ul`
     transition: 200ms visibility ease-in;
     visibility: ${props => props.open ? 'visible' : 'hidden'};
 
@@ -120,7 +123,7 @@ const StyledList = styled.ul`
     & > li {
         transition: 200ms opacity ease-in;
         transition-delay: 50ms;
-        opacity: ${props => props.open ? 1 : 0 };
+        opacity: ${props => props.open ? 1 : 0};
 
         text-transform: uppercase;
         margin-bottom: .5em;
@@ -156,7 +159,7 @@ const StyledList = styled.ul`
     }    
 `
 
-const StyledNavButton = styled.div`
+    const StyledNavButton = styled.div`
     position: relative;
     cursor: pointer;
     z-index: 100;
@@ -180,35 +183,35 @@ const StyledNavButton = styled.div`
     transition-timing-function: ease-in;    
 
     background-color: ${props => props.location === "/"
-        ? props.open
-            ? Colors.sesame 
-            : Colors.eggshell
-        : Colors.sesame
-    };    
+            ? props.open
+                ? Colors.sesame
+                : Colors.eggshell
+            : Colors.sesame
+        };    
 
     
   }
   
   & div:nth-child(1) {
-    top: ${props => props.open ? baseUnit : 0 };
+    top: ${props => props.open ? baseUnit : 0};
     ${props => props.open && `transform: rotate(135deg)`};
   }
   
   & div:nth-child(2) {
     top: ${baseUnit};
-    ${props => props.open && 
-        `opacity: 0;
+    ${props => props.open &&
+            `opacity: 0;
         left: calc(${baseUnit} * -4);`
-    }
+        }
   }
   
   & div:nth-child(3) {
-    top: ${props => props.open 
-        ? `calc(${baseUnit})`
-        : `calc(${baseUnit} * 2)`
-    };
+    top: ${props => props.open
+            ? `calc(${baseUnit})`
+            : `calc(${baseUnit} * 2)`
+        };
     ${props => props.open && `transform: rotate(-135deg)`};
   }
 `
 
-export default Navigation
+    export default Navigation

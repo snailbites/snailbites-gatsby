@@ -13,6 +13,7 @@ const IndexPage = props => {
         <App 
             location={props.location} 
             title={`Vincent Nalupta - UX Engineering Manager`}>
+
             <SEO
                 title="Home"
                 keywords={[

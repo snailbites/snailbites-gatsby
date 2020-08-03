@@ -17,8 +17,8 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-plugin-feed`,
         `gatsby-plugin-remove-serviceworker`,
-        `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-page-transitions`,
+        `gatsby-plugin-react-helmet`,        
+        `gatsby-plugin-transition-link`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {

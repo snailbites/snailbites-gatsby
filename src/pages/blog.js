@@ -1,10 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-
+import TransitionLink from 'gatsby-plugin-transition-link'
 import styled from "styled-components";
 
 const blogPath = `blog/`
@@ -42,11 +42,15 @@ class Blog extends React.Component {
                                             margin-bottom: 12px;
                                         `}
                                     >
-                                        <Link
+                                        <TransitionLink
+                                            exit={{ delay: 0.35, length: 0.35 }}
+                                            entry={{
+                                                length: 0.75
+                                            }}
                                             to={`${blogPath}${node.fields.slug}`}
                                         >
                                             {title}
-                                        </Link>
+                                        </TransitionLink>
                                     </h1>
                                 )}
                                 {!isNew && (
@@ -55,41 +59,49 @@ class Blog extends React.Component {
                                             margin-bottom: 12px;
                                         `}
                                     >
-                                        <Link
+                                        <TransitionLink
+                                            exit={{ delay: 0.35, length: 0.35 }}
+                                            entry={{
+                                                length: 0.75
+                                            }}
                                             to={`${blogPath}${node.fields.slug}`}
                                         >
                                             {title}
-                                        </Link>
+                                        </TransitionLink>
                                     </h4>
                                 )}
                                 {/* {isNew && ( */}
-                                    <article>                                        
-                                        <p>
-                                            <span css={`
+                                <article>
+                                    <p>
+                                        <span css={`
                                                 margin-bottom: 0;
                                             `}
-                                                dangerouslySetInnerHTML={{
-                                                    __html:
-                                                        node.frontmatter
-                                                            .description ||
-                                                        node.excerpt
-                                                }}
-                                            />
-                                            {'  '}
-                                            <Link 
-                                                css={`
+                                            dangerouslySetInnerHTML={{
+                                                __html:
+                                                    node.frontmatter
+                                                        .description ||
+                                                    node.excerpt
+                                            }}
+                                        />
+                                        {'  '}
+                                        <TransitionLink
+                                            exit={{ delay: 0.35, length: 0.35 }}
+                                            entry={{
+                                                length: 0.75
+                                            }}
+                                            css={`
                                                     text-decoration: none;
-                                                `} 
-                                                to={`${blogPath}${node.fields.slug}`}>
-                                                    &rarr;
-                                            </Link>
-                                        </p>
-                                    </article>
+                                                `}
+                                            to={`${blogPath}${node.fields.slug}`}>
+                                            &rarr;
+                                            </TransitionLink>
+                                    </p>
+                                </article>
                                 {/* )} */}
                             </div>
                         )
                     })}
-                <Spacer />
+                    <Spacer />
                 </FlexContainer>
             </App>
         )

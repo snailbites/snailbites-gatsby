@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { Colors } from "../theme/global"
+import TransitionLink from 'gatsby-plugin-transition-link'
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
@@ -17,13 +17,25 @@ function Social(props) {
             </StyledList>
             <StyledList>
                 <li>
-                    <Link to={rootPath}>Home</Link>
+                    <TransitionLink
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }} to={rootPath}>Home</TransitionLink>
                 </li>
                 <li>
-                    <Link to={blogPath}>Blog</Link>
+                    <TransitionLink
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }} to={blogPath}>Blog</TransitionLink>
                 </li>
                 <li>
-                    <Link to={cvPath}>CV</Link>                    
+                    <TransitionLink
+                        exit={{ delay: 0.35, length: 0.35 }}
+                        entry={{
+                            length: 0.75
+                        }} to={cvPath}>CV</TransitionLink>
                 </li>
             </StyledList>
         </SocialWrapper>
@@ -37,9 +49,9 @@ const SocialWrapper = styled.div`
     align-items: flex-end;
     transform: translateY(-1.7em);
 
-    background-color: ${props => props.location !== "/" 
-    ? Colors.sesame
-    : Colors.plum };
+    background-color: ${props => props.location !== "/"
+        ? Colors.sesame
+        : Colors.plum};
     color: ${Colors.eggshell};
 `
 

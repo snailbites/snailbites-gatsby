@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 
 import App from "../components/app"
 import SEO from "../components/seo"
-
 class NotFoundPage extends React.Component {
     render() {
         const { data } = this.props

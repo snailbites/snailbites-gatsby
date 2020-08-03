@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components"
-import { StaticQuery, graphql, Link } from "gatsby"
-
+import { StaticQuery, graphql } from "gatsby"
+import TransitionLink from 'gatsby-plugin-transition-link'
 const BlogFeed = () => {
     return (
         <StaticQuery
@@ -28,26 +28,30 @@ const BlogFeed = () => {
             render={data => {
                 const entries = data.allMarkdownRemark.edges;
                 if (!entries) {
-                    return ;
-                }                
+                    return;
+                }
                 return (
                     <>
-                    <p className="lead" css={`margin-bottom: .5em;`}>Blog Posts</p>
-                    <StyledList>
-                    {entries.map(entry => (
-                        <li className="body">
-                            <Link to={`/blog${entry.node.fields.slug}`}>
-                                {entry.node.frontmatter.title}
-                            </Link>
-                        </li>
-                    ))}
-                    </StyledList>
+                        <p className="lead" css={`margin-bottom: .5em;`}>Blog Posts</p>
+                        <StyledList>
+                            {entries.map(entry => (
+                                <li className="body">
+                                    <TransitionLink
+                                        exit={{ delay: 0.35, length: 0.35 }}
+                                        entry={{
+                                            length: 0.75
+                                        }} to={`/blog${entry.node.fields.slug}`}>
+                                        {entry.node.frontmatter.title}
+                                    </TransitionLink>
+                                </li>
+                            ))}
+                        </StyledList>
                     </>
                 )
             }}
-        />            
+        />
     )
-} 
+}
 
 const StyledList = styled.ul`
     margin: 0;

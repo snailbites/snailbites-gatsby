@@ -1,7 +1,7 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { createGlobalStyle } from "styled-components"
-
+import TransitionLink from 'gatsby-plugin-transition-link'
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
@@ -58,19 +58,27 @@ class BlogPostTemplate extends React.Component {
                     >
                         <li>
                             {previous && (
-                                <Link
+                                <TransitionLink
+                                    exit={{ delay: 0.35, length: 0.35 }}
+                                    entry={{
+                                        length: 0.75
+                                    }}
                                     to={`blog${previous.fields.slug}`}
                                     rel="prev"
                                 >
                                     ← {previous.frontmatter.title}
-                                </Link>
+                                </TransitionLink>
                             )}
                         </li>
                         <li>
                             {next && (
-                                <Link to={`blog${next.fields.slug}`} rel="next">
+                                <TransitionLink
+                                    exit={{ delay: 0.35, length: 0.35 }}
+                                    entry={{
+                                        length: 0.75
+                                    }} to={`blog${next.fields.slug}`} rel="next">
                                     {next.frontmatter.title} →
-                                </Link>
+                                </TransitionLink>
                             )}
                         </li>
                     </ul>
