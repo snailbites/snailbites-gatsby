@@ -44,8 +44,10 @@ class App extends React.Component {
                     <link rel="preload" href="images/screenshots/tgoodman.png" as="image"></link>
                     <link rel="preload" href="images/screenshots/jcrew-pdp.png" as="image"></link>
                     <link rel="preload" href="images/screenshots/espn-recruiting.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/mw-searchsale.png" as="image"></link>
                     <link rel="preload" href="images/screenshots/leadership.png" as="image"></link>
                     <link rel="preload" href="images/screenshots/richtu.png" as="image"></link>
+                    <link rel="preload" href="images/screenshots/codeblue.png" as="image"></link>
                 </Helmet>
 
                 <GlobalStyle location={location.pathname} />
