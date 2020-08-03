@@ -215,7 +215,7 @@ const StyledScreenshot = styled.img`
   left: 25px;
 
   transition: ${FADE_TIMING}ms opacity ease-out;  
-  opacity: ${props => props.isLoading ? `.3` : `1` };  
+  opacity: ${props => props.isLoading ? `0` : `1` };  
 `
 
 const StyledCaption = styled.figcaption`
