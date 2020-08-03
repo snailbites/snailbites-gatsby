@@ -1,7 +1,7 @@
 import React from "react"
 import App from "../components/app"
 import FlexContainer from "../components/flexContainer"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 class CV extends React.Component {
     render() {
@@ -59,15 +59,27 @@ class CV extends React.Component {
                             <dt>Awards</dt>
                             <dd>CSS Dev Conf 2016 - "Best Of" Speaker</dd>
                             <dd>
-                                <ExternalLink
-                                    href={`https://www.commarts.com/webpicks/timothy-goodman`}
-                                >
-                                    CommArts Webpick of the Day
-                                </ExternalLink>
+                                CommArts Webpick of the Day
+                                <ul css={`margin-top: 0px`}>
+                                    <li>
+                                        <ExternalLink
+                                            href={`https://www.commarts.com/webpicks/timothy-goodman`}
+                                        >
+                                            Read the writeup
+                                        </ExternalLink>
+                                    </li>
+                                    <li>
+                                        <ExternalLink
+                                            href={`https://friendly-kare-ac2a16.netlify.app/`}
+                                        >
+                                            View a demo of Home and About pages
+                                        </ExternalLink>
+                                    </li>
+                                </ul>
                             </dd>
                             <dt>Talks</dt>
                             <dd>
-                                <ExternalLink
+                                CSS Dev Conf 2016{" "}<ExternalLink
                                     href={`https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2`}
                                 >
                                     Patterns, Language, and the Tale of the
@@ -75,11 +87,11 @@ class CV extends React.Component {
                                 </ExternalLink>
                             </dd>
                             <dd>
-                                <ExternalLink
+                                CSS Dev Conf 2015{" "}<ExternalLink
                                     href={`https://speakerdeck.com/snailbites/konmaricss`}
                                 >
                                     KonMari CSS
-                                </ExternalLink>
+                                </ExternalLink> 
                             </dd>
 
                             <dt>Writing</dt>

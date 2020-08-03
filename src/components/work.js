@@ -30,7 +30,7 @@ const projects = [
     'name': "Tim Goodman Portfolio",
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.',
     'url': 'https://friendly-kare-ac2a16.netlify.app/',
-    'link': 'See a demo'
+    'link': 'See a demo of Home and About pages'
   },
   {
     'shortname': 'jcrew-pdp',
@@ -100,7 +100,7 @@ const Work = () => {
     <>
       <h2 css={`text-align: center`}>Featured Projects</h2>
       <FlexContainer flex>
-        <StyledWorkWrapper>        
+        <StyledWorkWrapper name="work">        
           <StyledSidebar>            
             <StyledList>
               {projects.map((item, i) => (
@@ -119,7 +119,7 @@ const Work = () => {
           <StyledFigure className="clearfix">                  
               <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} css={`background-image: url(images/screenshots/${project.shortname}.png)`}  />
               <StyledCaption className="small">
-                {project.caption}
+                {project.caption}<br />
                 {project.url && ` `}
                 {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
                   {project.link ? project.link : 'Link'} &rarr;
