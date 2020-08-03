@@ -30,7 +30,7 @@ const projects = [
     'name': "Tim Goodman Portfolio",
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.',
     'url': 'https://friendly-kare-ac2a16.netlify.app/',
-    'link': 'See a demo of Home and About pages'
+    'link': 'See a demo'
   },
   {
     'shortname': 'jcrew-pdp',
@@ -64,8 +64,8 @@ const projects = [
     'shortname': 'richtu',
     'name': "Rich Tu Portfolio",
     'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.',
-    'url': null,
-    'link': null
+    'url': 'https://pedantic-pare-72cabc.netlify.app/',
+    'link': 'See a demo'
   },
   {
     'shortname': 'codeblue',
