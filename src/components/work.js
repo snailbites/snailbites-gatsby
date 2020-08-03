@@ -70,7 +70,7 @@ const projects = [
   {
     'shortname': 'codeblue',
     'name': "CodeBlue Blog",
-    'caption': 'Created an emergency preparedness blog for Seton Hall University. Worked closely with design to chop up a standard WordPress blog to look and feel like a comic book.',
+    'caption': 'Created an emergency preparedness blog for Seton Hall University. Worked closely with design to chop up a standard WordPress blog to look and feel like an actual comic book.',
     'url': 'https://blogs.shu.edu/project/code-blue/',
     'link': 'Read More'
   }  
@@ -208,14 +208,12 @@ const StyledFigure = styled.figure`
 
   background: url(../images/work-imac.png) no-repeat 0 0;
 `
-
 const StyledScreenshot = styled.div`
   position: absolute;
   top: 26px;
   left: 25px;
   width: 630px;
   height: 490px;
-
   
   background-repeat: no-repeat;
   background-position: 0 0;
