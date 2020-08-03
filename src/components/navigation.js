@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import { Colors } from "../theme/global"
 import { navigate } from "gatsby"
 
-const rootPath = `${__PATH_PREFIX__}/`
-const blogPath = `${__PATH_PREFIX__}/blog/`
-const cvPath = `${__PATH_PREFIX__}/cv`
+const rootPath = `/`
+const blogPath = `/blog/`
+const cvPath = `/cv/`
 
 const Navigation = (props) => {
     const [open, setOpen] = useState(false);
@@ -17,10 +18,14 @@ const Navigation = (props) => {
     }
 
     const handleRoute = (e, route) => {
-        e.preventDefault();        
+        e.preventDefault();      
+        if (location === route){
+            return;
+        }
+
         setOpen(false);
         setTimeout(() => {
-            navigate(route)
+            navigate(`${__PATH_PREFIX__}${route}`)
         }, 350)        
     }
 
@@ -40,13 +45,28 @@ const Navigation = (props) => {
             <StyledBackdrop open={open} />                            
             <StyledList location={location} open={open}>
                 <li className="h1">
-                    <a href="rootPath" onClick={(e) => handleRoute(e, rootPath)}>Home</a>
+                    <Link 
+                        to={rootPath} 
+                        className={location === rootPath ? 'selected' : null}
+                        onClick={(e) => handleRoute(e, rootPath)}>
+                            Home
+                    </Link>
                 </li>
                 <li className="h1">
-                    <a href="blogPath" onClick={(e) => handleRoute(e, blogPath)}>Blog</a>
+                    <Link 
+                        to={blogPath} 
+                        className={location === blogPath ? 'selected' : null}                        
+                        onClick={(e) => handleRoute(e, blogPath)}>
+                            Blog
+                    </Link>
                 </li>
                 <li className="h1">
-                <a href="cvPath" onClick={(e) => handleRoute(e, cvPath)}>CV</a>                    
+                    <Link 
+                        to={cvPath} 
+                        className={location === cvPath ? 'selected' : null}
+                        onClick={(e) => handleRoute(e, cvPath)}>
+                            CV
+                    </Link>                    
                 </li>
             </StyledList>
         </StyledNav>
@@ -72,7 +92,7 @@ const StyledBackdrop = styled.div`
     background-color: ${Colors.eggshell};
     
     transform: translate3d(${props => props.open ? 0 : `-100vw`}, 0, 0);    
-    transition: 350ms ease-in-out;
+    transition: 350ms ease-out;
     transition-delay: 50ms;
 `;
 
@@ -107,7 +127,12 @@ const StyledList = styled.ul`
 
         & > a {
             text-decoration: none;
-            color: ${Colors.sesame};  
+            color: ${Colors.sesame};
+
+            &.selected {
+                pointer-events: none;
+                color: ${Colors.plum};  
+            }
             
             &:after {
                 content: '';
@@ -120,6 +145,12 @@ const StyledList = styled.ul`
 
             &:hover:after {
                 width: 100%;
+            }
+
+            &.selected:after {                
+                transition: none;
+                width: 100%;
+                background: ${Colors.plum};
             }
         }
     }    
