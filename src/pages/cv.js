@@ -128,9 +128,7 @@ class CV extends React.Component {
 
                         <h4>Grubhub</h4>
                         <h5>Team Lead</h5>
-                        <p>
-                            As one of three Front End Team Leads, I have three
-                            key areas of responsibility:
+                        <p>As one of three Front End Team Leads, I have three key areas of responsibility:</p>
                             <ul>
                                 <li>
                                     Core JavaScript Framework and Typescript
@@ -138,7 +136,6 @@ class CV extends React.Component {
                                 <li>Design Systems</li>
                                 <li>Accessibility</li>
                             </ul>
-                        </p>
                         <p>
                             My team is composed of three front end engineers in
                             house and one offshore. Since we are non-product
@@ -170,7 +167,6 @@ class CV extends React.Component {
 
                         <h4>J.Crew</h4>
                         <h5>Front End Engineer</h5>
-                        <p>
                             <ul>
                                 <li>Front End scrum lead for $6 billion fashion company.</li>
                                 <li>Consistently met tight deadlines in a fast-paced,
@@ -180,7 +176,6 @@ class CV extends React.Component {
                                 on the most highly trafficked pages (Product Detail
                             Page, Search & Sale).</li>
                             </ul>
-                        </p>
 
                         <h4>Noble Desktop</h4>
                         <h5>Instructor</h5>
@@ -193,16 +188,17 @@ class CV extends React.Component {
                         <h5>Web Developer & Designer</h5>
                         <p>
                             Front End Developer in the Expression Engine CMS,
-                            creating sites for high profile clients including:
+                            creating sites for high profile clients including:</p>
                             <ul>
                                 <li>ESPN</li>
                                 <li>Jessica Seinfeld</li>
                                 <li>Tim Goodman</li>
                                 <li>Suzie Orman</li>
                             </ul>
+                            <p>
                             and other NYC personalities and small businesses. Spent 25% of
-                            time designing.
-                        </p>
+                            time designing.</p>
+                        
 
                         <h4>Seton Hall University</h4>
                         <h5>Web Developer & Designer</h5>

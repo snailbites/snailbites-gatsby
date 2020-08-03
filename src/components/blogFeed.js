@@ -34,8 +34,8 @@ const BlogFeed = () => {
                     <>
                         <p className="lead" css={`margin-bottom: .5em;`}>Blog Posts</p>
                         <StyledList>
-                            {entries.map(entry => (
-                                <li className="body">
+                            {entries.map((entry, i) => (
+                                <li className="body" key={i}>
                                     <TransitionLink
                                         exit={{ delay: 0.35, length: 0.35 }}
                                         entry={{

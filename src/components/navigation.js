@@ -12,8 +12,25 @@ const Navigation = (props) => {
     const [open, setOpen] = useState(false);
     const { location, loaded } = props;
 
-    const handleClick = () => {
+    const handleClick = (modifier) => {
         setOpen(!open);
+        if (modifier === 'home' && location === rootPath) {
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+            }, 600);   
+        }
+
+        if (modifier === 'work' && location === rootPath) {
+            scrollToWork();
+        }
+
+    }
+
+    const scrollToWork = (node, e, exit, entry) => {    
+        setTimeout(() => {
+            const height = document.getElementById('work').offsetTop || 1600;
+            window.scrollTo({ top: height - 100, behavior: 'smooth' })
+        }, 600);        
     }
 
     return (
@@ -33,21 +50,38 @@ const Navigation = (props) => {
             <StyledList location={location} open={open}>
                 <li className="h1">
                     <TransitionLink 
-                        exit={{ 
+                        exit={{                             
+                            delay: .35, 
+                            length: .35,
+                        }}
+                        entry={{                            
+                            delay: .35, 
+                            length: .75,
+                            state: {
+                                work: false
+                            },
+                        }}
+                        onClick={() => handleClick('home')}                        
+                        to={rootPath}>
+                        Home
+                    </TransitionLink>
+                </li>
+                <li className="h1">
+                    <TransitionLink 
+                        exit={{                             
                             delay: .35, 
                             length: .35,
                         }}
                         entry={{
-
+                            trigger: ({ node, e, exit, entry }) => scrollToWork(node, e, exit, entry),
                             delay: .35, 
                             length: .75
                         }}
-                        onClick={handleClick}                        
-                        to={rootPath}
-                        className={location === rootPath ? 'selected' : null}>
-                        Home
-                    </TransitionLink>
-                </li>
+                        onClick={() => handleClick('work')}                        
+                        to={rootPath}>
+                        Work
+                    </TransitionLink>    
+                </li>            
                 <li className="h1">
                     <TransitionLink 
                         exit={{ delay: 0.35, length: 0.35 }}
@@ -58,8 +92,7 @@ const Navigation = (props) => {
                         }}
                         to={blogPath}
 
-                        onClick={handleClick} 
-                        className={location === blogPath ? 'selected' : null}>
+                        onClick={handleClick} >
                         Blog
                     </TransitionLink>
                 </li>
@@ -67,13 +100,11 @@ const Navigation = (props) => {
                     <TransitionLink 
                         exit={{ delay: 0.35, length: 0.35 }}
                         entry={{
-
                             delay: .35, 
                             length: 0.75
                         }}
                         to={cvPath}
                         onClick={handleClick} 
-                        className={location === cvPath ? 'selected' : null}
                     >
                         CV
                     </TransitionLink>
