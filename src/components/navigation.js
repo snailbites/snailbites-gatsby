@@ -38,6 +38,8 @@ const Navigation = (props) => {
                             length: .35,
                         }}
                         entry={{
+
+                            delay: .35, 
                             length: .75
                         }}
                         onClick={handleClick}                        
@@ -50,6 +52,8 @@ const Navigation = (props) => {
                     <TransitionLink 
                         exit={{ delay: 0.35, length: 0.35 }}
                         entry={{
+
+                            delay: .35, 
                             length: 0.75
                         }}
                         to={blogPath}
@@ -63,6 +67,8 @@ const Navigation = (props) => {
                     <TransitionLink 
                         exit={{ delay: 0.35, length: 0.35 }}
                         entry={{
+
+                            delay: .35, 
                             length: 0.75
                         }}
                         to={cvPath}

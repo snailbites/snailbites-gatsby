@@ -11,7 +11,7 @@ function Footer(props) {
         <StyledFooter location={props.location}>
             <FlexContainer flex spread css={`justify-content: space-between;`}>
                 {/* Fixes zindex bug with mountain SVG above it */}
-                <section css={`z-index: 25;position: relative;`}>
+                <section css={`z-index: 10;position: relative;`}>
                     {props.location === '/' && <BlogFeed />}
                     <p className="small">This site was made with {" "}
                         <a

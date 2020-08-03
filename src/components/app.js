@@ -4,11 +4,7 @@ import { Colors } from "../theme/global"
 import Helmet from "react-helmet"
 import Footer from "./footer"
 import Navigation from "./navigation"
-import Jumbotron from "../components/jumbotron"
-import MountainRange from "../components/mountainRange"
 import { GlobalStyle } from "../theme/global"
-
-// import PageTransition from 'gatsby-plugin-page-transitions';
 import { TransitionState } from "gatsby-plugin-transition-link";
 
 import posed from 'react-pose';
@@ -53,12 +49,7 @@ class App extends React.Component {
                                     ? 'visible'
                                     : 'hidden'
                             }>
-                            {location && location.pathname === rootPath && (
-                                <header>
-                                    <Jumbotron loaded={loaded} />
-                                    <MountainRange loaded={loaded} />
-                                </header>
-                            )}
+                  
 
                             <Main role="main" location={location.pathname}>
 
@@ -66,10 +57,11 @@ class App extends React.Component {
 
 
                             </Main>
+
+                <Footer location={location.pathname} />
                         </Fade>
                     )}
                 </TransitionState>
-                <Footer location={location.pathname} />
             </Wrapper>
         )
     }
@@ -87,9 +79,8 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.main`
-    padding-top: 19px;
-    background: ${props =>
-        props.location === "/" ? Colors.ocean : Colors.eggshell};
+    background: ${props => props.location === "/" ? Colors.ocean : Colors.eggshell};
+        
     ${props =>
         props.location !== "/"
             ? `flex: 1 1 100%;`

@@ -11,7 +11,7 @@ class CV extends React.Component {
                     <CVWrapper>
                         <h1
                             css={`
-                                margin: 75px 0 25px;
+                                margin: 0 0 25px;
                             `}
                         >
                             Vincent Nalupta
@@ -222,7 +222,7 @@ const CVWrapper = styled.section`
     h5 {
         margin-top: 18px;
     }
-    margin-bottom: 100px; 
+    padding: 100px 0 100px; 
 `
 
 const ExternalLink = props => {

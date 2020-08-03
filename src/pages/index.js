@@ -6,12 +6,16 @@ import Bio from "../components/bio"
 import Work from "../components/work"
 import styled from "styled-components"
 import Gradient from "../components/gradient"
+import Jumbotron from "../components/jumbotron"
+import MountainRange from "../components/mountainRange"
+
+import { Colors } from "../theme/global"
 
 const IndexPage = props => {
     return (
-    
-        <App 
-            location={props.location} 
+
+        <App
+            location={props.location}
             title={`Vincent Nalupta - UX Engineering Manager`}>
 
             <SEO
@@ -24,6 +28,10 @@ const IndexPage = props => {
                     `user experience`,
                 ]}
             />
+            <StyledHeader>
+                <Jumbotron />
+                <MountainRange />
+            </StyledHeader>
             <Bio />
             <Spacer />
             <Work />
@@ -32,6 +40,11 @@ const IndexPage = props => {
         </App>
     )
 }
+
+const StyledHeader = styled.header`
+    background: ${Colors.sesame}; 
+    overflow: hidden;
+`;
 
 const Spacer = styled.div`
     margin-bottom: 200px;

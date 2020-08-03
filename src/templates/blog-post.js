@@ -28,60 +28,64 @@ class BlogPostTemplate extends React.Component {
                     description={post.frontmatter.description || post.excerpt}
                 />
                 <FlexContainer width={`768px`}>
-                    <BlogStyle />
-                    <h1
-                        css={`
-                            margin: 75px 0 25px;
+                    <section css={`
+                            padding-top: 100px;
+                        `}>
+                        <BlogStyle />
+                        <h1
+                            css={`
+                            margin: 0 0 25px;
                         `}
-                    >
-                        {post.frontmatter.title}
-                    </h1>
-                    <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                        >
+                            {post.frontmatter.title}
+                        </h1>
+                        <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-                    <p
-                        css={`
+                        <p
+                            css={`
                             margin-top: 30px;
                             font-weight: 500;
                             text-align: left;
                         `}
-                    >
-                        {post.frontmatter.date}
-                    </p>
-                    <ul
-                        style={{
-                            display: `flex`,
-                            flexWrap: `wrap`,
-                            justifyContent: `space-between`,
-                            listStyle: `none`,
-                            padding: `0 0 50px 0`,
-                        }}
-                    >
-                        <li>
-                            {previous && (
-                                <TransitionLink
-                                    exit={{ delay: 0.35, length: 0.35 }}
-                                    entry={{
-                                        length: 0.75
-                                    }}
-                                    to={`blog${previous.fields.slug}`}
-                                    rel="prev"
-                                >
-                                    ← {previous.frontmatter.title}
-                                </TransitionLink>
-                            )}
-                        </li>
-                        <li>
-                            {next && (
-                                <TransitionLink
-                                    exit={{ delay: 0.35, length: 0.35 }}
-                                    entry={{
-                                        length: 0.75
-                                    }} to={`blog${next.fields.slug}`} rel="next">
-                                    {next.frontmatter.title} →
-                                </TransitionLink>
-                            )}
-                        </li>
-                    </ul>
+                        >
+                            {post.frontmatter.date}
+                        </p>
+                        <ul
+                            style={{
+                                display: `flex`,
+                                flexWrap: `wrap`,
+                                justifyContent: `space-between`,
+                                listStyle: `none`,
+                                padding: `0 0 50px 0`,
+                            }}
+                        >
+                            <li>
+                                {previous && (
+                                    <TransitionLink
+                                        exit={{ delay: 0.35, length: 0.35 }}
+                                        entry={{
+                                            length: 0.75
+                                        }}
+                                        to={`blog${previous.fields.slug}`}
+                                        rel="prev"
+                                    >
+                                        ← {previous.frontmatter.title}
+                                    </TransitionLink>
+                                )}
+                            </li>
+                            <li>
+                                {next && (
+                                    <TransitionLink
+                                        exit={{ delay: 0.35, length: 0.35 }}
+                                        entry={{
+                                            length: 0.75
+                                        }} to={`blog${next.fields.slug}`} rel="next">
+                                        {next.frontmatter.title} →
+                                    </TransitionLink>
+                                )}
+                            </li>
+                        </ul>
+                    </section>
                 </FlexContainer>
             </App>
         )

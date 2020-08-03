@@ -20,87 +20,83 @@ class Blog extends React.Component {
                 <SEO title="All posts" />
 
                 <FlexContainer width={`768px`}>
-                    {/* <h1
-                        css={`
-                            margin: 75px 0 25px;
-                        `}
-                    >
-                        The Latest
-                    </h1> */}
-                    {posts.map(({ node }) => {
-                        const title = node.frontmatter.title || node.fields.slug
-                        const isNew =
-                            node.frontmatter.meta &&
-                            node.frontmatter.meta.match(/new/gi)
+                    <section css={`
+                            padding-top: 100px;
+                        `}>
+                        {posts.map(({ node }) => {
+                            const title = node.frontmatter.title || node.fields.slug
+                            const isNew =
+                                node.frontmatter.meta &&
+                                node.frontmatter.meta.match(/new/gi)
 
-                        return (
-                            <div key={node.fields.slug}>
-                                {isNew && (
-                                    <h1
-                                        css={`
-                                            margin-top: 75px;
-                                            margin-bottom: 12px;
-                                        `}
-                                    >
-                                        <TransitionLink
-                                            exit={{ delay: 0.35, length: 0.35 }}
-                                            entry={{
-                                                length: 0.75
-                                            }}
-                                            to={`${blogPath}${node.fields.slug}`}
-                                        >
-                                            {title}
-                                        </TransitionLink>
-                                    </h1>
-                                )}
-                                {!isNew && (
-                                    <h4
-                                        css={`
-                                            margin-bottom: 12px;
-                                        `}
-                                    >
-                                        <TransitionLink
-                                            exit={{ delay: 0.35, length: 0.35 }}
-                                            entry={{
-                                                length: 0.75
-                                            }}
-                                            to={`${blogPath}${node.fields.slug}`}
-                                        >
-                                            {title}
-                                        </TransitionLink>
-                                    </h4>
-                                )}
-                                {/* {isNew && ( */}
-                                <article>
-                                    <p>
-                                        <span css={`
-                                                margin-bottom: 0;
-                                            `}
-                                            dangerouslySetInnerHTML={{
-                                                __html:
-                                                    node.frontmatter
-                                                        .description ||
-                                                    node.excerpt
-                                            }}
-                                        />
-                                        {'  '}
-                                        <TransitionLink
-                                            exit={{ delay: 0.35, length: 0.35 }}
-                                            entry={{
-                                                length: 0.75
-                                            }}
+                            return (
+                                <div key={node.fields.slug}>
+                                    {isNew && (
+                                        <h1
                                             css={`
-                                                    text-decoration: none;
-                                                `}
-                                            to={`${blogPath}${node.fields.slug}`}>
-                                            &rarr;
+                                                margin: 0 0 12px;
+                                            `}
+                                        >
+                                            <TransitionLink
+                                                exit={{ delay: 0.35, length: 0.35 }}
+                                                entry={{
+                                                    length: 0.75
+                                                }}
+                                                to={`${blogPath}${node.fields.slug}`}
+                                            >
+                                                {title}
                                             </TransitionLink>
-                                    </p>
-                                </article>
-                                {/* )} */}
-                            </div>
-                        )
-                    })}
+                                        </h1>
+                                    )}
+                                    {!isNew && (
+                                        <h4
+                                            css={`
+                                                margin-bottom: 12px;
+                                            `}
+                                        >
+                                            <TransitionLink
+                                                exit={{ delay: 0.35, length: 0.35 }}
+                                                entry={{
+                                                    length: 0.75
+                                                }}
+                                                to={`${blogPath}${node.fields.slug}`}
+                                            >
+                                                {title}
+                                            </TransitionLink>
+                                        </h4>
+                                    )}
+                                    {/* {isNew && ( */}
+                                    <article>
+                                        <p>
+                                            <span css={`
+                                                    margin-bottom: 0;
+                                                `}
+                                                dangerouslySetInnerHTML={{
+                                                    __html:
+                                                        node.frontmatter
+                                                            .description ||
+                                                        node.excerpt
+                                                }}
+                                            />
+                                            {'  '}
+                                            <TransitionLink
+                                                exit={{ delay: 0.35, length: 0.35 }}
+                                                entry={{
+                                                    length: 0.75
+                                                }}
+                                                css={`
+                                                        text-decoration: none;
+                                                    `}
+                                                to={`${blogPath}${node.fields.slug}`}>
+                                                &rarr;
+                                                </TransitionLink>
+                                        </p>
+                                    </article>
+                                    {/* )} */}
+                                </div>
+                            )
+                        })}
+                    </section>
                     <Spacer />
                 </FlexContainer>
             </App>
@@ -109,7 +105,7 @@ class Blog extends React.Component {
 }
 
 const Spacer = styled.div`
-    margin-bottom: 100px;
+    height: 100px;
 `;
 
 export default Blog
