@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
+
+import cfd from "../../static/images/screenshots/cfd.png";
+import closedbag from "../../static/images/screenshots/closedbag.png";
+import codeblue from "../../static/images/screenshots/codeblue.png";
+import dls from "../../static/images/screenshots/dls.png";
+import espnRecruiting from "../../static/images/screenshots/espn-recruiting.png";
+import jcrewPdp from "../../static/images/screenshots/jcrew-pdp.png";
+import leadership from "../../static/images/screenshots/leadership.png";
+import mwSearchsale from "../../static/images/screenshots/mw-searchsale.png";
+import richtu from "../../static/images/screenshots/richtu.png";
+import tgoodman from "../../static/images/screenshots/tgoodman.png";
+import imac from "../../static/images/screenshots/work-imac.png";
 
 const projects = [
   {
@@ -9,128 +21,169 @@ const projects = [
     'name': "Grubhub Contact Free Delivery",
     'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in just 3 days.',
     'url': 'https://blog.grubhub.com/health-and-safety',
-    'link': 'Learn More'
+    'link': 'Learn More',
+    'img': cfd
   },
   {
     'shortname': 'dls',
     'name': "Grubhub Design System",
     'caption': 'Creator and core maintainer of the Grubhub Design System - which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
     'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2",
-    'link': 'See my slides'
+    'link': 'See my slides',
+    'img': dls
   },
   {
     'shortname': 'closedbag',
     'name': "Grubhub Floating Cart",
     'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.',
     'url': 'https://www.grubhub.com/restaurant/hummus--pita-co-585-6th-ave-new-york/267853',
-    'link': null
+    'link': null,
+    'img': closedbag
   },
   {
     'shortname': 'tgoodman',
     'name': "Tim Goodman Portfolio",
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.',
     'url': 'https://friendly-kare-ac2a16.netlify.app/',
-    'link': 'See a demo'
+    'link': 'See a demo',
+    'img': tgoodman
   },
   {
     'shortname': 'jcrew-pdp',
     'name': "J.Crew Product Detail Page",
     'caption': 'Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.',
-    'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277',   
-    'link': null 
+    'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277',
+    'link': null,
+    'img': jcrewPdp
   },
   {
     'shortname': 'mw-searchsale',
     'name': "Madewell Search & Sale",
     'caption': 'Refactored the search experience as a single page app and built a drop down navigation bar. Worked closedly with design to restyle the UX to be more in line with the overall Madewell brand experience.',
     'url': null,
-    'link': null
-  },  
+    'link': null,
+    'img': mwSearchsale
+  },
   {
     'shortname': 'espn-recruiting',
     'name': "ESPN Recruiting Landing Page",
     'caption': 'Designed within ESPN\'s content framework and developed the front end templates for ESPN\'s recruiting portal',
     'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120',
-    'link': null
+    'link': null,
+    'img': espnRecruiting
   },
   {
     'shortname': 'leadership',
     'name': "The Leadership Room",
     'caption': 'Designed and built several pages within the existing style direction of The Leadership Room branding.',
     'url': null,
-    'link': null
+    'link': null,
+    'img': leadership
   },
   {
     'shortname': 'richtu',
     'name': "Rich Tu Portfolio",
     'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.',
     'url': 'https://pedantic-pare-72cabc.netlify.app/',
-    'link': 'See a demo'
+    'link': 'See a demo',
+    'img': richtu
   },
   {
     'shortname': 'codeblue',
     'name': "CodeBlue Blog",
     'caption': 'Created an emergency preparedness blog for Seton Hall University. Worked closely with design to chop up a standard WordPress blog to look and feel like an actual comic book.',
     'url': 'https://blogs.shu.edu/project/code-blue/',
-    'link': 'Read More'
-  }  
+    'link': 'Read More',
+    'img': codeblue
+  }
 ]
 
-const FADE_TIMING = 150;
+console.log(projects)
+
+// let start;
+// let duration = 250;
+// let el = e.target;
+
+// let tick = time => {
+//   console.log(time)
+//   if (!start) { 
+//     start = time; 
+//   }
+
+//   let value = (time - start) / duration;
+//   el.style.opacity = value;
+
+//   if (time - start >= duration) {
+//     setLoading(false);
+//   } else {
+//     window.requestAnimationFrame(tick)
+//   }
+// }
+
+// window.requestAnimationFrame(tick)
+
+const FADE_TIMING = 250;
 
 const Work = () => {
   const [project, setProject] = useState(projects[0])
   const [loading, setLoading] = useState(false)
 
-  let timer;
-
-  function handleClick(e, item) {
-    if (project.name === item.name) {
+  function handleClick(item) {
+    if (item.shortname === project.shortname) {
       return;
     }
 
-    clearTimeout(timer);
+    let start;
+    const tick = timestamp => {
+      if (!start) {
+        start = timestamp;
+      }
 
-    setLoading(true);    
-    timer = setTimeout(() => {
-      setProject(item);    
-      setLoading(false)
-    }, FADE_TIMING)          
-  }  
+      if (timestamp - start <= FADE_TIMING) {
+        window.requestAnimationFrame(tick)
+      } else {
+        setProject(item);
+        setLoading(false)
+      }
+    }
+
+    setLoading(true);
+    window.requestAnimationFrame(tick)
+  }
 
   return (
     <>
       <h2 css="text-align: center" id="work">Featured Projects</h2>
       <FlexContainer flex>
-        <StyledWorkWrapper>        
-          <StyledSidebar>            
+        <StyledWorkWrapper>
+          <StyledSidebar>
             <StyledList>
               {projects.map((item, i) => (
-                <li key={i}>                  
-                  <StyledLinkButton                     
-                    selected={project.shortname === item.shortname}   
-                    onClick={e => handleClick(e, item)}                
-                    >
-                      {item.name}
+                <li key={i}>
+                  <StyledLinkButton
+                    selected={project.shortname === item.shortname}
+                    onClick={() => handleClick(item)}
+                  >
+                    {item.name}
                   </StyledLinkButton>
                 </li>
-                )
+              )
               )}
             </StyledList>
-          </StyledSidebar>          
-          <StyledFigure className="clearfix">                  
-              <StyledScreenshot 
-                className="screenshot" 
-                isLoading={loading} 
-                alt={project.name} 
-                img={project.shortname} 
-              />
-              
-              <StyledCaption className="small">
-                {project.caption}<br />
-                {project.url && ` `}
-                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
-                  {project.link ? project.link : 'Link'} &rarr;
+          </StyledSidebar>
+          <StyledFigure className="clearfix">
+            <StyledScreenshot
+              className={loading ? 'loading' : null}
+              isLoading={loading}
+            >
+              <img src={project.img} alt={project.name} />
+            </StyledScreenshot>
+
+            <StyledCaption className="small">
+              {project.caption}<br />
+              {project.url && ` `}
+              {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
+                {project.link ? project.link : 'Link'} &rarr;
                 </a>}</StyledCaption>
           </StyledFigure>
         </StyledWorkWrapper>
@@ -202,7 +255,6 @@ const StyledSidebar = styled.aside`
     flex: initial;  
   }  
 `
-
 const StyledFigure = styled.figure`
   flex: none;
 
@@ -214,20 +266,24 @@ const StyledFigure = styled.figure`
   width: 630px;
   height: 490px;
 
-  background: url(images/work-imac.png) no-repeat 0 0;
+  background: url(${imac}) no-repeat 0 0;
 `
 const StyledScreenshot = styled.div`
   position: absolute;
   top: 26px;
   left: 25px;
-  width: 630px;
-  height: 490px;
+  width: 580px;
+  height: 333px;
+  overflow: hidden;
   
   background-repeat: no-repeat;
   background-position: 0 0;
-  transition: ${FADE_TIMING}ms opacity ease-out;  
-  opacity: ${props => props.isLoading ? `0` : `1` };  
-  background-image: url(${props => `images/screenshots/${props.img}.png`});
+  transition: opacity 150ms ease-out;    
+
+  opacity: 1;
+  &.loading {
+    opacity: 0;
+  }
 `
 
 const StyledCaption = styled.figcaption`
