@@ -32,7 +32,7 @@ module.exports = {
                 path: `${__dirname}/content/assets`,
                 name: `assets`,
             },
-        },
+        },       
         {
             resolve: `gatsby-transformer-remark`,
             options: {
