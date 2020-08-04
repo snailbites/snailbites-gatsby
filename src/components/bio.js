@@ -6,30 +6,23 @@ import Image from "gatsby-image"
 import Button from "./button"
 import FlexContainer from "./flexContainer"
 import TransitionLink from 'gatsby-plugin-transition-link'
-import bg from "../../content/assets/bio-bg.svg"
 
 function Bio() {
+    // query this in graphql
     const blogPath = `/blog/2019-10-04-new-site/2019-10-04-new-site/`
     
     return (
         <FlexContainer flex>
             <Profile>
-                <img
-                    src={bg}
-                    alt={"Vincent Nalupta's shadow against some subway tiles."}
-                    css={`
-                        position: absolute;
-                        left: -145px;
-                        top: -113px;
-                        height: 424px;
-                    `}
-                />
+                <BioWrapper>
+                    <BioBg />
+                </BioWrapper>
                 <StaticQuery
                     query={bioQuery}
                     render={data => (
                         <Image
                             fixed={data.profile.childImageSharp.fixed}
-                            alt={"vince"}
+                            alt={"Vincent Nalupta's shadow against some subway tiles."}
                         />
                     )}
                 ></StaticQuery>
@@ -58,17 +51,24 @@ function Bio() {
                     This is my space to flex my design chops and write about interesting tech.
                 </p>
                 <TransitionLink 
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-                            length: 0.75
-                        }}
-                        to={blogPath}>
-                    <BioButton>Read the Blog</BioButton>
+                    exit={{ delay: 0.35, length: 0.35 }}
+                    entry={{
+                        length: 0.75
+                    }}
+                    to={blogPath}>
+                        <BioButton>Read the Blog</BioButton>
                 </TransitionLink>
             </BioColumn>            
         </FlexContainer>
     )
 }
+
+const BioWrapper = styled.div`
+    width: 385px;                        
+    position: absolute;
+    left: -145px;
+    top: -113px;   
+`
 
 const BioColumn = styled.div`
     max-width: 300px;
@@ -92,9 +92,29 @@ const Profile = styled(BioColumn)`
     }
 `
 
+const BioBg = () => (
+    <svg viewBox="0 0 435 490" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient x1="65.77%" y1="68.9%" x2="14.777%" y2="7.605%" id="bioCircle">
+                <stop stopColor="#3C4186" offset="0%" />
+                <stop stopColor="#4F1C48" offset="100%" />
+            </linearGradient>
+            <linearGradient x1="22.991%" y1="0%" x2="50%" y2="83.112%" id="bioRect">
+                <stop stopColor="#D6E307" offset="0%" />
+                <stop stopColor="#125458" offset="100%" />
+            </linearGradient>
+        </defs>
+        <g fill="none" fillRule="evenodd">
+            <circle fill="url(#bioCircle)" cx="180" cy="180" r="180" />
+            <rect fill="url(#bioRect)" x="147" y="111" width="269" height="366" rx="6" />
+        </g>
+    </svg>
+)
+
+
 const bioQuery = graphql`
     query BioQuery {
-        profile: file(absolutePath: { regex: "/content/assets/profile.png/" }) {
+        profile: file(absolutePath: { regex: "/images/profile.png/" }) {
             childImageSharp {
                 fixed(width: 240, height: 320) {
                     ...GatsbyImageSharpFixed

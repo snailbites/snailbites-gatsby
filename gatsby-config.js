@@ -29,10 +29,10 @@ module.exports = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/content/assets`,
-                name: `assets`,
+                path: `${__dirname}/images`,
+                name: `images`,
             },
-        },
+        },        
         {
             resolve: `gatsby-transformer-remark`,
             options: {
@@ -74,7 +74,7 @@ module.exports = {
                 theme_color: `#663399`,
                 display: `minimal-ui`,
                 // edit below
-                icon: `content/assets/crown.png`,
+                icon: `images/crown.png`,
             },
         },
     ],

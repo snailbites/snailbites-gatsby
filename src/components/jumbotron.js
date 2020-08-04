@@ -12,7 +12,6 @@ const Jumbotron = props => {
                     return (
                         <TitleWrapper>
                             {/* <Crown
-                                loaded={props.loaded}
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
@@ -79,10 +78,6 @@ const StyledWrapper = styled.div`
 //     transition-timing-function: ease-in-out;
 
 //     // transform: scale(0.5) rotate(32deg);
-//     transform: ${props =>
-//         props.loaded ? `scale(0.5) rotate(32deg)` : `scale(0.5) rotate(0deg)`};
-//     // transform: ${props => (props.loaded ? `1.0` : `0.0`)};
-//     // opacity: ${props => (props.loaded ? `1.0` : `0.0`)};
 // `
 
 const TitleWrapper = styled.div`

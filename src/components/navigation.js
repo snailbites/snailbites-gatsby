@@ -10,7 +10,7 @@ const cvPath = `/cv/`
 
 const Navigation = (props) => {
     const [open, setOpen] = useState(false);
-    const { location, loaded } = props;
+    const { location } = props;
 
     const handleClick = (modifier) => {
         setOpen(!open);
@@ -36,7 +36,6 @@ const Navigation = (props) => {
     return (
         <StyledNav location={location} open={open}>
             <StyledNavButton
-                loaded={loaded}
                 location={location}
                 aria-label="navigation"
                 onClick={handleClick}
