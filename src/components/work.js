@@ -17,20 +17,20 @@ import imac from "../../static/images/screenshots/work-imac.png";
 
 const projects = [
   {
-    'shortname': 'cfd',
-    'name': "Grubhub Contact Free Delivery",
-    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in just 3 days.',
-    'url': 'https://blog.grubhub.com/health-and-safety',
-    'link': 'Learn More',
-    'img': cfd
-  },
-  {
     'shortname': 'dls',
     'name': "Grubhub Design System",
     'caption': 'Creator and core maintainer of the Grubhub Design System - which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
     'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2",
     'link': 'See my slides',
     'img': dls
+  },
+  {
+    'shortname': 'cfd',
+    'name': "Grubhub Contact Free Delivery",
+    'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in just 3 days.',
+    'url': 'https://blog.grubhub.com/health-and-safety',
+    'link': 'Learn More',
+    'img': cfd
   },
   {
     'shortname': 'closedbag',
@@ -98,31 +98,7 @@ const projects = [
   }
 ]
 
-console.log(projects)
-
-// let start;
-// let duration = 250;
-// let el = e.target;
-
-// let tick = time => {
-//   console.log(time)
-//   if (!start) { 
-//     start = time; 
-//   }
-
-//   let value = (time - start) / duration;
-//   el.style.opacity = value;
-
-//   if (time - start >= duration) {
-//     setLoading(false);
-//   } else {
-//     window.requestAnimationFrame(tick)
-//   }
-// }
-
-// window.requestAnimationFrame(tick)
-
-const FADE_TIMING = 250;
+const FADE_TIMING = 350;
 
 const Work = () => {
   const [project, setProject] = useState(projects[0])
@@ -171,21 +147,23 @@ const Work = () => {
               )}
             </StyledList>
           </StyledSidebar>
-          <StyledFigure className="clearfix">
-            <StyledScreenshot
-              className={loading ? 'loading' : null}
-              isLoading={loading}
-            >
-              <img src={project.img} alt={project.name} />
-            </StyledScreenshot>
+          <StyledFigureWrapper className="clearfix">
+            <StyledFigure>
+              <StyledScreenshot
+                className={loading ? 'loading' : null}
+              >
+                <img src={project.img} alt={project.name} />
+              </StyledScreenshot>
 
-            <StyledCaption className="small">
-              {project.caption}<br />
-              {project.url && ` `}
-              {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
-                {project.link ? project.link : 'Link'} &rarr;
-                </a>}</StyledCaption>
-          </StyledFigure>
+              <StyledCaption loading={loading} className="small">
+                {project.caption}<br />
+                {project.url && ` `}
+                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
+                  {project.link ? project.link : 'Link'} &rarr;
+                  </a>}
+              </StyledCaption>
+            </StyledFigure>
+          </StyledFigureWrapper>
         </StyledWorkWrapper>
       </FlexContainer>
     </>
@@ -255,7 +233,13 @@ const StyledSidebar = styled.aside`
     flex: initial;  
   }  
 `
-const StyledFigure = styled.figure`
+const StyledFigureWrapper = styled.div`
+  // default computed <figure> styles
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+
   flex: none;
 
   @media (min-width: 1100px) {
@@ -268,29 +252,28 @@ const StyledFigure = styled.figure`
 
   background: url(${imac}) no-repeat 0 0;
 `
-const StyledScreenshot = styled.div`
+
+const StyledFigure = styled.figure`
+  margin: 0;
   position: absolute;
   top: 26px;
   left: 25px;
   width: 580px;
   height: 333px;
   overflow: hidden;
-  
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  transition: opacity 150ms ease-out;    
+`
 
-  opacity: 1;
+const StyledScreenshot = styled.div`  
+  transition: opacity ${FADE_TIMING}ms ease-out;
+  opacity: 1;  
   &.loading {
     opacity: 0;
   }
 `
 
 const StyledCaption = styled.figcaption`
-  position: absolute;    
-  bottom: 130px;
-
-  margin: 0 25px;
+  position: absolute;      
+  margin: 0;
   padding: 10px;
 
   background-color: ${Colors.sesame};
@@ -298,6 +281,10 @@ const StyledCaption = styled.figcaption`
   & a {
     text-decoration: none;
   }
+  
+  transition bottom ${FADE_TIMING}ms ease-out;  
+  bottom: 0;
+  bottom: ${props => props.loading ? `-200px` : 0}
 `;
 
 export default Work;
