@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
-import { withPrefix } from 'gatsby';
-
 
 const projects = [
   {
@@ -121,7 +119,12 @@ const Work = () => {
             </StyledList>
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
-              <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} css={`background-image: url(images/screenshots/${project.shortname}.png)`}  />
+              <StyledScreenshot 
+                className="screenshot" 
+                isLoading={loading} 
+                alt={project.name} 
+                img={project.shortname} 
+              />
               
               <StyledCaption className="small">
                 {project.caption}<br />
@@ -224,6 +227,7 @@ const StyledScreenshot = styled.div`
   background-position: 0 0;
   transition: ${FADE_TIMING}ms opacity ease-out;  
   opacity: ${props => props.isLoading ? `0` : `1` };  
+  background-image: url(${props => `images/screenshots/${props.img}.png`});
 `
 
 const StyledCaption = styled.figcaption`

@@ -15,13 +15,9 @@ export const Fade = posed.div({
 })
 
 class App extends React.Component {
-    constructor() {
-        super()
-    }
-
     render() {
         const { location, children } = this.props
-        const rootPath = `${__PATH_PREFIX__}/`
+        
         return (
             <Wrapper location={location.pathname}>
                 <Helmet>
