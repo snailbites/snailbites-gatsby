@@ -2,9 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
-const MountainRange = props => {
+const MountainRange = () => {
     return (
-        <Wrapper loaded={props.loaded}>
+        <Wrapper>
             <Mountain bg>
                 <MountainSVG hex={"#565F74"} />
             </Mountain>

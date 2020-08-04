@@ -4,7 +4,7 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 class BlogPostTemplate extends React.Component {
     render() {
@@ -28,7 +28,6 @@ class BlogPostTemplate extends React.Component {
 
                         <p
                             css={`
-                            font-weight: 500;
                             text-align: left;
                         `}
                         >

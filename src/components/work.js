@@ -82,15 +82,18 @@ const Work = () => {
   const [project, setProject] = useState(projects[0])
   const [loading, setLoading] = useState(false)
 
-  
+  // let timer;
 
   function handleClick(e, item) {
     if (project.name === item.name) {
       return;
     }
 
-    setLoading(true)  
+    // clearTimeout(timer);
+
+    setLoading(true);
     setTimeout(() => {
+    // timer = setTimeout(() => {
       setProject(item);    
       setLoading(false)
     }, FADE_TIMING)          
@@ -98,7 +101,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 css={`text-align: center`} id="work">Featured Projects</h2>
+      <h2 css="text-align: center" id="work">Featured Projects</h2>
       <FlexContainer flex>
         <StyledWorkWrapper>        
           <StyledSidebar>            
@@ -118,6 +121,7 @@ const Work = () => {
           </StyledSidebar>          
           <StyledFigure className="clearfix">                  
               <StyledScreenshot className="screenshot" isLoading={loading} alt={project.name} css={`background-image: url(images/screenshots/${project.shortname}.png)`}  />
+              
               <StyledCaption className="small">
                 {project.caption}<br />
                 {project.url && ` `}
@@ -206,7 +210,7 @@ const StyledFigure = styled.figure`
   width: 630px;
   height: 490px;
 
-  background: url(../images/work-imac.png) no-repeat 0 0;
+  background: url(images/work-imac.png) no-repeat 0 0;
 `
 const StyledScreenshot = styled.div`
   position: absolute;

@@ -1,7 +1,7 @@
 import React from "react"
 import App from "../components/app"
 import FlexContainer from "../components/flexContainer"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 class CV extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class CV extends React.Component {
             <App location={this.props.location}>
                 <FlexContainer width={`768px`}>
                     <CVWrapper>
-                        <h1 css={`margin: 0 0 25px 0;`}>
+                        <h1 css="margin: 0 0 25px 0;">
                             Vincent Nalupta
                         </h1>                        
                         <p>

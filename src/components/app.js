@@ -9,7 +9,6 @@ import { TransitionState } from "gatsby-plugin-transition-link";
 
 import posed from 'react-pose';
 
-// Your pose
 export const Fade = posed.div({
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -18,40 +17,23 @@ export const Fade = posed.div({
 class App extends React.Component {
     constructor() {
         super()
-        this.state = {
-            loaded: false,
-        }
     }
-    componentDidMount() {
-        setTimeout(() => this.setState({ loaded: true }), 150)
-    }
+
     render() {
         const { location, children } = this.props
-        const { loaded } = this.state
         const rootPath = `${__PATH_PREFIX__}/`
         return (
-            <Wrapper loaded={loaded} location={location.pathname}>
+            <Wrapper location={location.pathname}>
                 <Helmet>
                     <link
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
                         media="all"
                     ></link>
-
-                    <link rel="preload" href="images/screenshots/cfd.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/dls.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/closedbag.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/tgoodman.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/jcrew-pdp.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/espn-recruiting.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/mw-searchsale.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/leadership.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/richtu.png" as="image"></link>
-                    <link rel="preload" href="images/screenshots/codeblue.png" as="image"></link>
                 </Helmet>
 
                 <GlobalStyle location={location.pathname} />
-                <Navigation location={location.pathname} loaded={loaded} />
+                <Navigation location={location.pathname} />
                 <TransitionState>
                     {({ transitionStatus }) => (
                         <Fade
