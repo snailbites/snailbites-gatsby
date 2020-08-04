@@ -82,18 +82,17 @@ const Work = () => {
   const [project, setProject] = useState(projects[0])
   const [loading, setLoading] = useState(false)
 
-  // let timer;
+  let timer;
 
   function handleClick(e, item) {
     if (project.name === item.name) {
       return;
     }
 
-    // clearTimeout(timer);
+    clearTimeout(timer);
 
-    setLoading(true);
-    setTimeout(() => {
-    // timer = setTimeout(() => {
+    setLoading(true);    
+    timer = setTimeout(() => {
       setProject(item);    
       setLoading(false)
     }, FADE_TIMING)          
