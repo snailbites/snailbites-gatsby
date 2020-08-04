@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
         &:before {
             content: "• ";
         }
-    }
+    } 
 `
 
 export { GlobalStyle, Colors, Font }
