@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
@@ -103,6 +103,7 @@ const FADE_TIMING = 350;
 const Work = () => {
   const [project, setProject] = useState(projects[0])
   const [loading, setLoading] = useState(false)
+  const [open, setDrawer] = useState(true)
 
   function handleClick(item) {
     if (item.shortname === project.shortname) {
@@ -119,11 +120,13 @@ const Work = () => {
         window.requestAnimationFrame(tick)
       } else {
         setProject(item);
-        setLoading(false)
+        setLoading(false);
+        setDrawer(true);
       }
     }
 
     setLoading(true);
+    setDrawer(false);
     window.requestAnimationFrame(tick)
   }
 
@@ -155,7 +158,7 @@ const Work = () => {
                 <img src={project.img} alt={project.name} />
               </StyledScreenshot>
 
-              <StyledCaption loading={loading} className="small">
+              <StyledCaption open={open} className="small">
                 {project.caption}<br />
                 {project.url && ` `}
                 {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
@@ -284,7 +287,7 @@ const StyledCaption = styled.figcaption`
   
   transition bottom ${FADE_TIMING}ms ease-out;  
   bottom: 0;
-  bottom: ${props => props.loading ? `-200px` : 0}
+  bottom: ${props => props.open ? 0 : `-200px`}
 `;
 
 export default Work;
