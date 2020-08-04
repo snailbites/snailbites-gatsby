@@ -3,6 +3,7 @@ backend:
   repo: snailbites/snailbites-gatsby
 
 media_folder: images
+public_folder: images
 
 collections:
   - name: blog
