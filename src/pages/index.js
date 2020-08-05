@@ -25,7 +25,11 @@ const IndexPage = props => {
                     `gatsby`,
                     `javascript`,
                     `react`,
-                    `user experience`,
+                    `user experience engineer`,
+                    `engineering manager`,
+                    `Vincent Nalupta`,
+                    `snailbites`,
+
                 ]}
             />
             <StyledHeader>
