@@ -17,7 +17,7 @@ class Blog extends React.Component {
 
         return (
             <App location={this.props.location} title={siteTitle}>
-                <SEO title="All posts" />
+                <SEO title="Blog" />
 
                 <FlexContainer width={`768px`}>
                     <StyledSection>

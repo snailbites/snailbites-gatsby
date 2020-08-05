@@ -6,8 +6,7 @@ const Gradient = () => {
 
     let cloud;
 
-    const footerRef = useRef(null);
-    const cloudRef = useRef(null);
+    const footerRef = useRef(null);    
     const [inView] = useIntersectionObserver(footerRef, {
         threshold: 0
     })    
