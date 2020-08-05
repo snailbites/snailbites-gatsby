@@ -1,20 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components"
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const Gradient = () => {
 
     let cloud;
 
-    // TODO: add intersection observer
+    const footerRef = useRef(null);
+    const cloudRef = useRef(null);
+    const [inView] = useIntersectionObserver(footerRef, {
+        threshold: 0
+    })    
+
+    useEffect(() => {
+        cloud = document.getElementById('cloud');
+    }, []);
+
     // TODO: add stationary clouds
     // TODO: add reverse cloud
     useEffect(() => {
-        cloud = document.getElementById('cloud');
-        // animateCloud();
-    }, []);
+        animateCloud();
+    }, [inView]);
 
-    const timing = 50000;
+
+    const timing = 80000;
+
     function animateCloud() {
+        if (!cloud) {
+            return ;
+        }
         let start;        
 
         const tick = timestamp => {
@@ -24,7 +38,7 @@ const Gradient = () => {
 
             const ratio = ((timestamp - start) / timing) * 100; 
             
-            cloud.style.transform = `translate3d(${ratio}vw, 20vh, 0)`;
+            cloud.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
 
             if (timestamp - start <= timing) {
                 window.requestAnimationFrame(tick)
@@ -34,8 +48,10 @@ const Gradient = () => {
         window.requestAnimationFrame(tick)
     }
 
+
+
     return (
-        <StyledGradient>
+        <StyledGradient ref={footerRef}>
             <svg viewBox="0 0 1440 380" xmlns="http://www.w3.org/2000/svg"
                 css={`position: relative;
                 z-index: 1; `}>
@@ -46,13 +62,24 @@ const Gradient = () => {
                     </linearGradient>
                 </defs>
 
+                <ellipse
+                    css="transform: translate(35vw, 16vh); opacity: .1;"
+                    fill="#D8D8D8"
+                    cx="171.5" cy="14.5" rx="203.5" ry="21.5">
+                </ellipse>
 
-                {/* <ellipse
+                <ellipse
                     id="cloud"
                     css="transform: translate(1vw, 20vh); opacity: .25;"
                     fill="#D8D8D8"
                     cx="171.5" cy="14.5" rx="171.5" ry="14.5">
-                </ellipse> */}
+                </ellipse>
+
+                <ellipse
+                    css="transform: translate(74vw, 23vh); opacity: .1;"
+                    fill="#D8D8D8"
+                    cx="171.5" cy="14.5" rx="153.5" ry="11.5">
+                </ellipse>
 
                 <path d="M0 3041.525l558.176-162.19 256.6 162.19L1202.885 2784l302.113 319.999.002.001v66H0v-128.475z" transform="translate(0 -2784)" fill="url(#duskMountain)" fillRule="evenodd" opacity=".2" />
             </svg>

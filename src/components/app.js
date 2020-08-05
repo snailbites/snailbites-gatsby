@@ -7,6 +7,7 @@ import Navigation from "./navigation"
 import { GlobalStyle } from "../theme/global"
 import { TransitionState } from "gatsby-plugin-transition-link";
 
+// TODO: get rid of posed
 import posed from 'react-pose';
 
 export const Fade = posed.div({

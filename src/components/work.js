@@ -132,7 +132,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 css="text-align: center" id="work">Featured Projects</h2>
+      <h2 id="work" css="text-align: center">Featured Projects</h2>
       <FlexContainer flex>
         <StyledWorkWrapper>
           <StyledSidebar>

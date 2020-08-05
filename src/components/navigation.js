@@ -28,6 +28,7 @@ const Navigation = (props) => {
 
     const scrollToWork = (node, e, exit, entry) => {    
         setTimeout(() => {
+            // convert to Ref
             const height = document.getElementById('work').offsetTop || 1600;
             window.scrollTo({ top: height - 100, behavior: 'smooth' })
         }, 600);        
