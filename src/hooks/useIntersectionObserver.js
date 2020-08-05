@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 
-
 /**
- * 
  * @param {*} ref 
  * @param {*} settings 
+ * @example
  * 
- * https://billyjacoby.com/intersectionobserver-api-with-react-hooks/
+ * const [inView] = useIntersectionObserver(footerRef, {
+ *   threshold: 0
+ * }) 
+ * 
+ * useEffect(() => {
+ *  // perform action
+ * }, [inView]);
+ * 
  */
 export const useIntersectionObserver = (
     ref,
