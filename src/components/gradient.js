@@ -1,7 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components"
 
 const Gradient = () => {
+
+    let cloud;
+
+    // TODO: add intersection observer
+    // TODO: add stationary clouds
+    // TODO: add reverse cloud
+    useEffect(() => {
+        cloud = document.getElementById('cloud');
+        // animateCloud();
+    }, []);
+
+    const timing = 50000;
+    function animateCloud() {
+        let start;        
+
+        const tick = timestamp => {
+            if (!start) {
+                start = timestamp;
+            }
+
+            const ratio = ((timestamp - start) / timing) * 100; 
+            
+            cloud.style.transform = `translate3d(${ratio}vw, 20vh, 0)`;
+
+            if (timestamp - start <= timing) {
+                window.requestAnimationFrame(tick)
+            } 
+        }
+
+        window.requestAnimationFrame(tick)
+    }
+
     return (
         <StyledGradient>
             <svg viewBox="0 0 1440 380" xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +45,15 @@ const Gradient = () => {
                         <stop stopColor="#4F1C48" offset="100%" />
                     </linearGradient>
                 </defs>
+
+
+                {/* <ellipse
+                    id="cloud"
+                    css="transform: translate(1vw, 20vh); opacity: .25;"
+                    fill="#D8D8D8"
+                    cx="171.5" cy="14.5" rx="171.5" ry="14.5">
+                </ellipse> */}
+
                 <path d="M0 3041.525l558.176-162.19 256.6 162.19L1202.885 2784l302.113 319.999.002.001v66H0v-128.475z" transform="translate(0 -2784)" fill="url(#duskMountain)" fillRule="evenodd" opacity=".2" />
             </svg>
             <StyledMoon>
@@ -29,7 +70,7 @@ const StyledMoon = styled.div`
     position: absolute;
     right: 12vh;
     top: -9vh;
-    opacity: 0.55;
+    opacity: 0.85;
 `
 
 const StyledGradient = styled.section`
