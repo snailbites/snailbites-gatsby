@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 
 import App from "../components/app"
 import SEO from "../components/seo"
@@ -13,7 +13,6 @@ import { Colors } from "../theme/global"
 
 const IndexPage = props => {
     return (
-
         <App
             location={props.location}
             title={`Vincent Nalupta - UX Engineering Manager`}>
@@ -38,7 +37,7 @@ const IndexPage = props => {
             </StyledHeader>
             <Bio />
             <Spacer />
-            <Work />
+            <Work />            
             <Spacer />
             <Gradient />
         </App>
