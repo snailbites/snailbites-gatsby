@@ -137,8 +137,8 @@ const Work = () => {
         <StyledWorkWrapper>
           <StyledSidebar>
             <StyledList>
-              {projects.map((item, i) => (
-                <li key={i}>
+              {projects.map(item => (
+                <li key={item.shortname}>
                   <StyledLinkButton
                     selected={project.shortname === item.shortname}
                     onClick={() => handleClick(item)}
@@ -157,8 +157,7 @@ const Work = () => {
               >
                 <img src={project.img} alt={project.name} />
               </StyledScreenshot>
-
-              <StyledCaption open={open} className="small">
+              <StyledCaption open={open} className="small">                
                 {project.caption}<br />
                 {project.url && ` `}
                 {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
