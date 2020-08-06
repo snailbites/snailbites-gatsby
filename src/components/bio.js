@@ -12,7 +12,7 @@ import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 function Bio() {    
     const bioRef = useRef(null);
     const [inView] = useIntersectionObserver(bioRef, {
-        threshold: .5
+        threshold: .3
     })    
 
     // query this in graphql
