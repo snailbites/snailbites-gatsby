@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled from "styled-components"
 import { graphql, StaticQuery } from "gatsby"
 import Image from "gatsby-image"
@@ -7,12 +7,19 @@ import Button from "./button"
 import FlexContainer from "./flexContainer"
 import TransitionLink from 'gatsby-plugin-transition-link'
 
-function Bio() {
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+
+function Bio() {    
+    const bioRef = useRef(null);
+    const [inView] = useIntersectionObserver(bioRef, {
+        threshold: .5
+    })    
+
     // query this in graphql
     const blogPath = `/blog/2019-10-04-new-site/2019-10-04-new-site/`
     
     return (
-        <FlexContainer flex>
+        <FlexContainer flex >
             <Profile>
                 <BioWrapper>
                     <BioBg />
@@ -27,14 +34,10 @@ function Bio() {
                     )}
                 ></StaticQuery>
             </Profile>
-            <BioColumn >
-                <h2
-                    css={`
-                        margin-bottom: 10px;
-                    `}
-                >
+            <BioColumn rhs ref={bioRef} visible={inView}>
+                <StyledHeading>
                     HELLO!
-                </h2>
+                </StyledHeading>
                 <p>
                     My name is Vincent Nalupta and I am currently an Engineering Manager at Grubhub.
                 </p>
@@ -63,6 +66,10 @@ function Bio() {
     )
 }
 
+const StyledHeading = styled.h2`
+    margin-bottom: 10px;
+`
+
 const BioWrapper = styled.div`
     width: 385px;                        
     position: absolute;
@@ -77,6 +84,17 @@ const BioColumn = styled.div`
     @media (max-width: 768px) {
         text-align: center;
     }
+
+    ${props => props.rhs && `
+        transform: translateX(10px);
+        opacity: 0;
+        transition: 250ms ease-in;
+    `}
+
+    ${props => props.rhs && props.visible && `
+        transform: translateX(0);
+        opacity: 1;
+    `}
 `
 const BioButton = styled(Button)`
     @media (max-width: 768px) {

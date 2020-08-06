@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import FlexContainer from "./flexContainer"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
+
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 import cfd from "../../static/images/screenshots/cfd.png";
 import closedbag from "../../static/images/screenshots/closedbag.png";
@@ -101,9 +103,22 @@ const projects = [
 const FADE_TIMING = 350;
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0])
-  const [loading, setLoading] = useState(false)
-  const [open, setDrawer] = useState(true)
+  const [project, setProject] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [open, setDrawer] = useState(false)
+
+  const figureRef = useRef(null);
+  const [inView] = useIntersectionObserver(figureRef, {
+      threshold: .5
+  })
+  
+  useEffect(() => {             
+    setProject(projects[0]) 
+    if (inView) {
+      setLoading(false);    
+      setDrawer(true);
+    }
+  }, [inView])
 
   function handleClick(item) {
     if (item.shortname === project.shortname) {
@@ -140,7 +155,7 @@ const Work = () => {
               {projects.map(item => (
                 <li key={item.shortname}>
                   <StyledLinkButton
-                    selected={project.shortname === item.shortname}
+                    selected={project && project.shortname === item.shortname}
                     onClick={() => handleClick(item)}
                   >
                     {item.name}
@@ -150,20 +165,24 @@ const Work = () => {
               )}
             </StyledList>
           </StyledSidebar>
-          <StyledFigureWrapper className="clearfix">
+          <StyledFigureWrapper ref={figureRef}>
             <StyledFigure>
-              <StyledScreenshot
-                className={loading ? 'loading' : null}
-              >
-                <img src={project.img} alt={project.name} />
-              </StyledScreenshot>
-              <StyledCaption open={open} className="small">                
-                {project.caption}<br />
-                {project.url && ` `}
-                {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
-                  {project.link ? project.link : 'Link'} &rarr;
-                  </a>}
-              </StyledCaption>
+              {project && (
+                <>
+                <StyledScreenshot
+                  className={loading ? 'loading' : null}
+                >
+                  <img src={project.img} alt={project.name} />
+                </StyledScreenshot>
+                <StyledCaption open={open} className="small">                
+                  {project.caption}<br />
+                  {project.url && ` `}
+                  {project.url && <a href={project.url} rel="noopener noreferrer" target="_blank">
+                    {project.link ? project.link : 'Link'} &rarr;
+                    </a>}
+                </StyledCaption>
+                </>
+              )}
             </StyledFigure>
           </StyledFigureWrapper>
         </StyledWorkWrapper>
