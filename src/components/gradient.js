@@ -11,20 +11,18 @@ const Gradient = () => {
         threshold: 0
     })    
 
-    useEffect(() => {
-        cloud = document.getElementById('cloud');
-    }, []);
-
     // TODO: add stationary clouds
     // TODO: add reverse cloud
-    useEffect(() => {
-        animateCloud();
+    useEffect(() => {       
+        cloud = document.getElementById('cloud');
+        if (inView) {            
+            animateCloud();
+        }        
     }, [inView]);
-
 
     const timing = 80000;
 
-    function animateCloud() {
+    function animateCloud() {        
         if (!cloud) {
             return ;
         }
@@ -46,8 +44,6 @@ const Gradient = () => {
 
         window.requestAnimationFrame(tick)
     }
-
-
 
     return (
         <StyledGradient ref={footerRef}>

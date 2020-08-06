@@ -51,13 +51,5 @@ applications (Grubhub, Seamless, AllMenus, and Grubhub for Restaurants), for
 rapid prototyping in [CodePen Projects](https://codepen.io/pro/projects/), and
 for documentation in our Living Style Guide.
 
-### Future Use As you can see, we
-
-have a lot of future use for our Design APIs. Since we kept the code base CSS
-only, it is easily exportable into any application on the web. When Code Pen
-projects was launched, we were quickly able to produce rapid prototypes and
-provide working links to external parties. The uses are endless: quick demos for
-stakeholders, working prototypes that can be user tested, fleshed out ideas that
-design can hand off to developers. We also currently use the API in all sorts of
-different small scale applications: email templates, marketing modules, even our
-phone directory. Having a flat, CSS only system ensures its flexibility.
+### Future Use 
+As you can see, we have a lot of future use for our Design APIs. Since we kept the code base CSS only, it is easily exportable into any application on the web. When Code Pen projects was launched, we were quickly able to produce rapid prototypes and provide working links to external parties. The uses are endless: quick demos for stakeholders, working prototypes that can be user tested, fleshed out ideas that design can hand off to developers. We also currently use the API in all sorts of different small scale applications: email templates, marketing modules, even our phone directory. Having a flat, CSS only system ensures its flexibility.
