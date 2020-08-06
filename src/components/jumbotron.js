@@ -3,16 +3,11 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
-const Jumbotron = props => {
-    const [loaded, setLoading] = useState(false);
-    const crownRef = useRef(null);
-    const [inView] = useIntersectionObserver(crownRef, {
+const Jumbotron = props => {    
+    const titleRef = useRef(null);
+    const [inView] = useIntersectionObserver(titleRef, {
         threshold: 0
     }) 
-
-    useEffect(() => {
-        setLoading(true);
-    })
 
     return (
         <StyledWrapper>
@@ -21,10 +16,10 @@ const Jumbotron = props => {
                 render={data => {
                     const { lead1, lead2 } = data.site.siteMetadata
                     return (
-                        <TitleWrapper>
+                        <TitleWrapper visible={inView} 
+                        ref={titleRef}>
                             <Crown
                                 xmlns="http://www.w3.org/2000/svg"
-                                ref={crownRef}
                                 visible={inView}
                             >
                                 <path
@@ -84,9 +79,9 @@ const Crown = styled.svg`
 
     height: 50px;
     width: 76px;
-    
+
     transition: 350ms transform ease-out;     
-    transition-delay: 350ms;   
+    transition-delay: 150ms;   
     transform: scale(0.5) rotate(5deg) translate(-16px, -8px);
     ${props => props.visible && `
         transform: scale(0.5) rotate(32deg);
@@ -95,7 +90,15 @@ const Crown = styled.svg`
 
 const TitleWrapper = styled.div`
     position: relative;
-    transform: translateY(10vh);
+    // transform: translateY(10vh);
+
+    transition: 500ms opacity ease-out, 150ms transform ease-out;         
+    opacity: 0;
+    transform: translate(10px, 10vh);
+    ${props => props.visible && `
+        opacity: 1;
+        transform: translate(0, 10vh);
+    `}    
 `
 
 export default Jumbotron
