@@ -90,8 +90,6 @@ const Crown = styled.svg`
 
 const TitleWrapper = styled.div`
     position: relative;
-    // transform: translateY(10vh);
-
     transition: 500ms opacity ease-out, 150ms transform ease-out;         
     opacity: 0;
     transform: translate(10px, 10vh);
