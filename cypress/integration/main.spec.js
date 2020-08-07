@@ -5,4 +5,15 @@ describe('Home Page', () => {
         cy.get('button').contains('Read the Blog', { matchCase: false })
         cy.get('p.lead').contains('Blog Posts')
     })
+
+    it('should navigate to the blog', () => {
+        cy.visit('/');    
+        cy.get('button')
+            .contains('Read the Blog', { matchCase: false })
+            .click();
+        
+        cy.url().should('include', '/blog')
+    });
+    
+    
 })
