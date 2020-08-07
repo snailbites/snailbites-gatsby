@@ -31,12 +31,14 @@
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "react-helmet": "^5.2.0",
-        "react-pose": "^4.0.10",        
+        "react-pose": "^4.0.10",
         "react-switch": "^5.0.0",
+        "start-server-and-test": "^1.11.2",
         "styled-components": "^5.1.0",
         "styled-normalize": "^8.0.6"
     },
     "devDependencies": {
+        "cypress": "^4.12.1",
         "prettier": "^1.17.0"
     },
     "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -54,6 +56,7 @@
         "develop": "gatsby develop",
         "format": "prettier --write src/**/*.{js,jsx}",
         "start": "npm run develop",
-        "serve": "gatsby serve"
+        "serve": "gatsby serve",
+        "cypress:open": "cypress open"
     }
 }
