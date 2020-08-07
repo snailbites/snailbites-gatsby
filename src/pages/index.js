@@ -14,8 +14,7 @@ import { Colors } from "../theme/global"
 const IndexPage = props => {
     return (
         <App
-            location={props.location}
-            title={`Vincent Nalupta - UX Engineering Manager`}>
+            location={props.location}>
 
             <SEO
                 title="Home"
@@ -28,8 +27,8 @@ const IndexPage = props => {
                     `engineering manager`,
                     `Vincent Nalupta`,
                     `snailbites`,
-
-                ]}
+            ]}
+            description="Vincent Nalupta's site"
             />
             <StyledHeader>
                 <Jumbotron />

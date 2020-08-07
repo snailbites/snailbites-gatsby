@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";

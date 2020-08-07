@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import FlexContainer from "./flexContainer"
+import Screenshot from "./screenshot"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
-import cfd from "../../static/images/screenshots/cfd.png";
-import closedbag from "../../static/images/screenshots/closedbag.png";
-import codeblue from "../../static/images/screenshots/codeblue.png";
-import dls from "../../static/images/screenshots/dls.png";
-import espnRecruiting from "../../static/images/screenshots/espn-recruiting.png";
-import jcrewPdp from "../../static/images/screenshots/jcrew-pdp.png";
-import leadership from "../../static/images/screenshots/leadership.png";
-import mwSearchsale from "../../static/images/screenshots/mw-searchsale.png";
-import richtu from "../../static/images/screenshots/richtu.png";
-import tgoodman from "../../static/images/screenshots/tgoodman.png";
-import imac from "../../static/images/screenshots/work-imac.png";
+import cfd from "../../images/screenshots/cfd.png";
+import closedbag from "../../images/screenshots/closedbag.png";
+import codeblue from "../../images/screenshots/codeblue.png";
+import dls from "../../images/screenshots/dls.png";
+import espnRecruiting from "../../images/screenshots/espn-recruiting.png";
+import jcrewPdp from "../../images/screenshots/jcrew-pdp.png";
+import leadership from "../../images/screenshots/leadership.png";
+import mwSearchsale from "../../images/screenshots/mw-searchsale.png";
+import richtu from "../../images/screenshots/richtu.png";
+import tgoodman from "../../images/screenshots/tgoodman.png";
+import imac from "../../images/screenshots/work-imac.png";
 
 const projects = [
   {
@@ -172,7 +173,8 @@ const Work = () => {
                 <StyledScreenshot
                   className={loading ? 'loading' : null}
                 >
-                  <img src={project.img} alt={project.name} />
+                  <Screenshot filename={project.shortname} />
+                  {/* <img src={project.img} alt={project.name} /> */}
                 </StyledScreenshot>
                 <StyledCaption open={open} className="small">                
                   {project.caption}<br />
@@ -190,6 +192,7 @@ const Work = () => {
     </>
   )
 }
+
 
 const StyledList = styled.ul`
   list-style-type: none;

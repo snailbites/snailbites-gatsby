@@ -2,7 +2,7 @@ backend:
   name: github
   repo: snailbites/snailbites-gatsby
 
-media_folder: content/assets
+media_folder: images
 public_folder: static
 
 collections:
