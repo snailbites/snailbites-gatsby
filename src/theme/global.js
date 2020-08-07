@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${props =>
             props.location === "/" ? Colors.eggshell : Colors.sesame};
         background: ${Colors.sesame};
+        line-height: 1.65;
     }
 
     h1, h2, h3, h4, h5, dt {
@@ -36,15 +37,15 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 300;
     }    
     h1, .h1 { 
-        font-size: ${Font.size * 3.052}px; 
-        line-height: ${Font.size * 3.125}px; 
+        font-size: 3.052rem; 
+        line-height: 3.125rem; 
     }
-    h2, .h2 { font-size: ${Font.size * 2.441}px; }
-    h3, .h3 { font-size: ${Font.size * 1.952}px; }
-    h4, .h4 { font-size: ${Font.size * 1.563}px; }
-    h5, .h5, dt, .lead { font-size: ${Font.size * 1.05}px; }
-    p, .body { font-size: ${Font.size * 0.95}px; line-height: ${Font.size * 1.9}px}    
-    footer, figcaption, .small { font-size: ${Font.size * 0.75}px; }    
+    h2, .h2 { font-size: 2.441rem; }
+    h3, .h3 { font-size: 1.952rem; }
+    h4, .h4 { font-size: 1.563rem; }
+    h5, .h5, dt, .lead { font-size: 1.05rem; }
+    p, .body { font-size: 1rem; }        
+    footer, figcaption, .small { font-size: 0.75rem; }    
 
     a { color: ${props =>
         props.location === "/" ? Colors.neon : Colors.sesame}}
