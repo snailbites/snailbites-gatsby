@@ -20,7 +20,7 @@ const Gradient = () => {
         }        
     }, [inView]);
 
-    const timing = 80000;
+    const timing = 85000;
 
     function animateCloud() {        
         if (!cloud) {
