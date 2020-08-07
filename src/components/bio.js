@@ -59,7 +59,7 @@ function Bio() {
                         length: 0.75
                     }}
                     to={blogPath}>
-                        <BioButton>Read the Blog</BioButton>
+                        <BioButton>Read the Bloog</BioButton>
                 </TransitionLink>
             </BioColumn>            
         </FlexContainer>
