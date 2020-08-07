@@ -25,14 +25,14 @@ module.exports = {
                 path: `${__dirname}/content/blog`,
                 name: `blog`,
             },
-        },
+        }, 
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/content/assets`,
-                name: `assets`,
+                path: `${__dirname}/images`,
+                name: `images`,
             },
-        },       
+        },              
         {
             resolve: `gatsby-transformer-remark`,
             options: {
@@ -69,14 +69,13 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Gatsby Starter Blog`,
-                short_name: `GatsbyJS`,
+                name: `Snailbites`,
+                short_name: `Snailbites`,
                 start_url: `/`,
                 background_color: `#ffffff`,
-                theme_color: `#663399`,
-                display: `minimal-ui`,
-                // edit below
-                icon: `content/assets/crown.png`,
+                theme_color: `#4F1C48`,
+                display: `minimal-ui`,                
+                icon: `images/crown.png`,
             },
         },
     ],
