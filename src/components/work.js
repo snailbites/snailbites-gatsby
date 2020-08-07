@@ -5,17 +5,6 @@ import styled from "styled-components"
 import { Colors } from "../theme/global"
 
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
-
-import cfd from "../../images/screenshots/cfd.png";
-import closedbag from "../../images/screenshots/closedbag.png";
-import codeblue from "../../images/screenshots/codeblue.png";
-import dls from "../../images/screenshots/dls.png";
-import espnRecruiting from "../../images/screenshots/espn-recruiting.png";
-import jcrewPdp from "../../images/screenshots/jcrew-pdp.png";
-import leadership from "../../images/screenshots/leadership.png";
-import mwSearchsale from "../../images/screenshots/mw-searchsale.png";
-import richtu from "../../images/screenshots/richtu.png";
-import tgoodman from "../../images/screenshots/tgoodman.png";
 import imac from "../../images/screenshots/work-imac.png";
 
 const projects = [
@@ -24,80 +13,70 @@ const projects = [
     'name': "Grubhub Design System",
     'caption': 'Creator and core maintainer of the Grubhub Design System - which has reached total adoption across all Web, Android and iOS teams across the entire company and forms the basis for all feature work at Grubhub.',
     'url': "https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2",
-    'link': 'See my slides',
-    'img': dls
+    'link': 'See my slides'
   },
   {
     'shortname': 'cfd',
     'name': "Grubhub Contact Free Delivery",
     'caption': 'Web team lead and IC for COVID-19 response critical feature launch - a full-company emergency feature launch that went from concept to production in just 3 days.',
     'url': 'https://blog.grubhub.com/health-and-safety',
-    'link': 'Learn More',
-    'img': cfd
+    'link': 'Learn More'
   },
   {
     'shortname': 'closedbag',
     'name': "Grubhub Floating Cart",
     'caption': 'Redesigned the Grubhub web cart experience, moving it from a full height sidebar to a popover notification-style bag; unlocking valuable real estate for the design team to use for optimized layout and UX.',
     'url': 'https://www.grubhub.com/restaurant/hummus--pita-co-585-6th-ave-new-york/267853',
-    'link': null,
-    'img': closedbag
+    'link': null
   },
   {
     'shortname': 'tgoodman',
     'name': "Tim Goodman Portfolio",
     'caption': 'Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.',
     'url': 'https://friendly-kare-ac2a16.netlify.app/',
-    'link': 'See a demo',
-    'img': tgoodman
+    'link': 'See a demo'
   },
   {
     'shortname': 'jcrew-pdp',
     'name': "J.Crew Product Detail Page",
     'caption': 'Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.',
     'url': 'https://www.jcrew.com/p/womens_category/sweaters/pullover/tippi-sweater/E1277',
-    'link': null,
-    'img': jcrewPdp
+    'link': null
   },
   {
     'shortname': 'mw-searchsale',
     'name': "Madewell Search & Sale",
     'caption': 'Refactored the search experience as a single page app and built a drop down navigation bar. Worked closedly with design to restyle the UX to be more in line with the overall Madewell brand experience.',
     'url': null,
-    'link': null,
-    'img': mwSearchsale
+    'link': null
   },
   {
     'shortname': 'espn-recruiting',
     'name': "ESPN Recruiting Landing Page",
     'caption': 'Designed within ESPN\'s content framework and developed the front end templates for ESPN\'s recruiting portal',
     'url': 'http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120',
-    'link': null,
-    'img': espnRecruiting
+    'link': null
   },
   {
     'shortname': 'leadership',
     'name': "The Leadership Room",
     'caption': 'Designed and built several pages within the existing style direction of The Leadership Room branding.',
     'url': null,
-    'link': null,
-    'img': leadership
+    'link': null
   },
   {
     'shortname': 'richtu',
     'name': "Rich Tu Portfolio",
     'caption': 'Worked closely with award-winning illustrator Rich Tu to develop a horizontal scrolling portfolio page.',
     'url': 'https://pedantic-pare-72cabc.netlify.app/',
-    'link': 'See a demo',
-    'img': richtu
+    'link': 'See a demo'    
   },
   {
     'shortname': 'codeblue',
     'name': "CodeBlue Blog",
     'caption': 'Created an emergency preparedness blog for Seton Hall University. Worked closely with design to chop up a standard WordPress blog to look and feel like an actual comic book.',
     'url': 'https://blogs.shu.edu/project/code-blue/',
-    'link': 'Read More',
-    'img': codeblue
+    'link': 'Read More'
   }
 ]
 
@@ -173,8 +152,7 @@ const Work = () => {
                 <StyledScreenshot
                   className={loading ? 'loading' : null}
                 >
-                  <Screenshot filename={project.shortname} />
-                  {/* <img src={project.img} alt={project.name} /> */}
+                  <Screenshot filename={project.shortname} />                  
                 </StyledScreenshot>
                 <StyledCaption open={open} className="small">                
                   {project.caption}<br />
