@@ -8,7 +8,7 @@ import FlexContainer from "../components/flexContainer"
 import { FadeLink } from "../components/transition"
 
 
-const blogPath = `/`
+const blogPath = `/blog`
 
 class Blog extends React.Component {
     render() {
@@ -33,7 +33,7 @@ class Blog extends React.Component {
                                     {isNew && (
                                         <StyledTopHeading>
                                             <FadeLink
-                                                to={`/${node.fields.slug}`}
+                                                to={`${blogPath}${node.fields.slug}`}
                                             >
                                                 {title}
                                             </FadeLink>
