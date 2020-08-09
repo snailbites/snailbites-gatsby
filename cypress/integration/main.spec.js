@@ -18,6 +18,7 @@ describe('Home Page', () => {
 
 describe('Navigation', () => {
     it('should open and close', () => {
+        cy.visit('/');
         cy.get('nav').click();
         cy.wait(1000);
 
@@ -35,16 +36,37 @@ describe('Navigation', () => {
         cy.get('nav li').contains('CV').should('not.be.visible');
     })
 
-    it('should navigate to the blog', () => {
+    it('should navigate to cv from home', () => {
+        cy.visit('/');
         cy.get('nav').click();
         cy.wait(1000);
 
-        cy.get('nav li').contains('Blog').click();
-        cy.url().should('include', '/blog')
-        cy.get('nav li').contains('Blog').should('not.be.visible');
+        cy.get('nav li').contains('CV').click();
+        cy.url().should('include', '/cv')
+        cy.get('nav li').contains('CV').should('not.be.visible');
+    })
+    
+    it('should navigate to work from blog', () => {
+        cy.visit('/blog');
+        cy.get('nav').click();
+        cy.wait(1000);
 
-        cy.get('main h1 a').click()
-        cy.url().should('include', '/blog')
+        cy.get('nav li').contains('Work').click();
+        cy.wait(2000);
+        cy.url().should('include', '/')
+        cy.isInViewport('#work')        
+    })
+});
 
-    })    
+describe('Blog', () => {
+    it('should click through to a post from /blog', () => {
+        cy.visit('/blog');
+
+        cy.get('main h1 a')
+            .should('have.attr', 'href')
+            .then((href) => {
+                cy.visit(href)
+                cy.url().should('include', href)
+            })        
+    });
 });
