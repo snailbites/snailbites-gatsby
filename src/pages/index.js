@@ -19,16 +19,17 @@ const IndexPage = props => {
             <SEO
                 title="Home"
                 keywords={[
+                    `Vincent Nalupta`,
+                    `Vince Nalupta`,
                     `blog`,
                     `gatsby`,
                     `javascript`,
                     `react`,
                     `user experience engineer`,
-                    `engineering manager`,
-                    `Vincent Nalupta`,
+                    `engineering manager`,                    
                     `snailbites`,
             ]}
-            description="Vincent Nalupta's site"
+            description="Vincent (Vince) Nalupta's site"
             />
             <StyledHeader>
                 <Jumbotron />
