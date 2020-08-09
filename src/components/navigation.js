@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
-
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink, scrollHandler } from "./transition"
 
 const rootPath = `/`
 const blogPath = `/blog/`
@@ -12,28 +11,13 @@ const Navigation = (props) => {
     const [open, setOpen] = useState(false);
     const { location } = props;
 
-    const handleClick = (modifier) => {
+    const handleClick = (target) => {
         setOpen(!open);
-        if (modifier === 'home' && location === rootPath) {
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-            }, 600);   
-        }
 
-        if (modifier === 'work' && location === rootPath) {
-            scrollToWork();
-        }
-
+        if (location === rootPath && !!target) {
+            scrollHandler(target);
+        }        
     }
-
-    const scrollToWork = (node, e, exit, entry) => {    
-        setTimeout(() => {
-            // convert to Ref
-            const height = document.getElementById('work').offsetTop || 1600;
-            window.scrollTo({ top: height - 100, behavior: 'smooth' })
-        }, 600);        
-    }
-
     return (
         <StyledNav location={location} open={open}>
             <StyledNavButton
@@ -49,65 +33,35 @@ const Navigation = (props) => {
             <StyledBackdrop open={open} />
             <StyledList location={location} open={open}>
                 <li className="h1">
-                    <TransitionLink 
-                        exit={{                             
-                            delay: .35, 
-                            length: .35,
-                        }}
-                        entry={{                            
-                            delay: .35, 
-                            length: .75,
-                            state: {
-                                work: false
-                            },
-                        }}
-                        onClick={() => handleClick('home')}                        
+                    <FadeLink 
+                        target={'home'}
+                        onClick={() => handleClick('home')}
                         to={rootPath}>
                         Home
-                    </TransitionLink>
+                    </FadeLink>
                 </li>
                 <li className="h1">
-                    <TransitionLink 
-                        exit={{                             
-                            delay: .35, 
-                            length: .35,
-                        }}
-                        entry={{
-                            trigger: ({ node, e, exit, entry }) => scrollToWork(node, e, exit, entry),
-                            delay: .35, 
-                            length: .75
-                        }}
-                        onClick={() => handleClick('work')}                        
+                    <FadeLink 
+                        target={'work'}
+                        onClick={() => handleClick('work')}
                         to={rootPath}>
                         Work
-                    </TransitionLink>    
+                    </FadeLink>
                 </li>            
                 <li className="h1">
-                    <TransitionLink 
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-
-                            delay: .35, 
-                            length: 0.75
-                        }}
+                    <FadeLink 
                         to={blogPath}
-
                         onClick={handleClick} >
                         Blog
-                    </TransitionLink>
+                    </FadeLink>
                 </li>
                 <li className="h1">
-                    <TransitionLink 
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-                            delay: .35, 
-                            length: 0.75
-                        }}
+                    <FadeLink 
                         to={cvPath}
                         onClick={handleClick} 
                     >
                         CV
-                    </TransitionLink>
+                    </FadeLink>
                 </li>
             </StyledList>
         </StyledNav>

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink } from "./transition"
 
 const rootPath = `/`
 

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink } from "./transition"
+
 const BlogFeed = () => {
     return (
         <StaticQuery
@@ -36,13 +37,11 @@ const BlogFeed = () => {
                         <StyledList>
                             {entries.map((entry, i) => (
                                 <li className="body" key={i}>
-                                    <TransitionLink
-                                        exit={{ delay: 0.35, length: 0.35 }}
-                                        entry={{
-                                            length: 0.75
-                                        }} to={`/blog${entry.node.fields.slug}`}>
+                                    <FadeLink 
+                                        to={`/blog${entry.node.fields.slug}`}
+                                    >
                                         {entry.node.frontmatter.title}
-                                    </TransitionLink>
+                                    </FadeLink>
                                 </li>
                             ))}
                         </StyledList>

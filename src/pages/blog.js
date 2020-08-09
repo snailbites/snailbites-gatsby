@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components";
 
 import App from "../components/app"
 import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
-import TransitionLink from 'gatsby-plugin-transition-link'
-import styled from "styled-components";
+import { FadeLink } from "../components/transition"
+
 
 const blogPath = `blog/`
 
@@ -31,28 +32,20 @@ class Blog extends React.Component {
                                 <div key={node.fields.slug}>
                                     {isNew && (
                                         <StyledTopHeading>
-                                            <TransitionLink
-                                                exit={{ delay: 0.35, length: 0.35 }}
-                                                entry={{
-                                                    length: 0.75
-                                                }}
+                                            <FadeLink
                                                 to={`${blogPath}${node.fields.slug}`}
                                             >
                                                 {title}
-                                            </TransitionLink>
+                                            </FadeLink>
                                         </StyledTopHeading>
                                     )}
                                     {!isNew && (
                                         <StyledSubHeading>
-                                            <TransitionLink
-                                                exit={{ delay: 0.35, length: 0.35 }}
-                                                entry={{
-                                                    length: 0.75
-                                                }}
+                                            <FadeLink
                                                 to={`${blogPath}${node.fields.slug}`}
                                             >
                                                 {title}
-                                            </TransitionLink>
+                                            </FadeLink>
                                         </StyledSubHeading>
                                     )}
                                     <article>
@@ -66,17 +59,13 @@ class Blog extends React.Component {
                                                 }} />
                                             </StyledBlurb>
                                             {'  '}
-                                            <TransitionLink
-                                                exit={{ delay: 0.35, length: 0.35 }}
-                                                entry={{
-                                                    length: 0.75
-                                                }}
+                                            <FadeLink
                                                 css={`
                                                         text-decoration: none;
                                                     `}
                                                 to={`${blogPath}${node.fields.slug}`}>
                                                 &rarr;
-                                                </TransitionLink>
+                                                </FadeLink>
                                         </p>
                                     </article>
                                 </div>
