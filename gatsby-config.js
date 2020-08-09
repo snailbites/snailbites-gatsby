@@ -19,6 +19,7 @@ module.exports = {
         `gatsby-plugin-remove-serviceworker`,
         `gatsby-plugin-react-helmet`,        
         `gatsby-plugin-transition-link`,
+        `gatsby-plugin-slug`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {

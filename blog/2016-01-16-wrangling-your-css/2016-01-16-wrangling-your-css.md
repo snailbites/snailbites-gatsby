@@ -3,6 +3,7 @@ title: Wrangling Your CSS Into Submission
 date: "2016-01-16T21:52:45+04:00"
 description: Do you work on an enterprise system? Do you have a single page web app? Did you just go through a major redesign? Does re-styling a seemingly harmless little element tend to break other elements? If you answered “yes” to any of these questions, then this post is probably for you.
 meta: old
+slug: wrangling-your-css-into-submission
 ---
 
 Do you work on an enterprise system? Do you have a single page web app? Did you just go through a major redesign? Does re-styling a seemingly harmless little element tend to break other elements? If you answered “yes” to any of these questions, then this post is probably for you.
