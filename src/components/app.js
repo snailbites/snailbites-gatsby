@@ -15,6 +15,15 @@ export const Fade = posed.div({
     visible: { opacity: 1 },
 })
 
+const Child = props => {
+    console.log(props);
+    
+
+    return (
+        <div>{props.children}</div>
+    )
+}
+
 class App extends React.Component {
     render() {
         const { location, children } = this.props
@@ -33,12 +42,7 @@ class App extends React.Component {
                 <Navigation location={location.pathname} />
                 <TransitionState>
                     {({ transitionStatus }) => (
-                        <Fade
-                            pose={
-                                ['entering', 'entered'].includes(transitionStatus)
-                                    ? 'visible'
-                                    : 'hidden'
-                            }>
+                        <Child status={transitionStatus}>
 
 
                             <Main role="main" location={location.pathname}>
@@ -49,7 +53,7 @@ class App extends React.Component {
                             </Main>
 
                             <Footer location={location.pathname} />
-                        </Fade>
+                            </Child>
                     )}
                 </TransitionState>
             </Wrapper>
