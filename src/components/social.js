@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink } from "./transition"
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
@@ -17,25 +17,16 @@ function Social(props) {
             </StyledList>
             <StyledList>
                 <li>
-                    <TransitionLink
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-                            length: 0.75
-                        }} to={rootPath}>Home</TransitionLink>
+                    <FadeLink
+                        to={rootPath}>Home</FadeLink>
                 </li>
                 <li>
-                    <TransitionLink
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-                            length: 0.75
-                        }} to={blogPath}>Blog</TransitionLink>
+                    <FadeLink
+                        to={blogPath}>Blog</FadeLink>
                 </li>
                 <li>
-                    <TransitionLink
-                        exit={{ delay: 0.35, length: 0.35 }}
-                        entry={{
-                            length: 0.75
-                        }} to={cvPath}>CV</TransitionLink>
+                    <FadeLink
+                        to={cvPath}>CV</FadeLink>
                 </li>
             </StyledList>
         </SocialWrapper>

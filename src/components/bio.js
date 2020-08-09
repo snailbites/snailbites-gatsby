@@ -5,7 +5,7 @@ import Image from "gatsby-image"
 
 import Button from "./button"
 import FlexContainer from "./flexContainer"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink } from "./transition"
 
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
@@ -53,14 +53,10 @@ function Bio() {
                 >
                     This is my space to flex my design chops and write about interesting tech.
                 </p>
-                <TransitionLink 
-                    exit={{ delay: 0.35, length: 0.35 }}
-                    entry={{
-                        length: 0.75
-                    }}
+                <FadeLink
                     to={blogPath}>
                         <BioButton>Read the Blog</BioButton>
-                </TransitionLink>
+                </FadeLink>
             </BioColumn>            
         </FlexContainer>
     )

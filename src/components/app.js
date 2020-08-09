@@ -6,59 +6,39 @@ import Footer from "./footer"
 import Navigation from "./navigation"
 import { GlobalStyle } from "../theme/global"
 import { TransitionState } from "gatsby-plugin-transition-link";
+import {
+    FadeProvider
+} from "./transition"
 
-// TODO: get rid of posed
-import posed from 'react-pose';
-
-export const Fade = posed.div({
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-})
-
-const Child = props => {
-    console.log(props);
-    
+const App = props => {
+    const { location, children } = props
 
     return (
-        <div>{props.children}</div>
+        <Wrapper location={location.pathname}>
+            <Helmet>
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
+                    media="all"
+                ></link>                  
+            </Helmet>
+
+            <TransitionState>
+                {({ transitionStatus }) => (
+                    <FadeProvider status={transitionStatus}>
+                        <GlobalStyle location={location.pathname} />
+                        <Navigation location={location.pathname} />
+
+                        <Main role="main" location={location.pathname}>
+                            {children}
+                        </Main>
+
+                        <Footer location={location.pathname} />
+                    </FadeProvider>
+                )}
+            </TransitionState>
+        </Wrapper>
     )
-}
-
-class App extends React.Component {
-    render() {
-        const { location, children } = this.props
-        
-        return (
-            <Wrapper location={location.pathname}>
-                <Helmet>
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
-                        media="all"
-                    ></link>                  
-                </Helmet>
-
-                <GlobalStyle location={location.pathname} />
-                <Navigation location={location.pathname} />
-                <TransitionState>
-                    {({ transitionStatus }) => (
-                        <Child status={transitionStatus}>
-
-
-                            <Main role="main" location={location.pathname}>
-
-                                {children}
-
-
-                            </Main>
-
-                            <Footer location={location.pathname} />
-                            </Child>
-                    )}
-                </TransitionState>
-            </Wrapper>
-        )
-    }
 }
 
 const Wrapper = styled.div`

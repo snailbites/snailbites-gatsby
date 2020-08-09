@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import { Colors } from "../theme/global"
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { FadeLink } from "./transition"
 
 const rootPath = `${__PATH_PREFIX__}/`
 const blogPath = `${__PATH_PREFIX__}/blog/`
