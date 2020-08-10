@@ -40,6 +40,7 @@
     },
     "devDependencies": {
         "cypress": "^4.12.1",
+        "netlify-plugin-cypress": "^1.4.1",
         "prettier": "^1.17.0"
     },
     "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

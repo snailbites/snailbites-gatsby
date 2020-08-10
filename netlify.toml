@@ -1,0 +1,7 @@
+# to be able to build this site locally, let's specify
+# build settings in this file
+# Cypress plugin
+[[plugins]]
+  package = "netlify-plugin-cypress"
+  [plugins.inputs]
+    record = true
