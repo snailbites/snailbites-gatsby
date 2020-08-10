@@ -159,50 +159,48 @@ const Navigation = (props) => {
     height: calc(${baseUnit} * 3);
     margin: calc(${baseUnit} * 2) 0 0 calc(${baseUnit} * 2);
   
-  & > div {
-    position: absolute;
-    left: 0;
+    & > div {
+        position: absolute;
+        left: 0;
 
-    height: 4px;
-    width: 100%;
+        height: 4px;
+        width: 100%;
 
-    opacity: 1;
-    transform: rotate(0);
-        
-    transition-property: top, left, rotate, opacity, transform, background-color;
-    transition-duration: ${baseTiming};
-    transition-timing-function: ease-in;    
+        opacity: 1;
+        transform: rotate(0);
+            
+        transition-property: top, left, rotate, opacity, transform, background-color;
+        transition-duration: ${baseTiming};
+        transition-timing-function: ease-in;    
 
-    background-color: ${props => props.location === "/"
+        background-color: ${props => props.location === "/"
             ? props.open
                 ? Colors.sesame
                 : Colors.eggshell
             : Colors.sesame
-        };    
-
+        };        
+    }
     
-  }
-  
-  & div:nth-child(1) {
-    top: ${props => props.open ? baseUnit : 0};
-    ${props => props.open && `transform: rotate(135deg)`};
-  }
-  
-  & div:nth-child(2) {
-    top: ${baseUnit};
-    ${props => props.open &&
+    & div:nth-child(1) {
+        top: ${props => props.open ? baseUnit : 0};
+        ${props => props.open && `transform: rotate(135deg)`};
+    }
+    
+    & div:nth-child(2) {
+        top: ${baseUnit};
+        ${props => props.open &&
             `opacity: 0;
-        left: calc(${baseUnit} * -4);`
+            left: calc(${baseUnit} * -4);`
         }
-  }
-  
-  & div:nth-child(3) {
-    top: ${props => props.open
-            ? `calc(${baseUnit})`
-            : `calc(${baseUnit} * 2)`
-        };
-    ${props => props.open && `transform: rotate(-135deg)`};
-  }
+    }
+    
+    & div:nth-child(3) {
+        top: ${props => props.open
+                ? `calc(${baseUnit})`
+                : `calc(${baseUnit} * 2)`
+            };
+        ${props => props.open && `transform: rotate(-135deg)`};
+    }
 `
 
     export default Navigation
