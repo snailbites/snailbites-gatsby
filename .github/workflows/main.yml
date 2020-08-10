@@ -38,7 +38,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.SYNC_TOKEN }}      
-          CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }--snailbites.netlify.app'
+          CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }}--snailbites.netlify.app'
         with:
           wait-on: 'https://deploy-preview-${{ github.event.number }}--snailbites.netlify.app'
           wait-on-timeout: 90
