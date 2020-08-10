@@ -8,7 +8,7 @@ import FlexContainer from "../components/flexContainer"
 import { FadeLink } from "../components/transition"
 
 
-const blogPath = `/blog`
+const blogPath = `/blog/`
 
 class Blog extends React.Component {
     render() {

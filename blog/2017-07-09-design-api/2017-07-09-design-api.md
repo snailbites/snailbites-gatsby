@@ -3,7 +3,7 @@ title: Design APIs
 date: "2016-09-17T19:54:45+04:00"
 description: At the most complex levels of CSS development, front end software is developed by assembling reusable components, or design patterns.
 meta: old
-slug: design-apis
+path: design-apis
 ---
 
 At the most complex levels of CSS development, front end software is developed by assembling reusable components, or design patterns. These are different than the design patterns created by the [Gang of Four](http://www.blackwasp.co.uk/gofpatterns.aspx). Rather, they are agreed upon User Interface building blocks that have been agreed upon by both design and engineering teams. At [Grubhub](https://www.grubhub.com), we create these patterns as bundles of CSS code that can then be easily exported and attached to HTML for assembly on external client apps.
