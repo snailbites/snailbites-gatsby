@@ -29,7 +29,7 @@ const IndexPage = props => {
                     `engineering manager`,                    
                     `snailbites`,
             ]}
-            description="Vincent (Vince) Nalupta's site"
+            description="Vincent Nalupta's site"
             />
             <StyledHeader>
                 <Jumbotron />
