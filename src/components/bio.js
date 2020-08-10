@@ -19,17 +19,17 @@ function Bio() {
         <StaticQuery
             query={bioQuery}
             render={data => (
-                <FlexContainer flex>                
+                <FlexContainer flex>
                     <Profile>
                         <BioWrapper>
                             <BioBg />
                         </BioWrapper>
 
-                            <Image
-                                fixed={data.profile.childImageSharp.fixed}
-                                alt={"Vincent Nalupta's shadow against some subway tiles."}
-                            />
-    
+                        <Image
+                            fixed={data.profile.childImageSharp.fixed}
+                            alt={"Vincent Nalupta's shadow against some subway tiles."}
+                        />
+
                     </Profile>
                     <BioColumn rhs ref={bioRef} visible={inView}>
                         <StyledHeading>
@@ -55,7 +55,7 @@ function Bio() {
                         </FadeLink>
                     </BioColumn>
                 </FlexContainer>
-            )}>                
+            )}>
         </StaticQuery>
     )
 }
@@ -133,11 +133,11 @@ const bioQuery = graphql`
                 }
             }
         },
-        link: markdownRemark {
+        link: markdownRemark(fields: {slug: {eq: "redesign"}}) {
             fields {
-                slug
+              slug
             }
-        } 
+          }
     }
 `
 
