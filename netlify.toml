@@ -1,5 +1,6 @@
 [build]
-start = "yarn build"
+command = "yarn build"
+start = "yarn serve"
 publish = "public"
 [build.environment]
 # cache Cypress binary in local "node_modules" folder
@@ -10,10 +11,5 @@ TERM = "xterm"
 
 [[plugins]]
 package = "netlify-plugin-cypress"
-[plugins.inputs.preBuild]
-    start = "yarn serve"
-    wait-on = "http://localhost:9000"
-    wait-on-timeout = "30" # seconds
-    record = true
   [plugins.inputs]
     record = true
