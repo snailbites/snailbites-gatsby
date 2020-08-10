@@ -47,7 +47,7 @@ describe('Navigation', () => {
         cy.visit('/blog');
         cy.get('nav').click();
         cy.wait(1500);
-        cy.get('nav li').contains('Work').click();
+        cy.get('nav ul li').contains('Work').click();
         cy.wait(5000);
         cy.url().should('include', '/')        
         cy.isInViewport('#work')        
