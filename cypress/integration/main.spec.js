@@ -21,17 +21,17 @@ describe('Navigation', () => {
         cy.visit('/');
         cy.get('nav').click();
         cy.wait(1500);
-        cy.get('nav li').contains('Home').should('be.visible');
-        cy.get('nav li').contains('Work').should('be.visible');
-        cy.get('nav li').contains('Blog').should('be.visible');
-        cy.get('nav li').contains('CV').should('be.visible');
+        cy.get('nav ul li').contains('Home').should('be.visible');
+        cy.get('nav ul li').contains('Work').should('be.visible');
+        cy.get('nav ul li').contains('Blog').should('be.visible');
+        cy.get('nav ul li').contains('CV').should('be.visible');
 
         cy.get('nav').click();
         cy.wait(1500);
-        cy.get('nav li').contains('Home').should('not.be.visible');
-        cy.get('nav li').contains('Work').should('not.be.visible');
-        cy.get('nav li').contains('Blog').should('not.be.visible');
-        cy.get('nav li').contains('CV').should('not.be.visible');
+        cy.get('nav ul li').contains('Home').should('not.be.visible');
+        cy.get('nav ul li').contains('Work').should('not.be.visible');
+        cy.get('nav ul li').contains('Blog').should('not.be.visible');
+        cy.get('nav ul li').contains('CV').should('not.be.visible');
     })
 
     it('should navigate to cv from home', () => {
