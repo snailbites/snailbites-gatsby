@@ -16,49 +16,47 @@ function Bio() {
     })
 
     return (
-        <FlexContainer flex >
-            <Profile>
-                <BioWrapper>
-                    <BioBg />
-                </BioWrapper>
-                <StaticQuery
-                    query={bioQuery}
-                    render={data => (
-                        <Image
-                            fixed={data.profile.childImageSharp.fixed}
-                            alt={"Vincent Nalupta's shadow against some subway tiles."}
-                        />
-                    )}
-                ></StaticQuery>
-            </Profile>
-            <BioColumn rhs ref={bioRef} visible={inView}>
-                <StyledHeading>
-                    HELLO!
-                </StyledHeading>
-                <p>
-                    My name is Vincent Nalupta and I am currently an Engineering Manager at Grubhub.
-                </p>
-                <p>
-                    I've won some <a href="https://www.commarts.com/webpicks/timothy-goodman" target="_blank" rel="noopener noreferrer">awards</a> for my work and some <a href="https://twitter.com/snailbites/status/917875803983147008" target="_blank" rel="noopener noreferrer">giant pencils</a> for my <a href="https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2" target="_blank" rel="noopener noreferrer">talks</a>.
-                </p>
-                <p
-                    css={`
-                        margin-bottom: 30px;
-                    `}
-                >
-                    This is my space to flex my design chops and write about interesting tech.
-                </p>
-                <StaticQuery
-                    query={bioQuery}
-                    render={data => (
+        <StaticQuery
+            query={bioQuery}
+            render={data => (
+                <FlexContainer flex>                
+                    <Profile>
+                        <BioWrapper>
+                            <BioBg />
+                        </BioWrapper>
+
+                            <Image
+                                fixed={data.profile.childImageSharp.fixed}
+                                alt={"Vincent Nalupta's shadow against some subway tiles."}
+                            />
+    
+                    </Profile>
+                    <BioColumn rhs ref={bioRef} visible={inView}>
+                        <StyledHeading>
+                            HELLO!
+                        </StyledHeading>
+                        <p>
+                            My name is Vincent Nalupta and I am currently an Engineering Manager at Grubhub.
+                        </p>
+                        <p>
+                            I've won some <a href="https://www.commarts.com/webpicks/timothy-goodman" target="_blank" rel="noopener noreferrer">awards</a> for my work and some <a href="https://twitter.com/snailbites/status/917875803983147008" target="_blank" rel="noopener noreferrer">giant pencils</a> for my <a href="https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2" target="_blank" rel="noopener noreferrer">talks</a>.
+                        </p>
+                        <p
+                            css={`
+                                margin-bottom: 30px;
+                            `}
+                        >
+                            This is my space to flex my design chops and write about interesting tech.
+                        </p>
+
                         <FadeLink
                             to={`/blog/${data.link.fields.slug}`}>
                             <BioButton>Read the Blog</BioButton>
                         </FadeLink>
-                    )}>
-                </StaticQuery>
-            </BioColumn>
-        </FlexContainer>
+                    </BioColumn>
+                </FlexContainer>
+            )}>                
+        </StaticQuery>
     )
 }
 
