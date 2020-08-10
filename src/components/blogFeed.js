@@ -38,7 +38,7 @@ const BlogFeed = () => {
                             {entries.map((entry, i) => (
                                 <li className="body" key={i}>
                                     <FadeLink 
-                                        to={`/blog${entry.node.fields.slug}`}
+                                        to={`blog/${entry.node.fields.slug}`}
                                     >
                                         {entry.node.frontmatter.title}
                                     </FadeLink>
