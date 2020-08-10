@@ -20,7 +20,6 @@ describe('Navigation', () => {
     it('should open and close', () => {
         cy.visit('/');
         cy.get('nav').click();
-        cy.wait(1000);
 
         cy.get('nav li').contains('Home').should('be.visible');
         cy.get('nav li').contains('Work').should('be.visible');
@@ -28,7 +27,6 @@ describe('Navigation', () => {
         cy.get('nav li').contains('CV').should('be.visible');
 
         cy.get('nav').click();
-        cy.wait(1000);
 
         cy.get('nav li').contains('Home').should('not.be.visible');
         cy.get('nav li').contains('Work').should('not.be.visible');
@@ -39,7 +37,6 @@ describe('Navigation', () => {
     it('should navigate to cv from home', () => {
         cy.visit('/');
         cy.get('nav').click();
-        cy.wait(1000);
 
         cy.get('nav li').contains('CV').click();
         cy.url().should('include', '/cv')
@@ -49,11 +46,10 @@ describe('Navigation', () => {
     it('should navigate to work from blog', () => {
         cy.visit('/blog');
         cy.get('nav').click();
-        cy.wait(1000);
 
         cy.get('nav li').contains('Work').click();
-        cy.wait(2000);
-        cy.url().should('include', '/')
+        cy.wait(3000);
+        cy.url().should('include', '/')        
         cy.isInViewport('#work')        
     })
 });
