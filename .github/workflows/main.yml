@@ -20,7 +20,7 @@
 #           GITHUB_TOKEN: ${{ secrets.SYNC_TOKEN }}
 
 name: End-to-end tests
-on: [pull_request]
+on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
