@@ -6,68 +6,67 @@ import SEO from "../components/seo"
 import FlexContainer from "../components/flexContainer"
 import styled from "styled-components";
 
-class BlogPostTemplate extends React.Component {
-    render() {
-        const post = this.props.data.markdownRemark
-        const siteTitle = this.props.data.site.siteMetadata.title
-        const { previous, next } = this.props.pageContext
+const BlogPostTemplate = props => {
+    const post = props.data.markdownRemark
+    const siteTitle = props.data.site.siteMetadata.title
+    const { previous, next } = props.pageContext
 
-        return (
-            <App location={this.props.location} title={siteTitle}>
-                <SEO
-                    title={post.frontmatter.title}
-                    description={post.frontmatter.description || post.excerpt}
-                />
-                <FlexContainer width={`768px`}>
-                    <StyledSection>                    
-                        <StyledHeading>
-                            {post.frontmatter.title}
-                        </StyledHeading>
-                        
-                        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    return (
+        <App location={props.location} title={siteTitle}>
+            <SEO
+                title={post.frontmatter.title}
+                description={post.frontmatter.description || post.excerpt}
+            />
+            <FlexContainer width={`768px`}>
+                <StyledSection>
+                    <StyledHeading>
+                        {post.frontmatter.title}
+                    </StyledHeading>
 
-                        <p
-                            css={`
+                    <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+                    <p
+                        css={`
                             text-align: left;
                         `}
-                        >
-                            {post.frontmatter.date}
-                        </p>
-                        <ul
-                            style={{
-                                display: `flex`,
-                                flexWrap: `wrap`,
-                                justifyContent: `space-between`,
-                                listStyle: `none`,
-                                padding: `0 0 50px 0`,
-                            }}
-                        >
-                            <li>
-                                {previous && (
-                                    <FadeLink
-                                        to={`blog${previous.fields.slug}`}
-                                        rel="prev"
-                                    >
-                                        ← {previous.frontmatter.title}
-                                    </FadeLink>
-                                )}
-                            </li>
-                            <li>
-                                {next && (
-                                    <FadeLink
-                                        to={`blog${next.fields.slug}`} 
-                                        rel="next">
-                                        {next.frontmatter.title} →
-                                    </FadeLink>
-                                )}
-                            </li>
-                        </ul>
-                    </StyledSection>
-                </FlexContainer>
-            </App>
-        )
-    }
+                    >
+                        {post.frontmatter.date}
+                    </p>
+                    <ul
+                        style={{
+                            display: `flex`,
+                            flexWrap: `wrap`,
+                            justifyContent: `space-between`,
+                            listStyle: `none`,
+                            padding: `0 0 50px 0`,
+                        }}
+                    >
+                        <li>
+                            {previous && (
+                                <FadeLink
+                                    to={`blog${previous.fields.slug}`}
+                                    rel="prev"
+                                >
+                                    ← {previous.frontmatter.title}
+                                </FadeLink>
+                            )}
+                        </li>
+                        <li>
+                            {next && (
+                                <FadeLink
+                                    to={`blog${next.fields.slug}`}
+                                    rel="next">
+                                    {next.frontmatter.title} →
+                                </FadeLink>
+                            )}
+                        </li>
+                    </ul>
+                </StyledSection>
+            </FlexContainer>
+        </App>
+    )
 }
+
 
 const StyledSection = styled.section`
     padding-top: 100px;
