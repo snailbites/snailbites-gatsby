@@ -61,8 +61,8 @@
         "format": "prettier --write src/**/*.{js,jsx}",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "ci:open": "cypress open",
-        "ci:local": "cypress run",
-        "ci": "cypress run --record --key e1ef8673-400d-4040-9941-69f345f162eb"
+        "test:open": "cypress open",
+        "test:headless": "cypress run",
+        "test": "cypress run --headed"
     }
 }
