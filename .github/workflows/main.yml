@@ -20,4 +20,4 @@ jobs:
           CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }}--snailbites.netlify.app'
         with:
           wait-on: 'https://deploy-preview-${{ github.event.number }}--snailbites.netlify.app'
-          wait-on-timeout: 90
+          wait-on-timeout: 600
