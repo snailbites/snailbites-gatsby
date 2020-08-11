@@ -19,14 +19,14 @@ describe('Home Page', () => {
 describe('Navigation', () => {
     it('should open and close', () => {
         cy.visit('/');
-        cy.get('[aria-label="navigation"').click();
+        cy.get('[aria-label="navigation"]').click();
         cy.wait(1500);
         cy.get('nav ul li').contains('Home').should('be.visible');
         cy.get('nav ul li').contains('Work').should('be.visible');
         cy.get('nav ul li').contains('Blog').should('be.visible');
         cy.get('nav ul li').contains('CV').should('be.visible');
 
-        cy.get('[aria-label="navigation"').click();
+        cy.get('[aria-label="navigation"]').click();
         cy.wait(1500);
         cy.get('nav ul li').contains('Home').should('not.be.visible');
         cy.get('nav ul li').contains('Work').should('not.be.visible');
@@ -36,7 +36,7 @@ describe('Navigation', () => {
 
     it('should navigate to cv from home', () => {
         cy.visit('/');
-        cy.get('[aria-label="navigation"').click();
+        cy.get('[aria-label="navigation"]').click();
         
         cy.get('nav li').contains('CV').click();
         cy.url().should('include', '/cv')
@@ -45,7 +45,7 @@ describe('Navigation', () => {
     
     it('should navigate to work from blog', () => {
         cy.visit('/blog');
-        cy.get('[aria-label="navigation"').click();
+        cy.get('[aria-label="navigation"]').click();
         cy.wait(1500);
         cy.get('nav ul li').contains('Work').click();
         cy.wait(5000);
