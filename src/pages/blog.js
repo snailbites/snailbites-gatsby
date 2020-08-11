@@ -10,74 +10,74 @@ import { FadeLink } from "../components/transition"
 
 const blogPath = `/blog/`
 
-class Blog extends React.Component {
-    render() {
-        const { data } = this.props
-        const siteTitle = data.site.siteMetadata.title
-        const posts = data.allMarkdownRemark.edges
+const Blog = props => {
+    
+    const { data } = props
+    const siteTitle = data.site.siteMetadata.title
+    const posts = data.allMarkdownRemark.edges
 
-        return (
-            <App location={this.props.location} title={siteTitle}>
-                <SEO title="Blog" />
+    return (
+        <App location={props.location} title={siteTitle}>
+            <SEO title="Blog" />
 
-                <FlexContainer width={`768px`}>
-                    <StyledSection>
-                        {posts.map(({ node }) => {
-                            const title = node.frontmatter.title || node.fields.slug
-                            const isNew =
-                                node.frontmatter.meta &&
-                                node.frontmatter.meta.match(/new/gi)
+            <FlexContainer width={`768px`}>
+                <StyledSection>
+                    {posts.map(({ node }) => {
+                        const title = node.frontmatter.title || node.fields.slug
+                        const isNew =
+                            node.frontmatter.meta &&
+                            node.frontmatter.meta.match(/new/gi)
 
-                            return (
-                                <div key={node.fields.slug}>
-                                    {isNew && (
-                                        <StyledTopHeading>
-                                            <FadeLink
-                                                to={`${blogPath}${node.fields.slug}`}
-                                            >
-                                                {title}
+                        return (
+                            <div key={node.fields.slug}>
+                                {isNew && (
+                                    <StyledTopHeading>
+                                        <FadeLink
+                                            to={`${blogPath}${node.fields.slug}`}
+                                        >
+                                            {title}
+                                        </FadeLink>
+                                    </StyledTopHeading>
+                                )}
+                                {!isNew && (
+                                    <StyledSubHeading>
+                                        <FadeLink
+                                            to={`${blogPath}${node.fields.slug}`}
+                                        >
+                                            {title}
+                                        </FadeLink>
+                                    </StyledSubHeading>
+                                )}
+                                <article>
+                                    <p>
+                                        <StyledBlurb>
+                                            <span dangerouslySetInnerHTML={{
+                                                __html:
+                                                    node.frontmatter
+                                                        .description ||
+                                                    node.excerpt
+                                            }} />
+                                        </StyledBlurb>
+                                        {'  '}
+                                        <FadeLink
+                                            css={`
+                                                    text-decoration: none;
+                                                `}
+                                            to={`${blogPath}${node.fields.slug}`}>
+                                            &rarr;
                                             </FadeLink>
-                                        </StyledTopHeading>
-                                    )}
-                                    {!isNew && (
-                                        <StyledSubHeading>
-                                            <FadeLink
-                                                to={`${blogPath}${node.fields.slug}`}
-                                            >
-                                                {title}
-                                            </FadeLink>
-                                        </StyledSubHeading>
-                                    )}
-                                    <article>
-                                        <p>
-                                            <StyledBlurb>
-                                                <span dangerouslySetInnerHTML={{
-                                                    __html:
-                                                        node.frontmatter
-                                                            .description ||
-                                                        node.excerpt
-                                                }} />
-                                            </StyledBlurb>
-                                            {'  '}
-                                            <FadeLink
-                                                css={`
-                                                        text-decoration: none;
-                                                    `}
-                                                to={`${blogPath}${node.fields.slug}`}>
-                                                &rarr;
-                                                </FadeLink>
-                                        </p>
-                                    </article>
-                                </div>
-                            )
-                        })}
-                    </StyledSection>
-                    <Spacer />
-                </FlexContainer>
-            </App>
-        )
-    }
+                                    </p>
+                                </article>
+                            </div>
+                        )
+                    })}
+                </StyledSection>
+                <Spacer />
+            </FlexContainer>
+        </App>
+    )
 }
+
 
 const StyledTopHeading = styled.h1`
     margin: 0 0 12px;

@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-class FlexContainer extends React.Component {
-    render() {
-        return <Container props={this.props}>{this.props.children}</Container>
-    }
+const FlexContainer = props => {
+    return (
+        <Container props={props}>{props.children}</Container>
+    )
 }
 
 const Container = styled.section`

@@ -3,18 +3,16 @@ import styled from "styled-components"
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const Gradient = () => {
-
-    let cloud;
-
+    const cloudRef = useRef(null);
     const footerRef = useRef(null);    
+
     const [inView] = useIntersectionObserver(footerRef, {
         threshold: 0
     })    
 
     // TODO: add stationary clouds
     // TODO: add reverse cloud
-    useEffect(() => {       
-        cloud = document.getElementById('cloud');
+    useEffect(() => {               
         if (inView) {            
             animateCloud();
         }        
@@ -23,7 +21,7 @@ const Gradient = () => {
     const timing = 85000;
 
     function animateCloud() {        
-        if (!cloud) {
+        if (!cloudRef) {
             return ;
         }
         let start;        
@@ -35,7 +33,7 @@ const Gradient = () => {
 
             const ratio = ((timestamp - start) / timing) * 100; 
             
-            cloud.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
+            cloudRef.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
 
             if (timestamp - start <= timing) {
                 window.requestAnimationFrame(tick)
@@ -64,7 +62,7 @@ const Gradient = () => {
                 </ellipse>
 
                 <ellipse
-                    id="cloud"
+                    ref={cloudRef}
                     css="transform: translate(1vw, 20vh); opacity: .25;"
                     fill="#D8D8D8"
                     cx="171.5" cy="14.5" rx="171.5" ry="14.5">
