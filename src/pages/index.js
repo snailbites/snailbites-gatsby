@@ -29,7 +29,7 @@ const IndexPage = props => {
                     `engineering manager`,                    
                     `snailbites`,
             ]}
-            description="Vincent Nalupta's site"
+            description="Vincent Nalupta is an award winning speaker and engineer, currently an Engineering Manager at Grubhub."
             />
             <StyledHeader>
                 <Jumbotron />
