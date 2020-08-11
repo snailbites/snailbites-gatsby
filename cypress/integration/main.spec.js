@@ -19,6 +19,7 @@ describe('Home Page', () => {
 describe('Navigation', () => {
     it('should open and close', () => {
         cy.visit('/');
+        cy.wait(500);
         cy.get('[aria-label="navigation"]').click();
         cy.wait(1500);
 
@@ -42,6 +43,7 @@ describe('Navigation', () => {
 
     it('should navigate to cv from home', () => {
         cy.visit('/');
+        cy.wait(500);
         cy.get('[aria-label="navigation"]').click();
         
         cy.get('nav').within(() => {
@@ -55,6 +57,7 @@ describe('Navigation', () => {
     
     it('should navigate to work from blog', () => {
         cy.visit('/blog');
+        cy.wait(500);
         cy.get('[aria-label="navigation"]').click();
         cy.wait(1500);
         cy.get('nav').within(() => {
