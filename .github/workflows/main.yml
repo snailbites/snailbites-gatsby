@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Cypress run
-        uses: cypress-io/github-action@v1
+        uses: cypress-io/github-action@v2
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -21,3 +21,4 @@ jobs:
         with:
           wait-on: 'https://deploy-preview-${{ github.event.number }}--snailbites.netlify.app'
           wait-on-timeout: 600
+          record: true
