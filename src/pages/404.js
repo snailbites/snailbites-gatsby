@@ -5,11 +5,11 @@ import App from "../components/app"
 import SEO from "../components/seo"
 
 const NotFoundPage = () => {
-    const { data } = this.props
+    const { data } = props
     const siteTitle = data.site.siteMetadata.title
 
     return (
-        <App location={this.props.location} title={siteTitle}>
+        <App location={props.location} title={siteTitle}>
             <SEO title="404: Not Found" />
             <h1>Not Found</h1>
             <p>
