@@ -33,7 +33,7 @@ const Gradient = () => {
 
             const ratio = ((timestamp - start) / timing) * 100; 
             
-            cloudRef.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
+            cloudRef.current.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
 
             if (timestamp - start <= timing) {
                 window.requestAnimationFrame(tick)
