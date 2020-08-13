@@ -1,47 +1,44 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components"
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 const Gradient = () => {
-    const cloudRef = useRef(null);
     const footerRef = useRef(null);    
+    const [visible, showCloud] = useState(false);
 
     const [inView] = useIntersectionObserver(footerRef, {
         threshold: 0
     })    
 
-    // TODO: add stationary clouds
-    // TODO: add reverse cloud
     useEffect(() => {               
-        if (inView) {            
-            animateCloud();
-        }        
+        showCloud(true);
     }, [inView]);
 
-    const timing = 85000;
+    // function animateCloud() {      
+    //     const timing = 85000;  
 
-    function animateCloud() {        
-        if (!cloudRef) {
-            return ;
-        }
-        let start;        
+    //     if (!cloudRef) {
+    //         return ;
+    //     }
 
-        const tick = timestamp => {
-            if (!start) {
-                start = timestamp;
-            }
+    //     let start;        
 
-            const ratio = ((timestamp - start) / timing) * 100; 
+    //     const tick = timestamp => {
+    //         if (!start) {
+    //             start = timestamp;
+    //         }
+
+    //         const ratio = ((timestamp - start) / timing) * 100; 
             
-            cloudRef.current.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
+    //         cloudRef.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
 
-            if (timestamp - start <= timing) {
-                window.requestAnimationFrame(tick)
-            } 
-        }
+    //         if (timestamp - start <= timing) {
+    //             window.requestAnimationFrame(tick)
+    //         } 
+    //     }
 
-        window.requestAnimationFrame(tick)
-    }
+    //     window.requestAnimationFrame(tick)
+    // }
 
     return (
         <StyledGradient ref={footerRef}>
@@ -61,12 +58,11 @@ const Gradient = () => {
                     cx="171.5" cy="14.5" rx="203.5" ry="21.5">
                 </ellipse>
 
-                <ellipse
-                    ref={cloudRef}
-                    css="transform: translate(1vw, 20vh); opacity: .25;"
+                <StyledCloud
+                    visible={visible}
                     fill="#D8D8D8"
                     cx="171.5" cy="14.5" rx="171.5" ry="14.5">
-                </ellipse>
+                </StyledCloud>
 
                 <ellipse
                     css="transform: translate(74vw, 23vh); opacity: .1;"
@@ -91,6 +87,24 @@ const StyledMoon = styled.div`
     right: 12vh;
     top: -9vh;
     opacity: 0.85;
+`
+
+const StyledCloud = styled.ellipse`
+    opacity: .25;
+    transform: translate(1vw, 20vh);     
+
+    ${props => props.visible && `
+        animation: 4500ms moveHorizontal infinite alternate;    
+    `}
+
+    @keyframes moveHorizontal {
+        from { 
+            transform: translate(10vw, 22vh);
+        }
+        to {
+            transform: translate(15vw, 22vh);
+        }
+    }
 `
 
 const StyledGradient = styled.section`
