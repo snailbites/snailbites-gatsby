@@ -63,7 +63,7 @@ const CV = props => {
                     <h3>Highlights</h3>
                     <dl>
                         <dt>Awards</dt>
-                        <dd>CSS Dev Conf 2016 - "Best Of" Speaker</dd>
+                        <dd>CSS Dev Conf 2017 - "Best Of" Speaker</dd>
                         <dd>
                             CommArts Webpick of the Day
                                 <ul css={`margin-top: 0px`}>
@@ -85,7 +85,7 @@ const CV = props => {
                         </dd>
                         <dt>Talks</dt>
                         <dd>
-                            CSS Dev Conf 2016{" "}<ExternalLink
+                            CSS Dev Conf 2017{" "}<ExternalLink
                                 href={`https://speakerdeck.com/snailbites/patterns-language-and-the-tale-of-the-million-dollar-button-2`}
                             >
                                 Patterns, Language, and the Tale of the
@@ -93,7 +93,7 @@ const CV = props => {
                                 </ExternalLink>
                         </dd>
                         <dd>
-                            CSS Dev Conf 2015{" "}<ExternalLink
+                            CSS Dev Conf 2016{" "}<ExternalLink
                                 href={`https://speakerdeck.com/snailbites/konmaricss`}
                             >
                                 KonMari CSS
