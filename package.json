@@ -5,6 +5,7 @@
     "version": "0.1.1",
     "author": "Vincent Nalupta <vnalupta@gmail.com>",
     "dependencies": {
+        "animejs": "^3.2.0",
         "babel-plugin-styled-components": "^1.10.0",
         "gatsby": "^2.3.25",
         "gatsby-image": "^2.0.39",

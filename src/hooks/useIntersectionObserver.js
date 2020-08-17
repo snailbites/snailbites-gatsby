@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
  * @param {*} settings 
  * @example
  * 
- * const [inView] = useIntersectionObserver(footerRef, {
+ * const [inView, ratio] = useIntersectionObserver(footerRef, {
  *   threshold: 0
  * }) 
  * 
@@ -18,27 +18,48 @@ export const useIntersectionObserver = (
     ref,
     { threshold, root, rootMargin }
 ) => {
-    const [state, setState] = useState({
+    const [state, setIntersection] = useState({
         inView: false,
         triggered: false,
+        ratio: undefined,
         entry: undefined
     })
+
+    function buildThresholdList() {
+        let thresholds = [];
+        let numSteps = 20;
+      
+        for (let i = 1.0; i <= numSteps; i++) {
+          let ratio = i / numSteps;
+          thresholds.push(ratio);
+        }
+      
+        thresholds.push(0);
+        return thresholds;
+    }    
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries, observerInstance) => {
-                if (entries[0].intersectionRatio > 0) {                
-                    setState({
-                        inView: true,
-                        triggered: true,
-                        entry: observerInstance
-                    })
-                    observerInstance.unobserve(ref.current);
-                }
+
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio > 0) {                
+                        setIntersection({
+                            inView: true,
+                            triggered: true,     
+                            ratio: entry.intersectionRatio,                   
+                            entry: observerInstance
+                        })
+                    } 
+    
+                    if (entry.intersectionRatio > .7) {                   
+                        observerInstance.unobserve(ref.current);
+                    }
+                })
     
                 return;
             }, {
-                threshold: threshold || 0,
+                threshold: buildThresholdList(),
                 root: root || null,
                 rootMargin: rootMargin || "0%"
             }
@@ -49,5 +70,5 @@ export const useIntersectionObserver = (
         }
     })
 
-    return [state.inView, state.entry]
+    return [state.inView, state.ratio, state.entry]
 }

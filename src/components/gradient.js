@@ -6,39 +6,13 @@ const Gradient = () => {
     const footerRef = useRef(null);    
     const [visible, showCloud] = useState(false);
 
-    const [inView] = useIntersectionObserver(footerRef, {
+    const [inView, ratio] = useIntersectionObserver(footerRef, {
         threshold: 0
     })    
 
     useEffect(() => {               
         showCloud(true);
     }, [inView]);
-
-    // function animateCloud() {      
-    //     const timing = 85000;  
-
-    //     if (!cloudRef) {
-    //         return ;
-    //     }
-
-    //     let start;        
-
-    //     const tick = timestamp => {
-    //         if (!start) {
-    //             start = timestamp;
-    //         }
-
-    //         const ratio = ((timestamp - start) / timing) * 100; 
-            
-    //         cloudRef.style.transform = `translate3d(${ratio + 15}vw, 21vh, 0)`;
-
-    //         if (timestamp - start <= timing) {
-    //             window.requestAnimationFrame(tick)
-    //         } 
-    //     }
-
-    //     window.requestAnimationFrame(tick)
-    // }
 
     return (
         <StyledGradient ref={footerRef}>

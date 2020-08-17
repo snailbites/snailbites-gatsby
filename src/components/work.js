@@ -88,7 +88,7 @@ const Work = () => {
   const [open, setDrawer] = useState(false)
 
   const figureRef = useRef(null);
-  const [inView] = useIntersectionObserver(figureRef, {
+  const [inView, ratio] = useIntersectionObserver(figureRef, {
       threshold: .5
   })
   

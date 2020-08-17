@@ -20,7 +20,8 @@ const App = props => {
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css?family=Poppins:300,500,700i"
                     media="all"
-                ></link>                  
+                ></link>   
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha512-LfB+BcvR3zBt7ebVskhSWiSbEUiG3p5EcCprkieldsKhBeR6wpnLi0VpWC2GNgVGWP2n/skO8Bx2oKNjUhXCkw==" crossorigin="anonymous"></script>
             </Helmet>
 
             <TransitionState>

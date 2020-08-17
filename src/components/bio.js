@@ -11,7 +11,7 @@ import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 function Bio() {
     const bioRef = useRef(null);
-    const [inView] = useIntersectionObserver(bioRef, {
+    const [inView, ratio] = useIntersectionObserver(bioRef, {
         threshold: .3
     })
 

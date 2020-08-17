@@ -1,15 +1,40 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { Colors } from "../theme/global"
 
+import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import anime from 'animejs/lib/anime.es.js';
+
 const MountainRange = () => {
+    const mountainFront = useRef(null);
+    const mountainBack = useRef(null);
+
+    const titleRef = useRef(null);
+    const [inView, ratio] = useIntersectionObserver(titleRef, {
+        threshold: 0
+    }) 
+
+    useEffect(() => {
+        let animation = anime({
+            targets: mountainFront.current,
+            translateX: 270,
+            elasticity: 200,
+            easing: 'easeInOutSine',
+            autoplay: false
+          });
+                            
+          window.addEventListener('scroll', e => {            
+                console.log(ratio)
+          })          
+    }, [ratio])
+
     return (
         <Wrapper>
-            <Mountain bg>
-                <MountainSVG hex={"#565F74"} />
+            <Mountain bg ref={mountainBack}>
+                <MountainSVG hex={"#565F74"}  />
             </Mountain>
-            <Mountain>
-                <MountainSVG hex={Colors.ocean} />
+            <Mountain ref={mountainFront}>
+                <MountainSVG hex={Colors.ocean}  />
             </Mountain>
         </Wrapper>
     )
