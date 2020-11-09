@@ -55,14 +55,14 @@ const Navigation = (props) => {
                         Blog
                     </FadeLink>
                 </li>
-                <li className="h1">
+                {/* <li className="h1">
                     <FadeLink 
                         to={cvPath}
                         onClick={handleClick} 
                     >
                         CV
                     </FadeLink>
-                </li>
+                </li> */}
             </StyledList>
         </StyledNav>
     )
