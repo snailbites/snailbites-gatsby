@@ -27,7 +27,6 @@ describe('Navigation', () => {
             cy.get('a').contains('Home').should('be.visible');
             cy.get('a').contains('Work').should('be.visible');
             cy.get('a').contains('Blog').should('be.visible');
-            cy.get('a').contains('CV').should('be.visible');
         })
         
 
@@ -37,22 +36,7 @@ describe('Navigation', () => {
             cy.get('a').contains('Home').should('not.be.visible');
             cy.get('a').contains('Work').should('not.be.visible');
             cy.get('a').contains('Blog').should('not.be.visible');
-            cy.get('a').contains('CV').should('not.be.visible');
         })
-    })
-
-    it('should navigate to cv from home', () => {
-        cy.visit('/');
-        cy.wait(500);
-        cy.get('[aria-label="navigation"]').click();
-        
-        cy.get('nav').within(() => {
-            cy.get('a').contains('CV').click();
-        });
-        cy.url().should('include', '/cv')
-        cy.get('nav').within(() => {
-            cy.get('a').contains('CV').should('not.be.visible');        
-        });
     })
     
     it('should navigate to work from blog', () => {
