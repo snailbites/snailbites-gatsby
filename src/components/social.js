@@ -24,10 +24,10 @@ function Social(props) {
                     <FadeLink
                         to={blogPath}>Blog</FadeLink>
                 </li>
-                <li>
+                {/* <li>
                     <FadeLink
                         to={cvPath}>CV</FadeLink>
-                </li>
+                </li> */}
             </StyledList>
         </SocialWrapper>
     )
